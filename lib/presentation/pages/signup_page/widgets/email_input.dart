@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gotodo/application/auth/signin/signin_bloc.dart';
+import 'package:gotodo/application/auth/signup/signup_bloc.dart';
 import 'package:gotodo/presentation/widgets/text_fields/app_text_field.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -10,7 +10,7 @@ class EmailInput extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useTextEditingController();
-    return BlocConsumer<SigninBloc, SigninState>(
+    return BlocConsumer<SignupBloc, SignupState>(
       listenWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
       listener: (context, state) {
         controller.text =
@@ -24,11 +24,11 @@ class EmailInput extends HookWidget {
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
           hintText: 'Email',
-          onChanged: (value) => context.read<SigninBloc>().add(
-                SigninEvent.emailAddressChanged(value),
+          onChanged: (value) => context.read<SignupBloc>().add(
+                SignupEvent.emailAddressChanged(value),
               ),
           validator: (_) => context
-              .read<SigninBloc>()
+              .read<SignupBloc>()
               .state
               .credentials
               .emailAddress

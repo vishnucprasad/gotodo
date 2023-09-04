@@ -3,18 +3,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../core/value_failure.dart';
 import '../core/value_objects.dart';
-part 'credentials.freezed.dart';
+part 'signin_credentials.freezed.dart';
 
 @freezed
-class Credentials with _$Credentials {
-  const Credentials._();
-  const factory Credentials({
+class SigninCredentials with _$SigninCredentials {
+  const SigninCredentials._();
+  const factory SigninCredentials({
     required EmailAddress emailAddress,
     required Password password,
-  }) = _Credentials;
+  }) = _SigninCredentials;
 
-  factory Credentials.empty() {
-    return Credentials(
+  factory SigninCredentials.empty() {
+    return SigninCredentials(
       emailAddress: EmailAddress(""),
       password: Password(""),
     );

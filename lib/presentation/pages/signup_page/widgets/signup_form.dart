@@ -2,13 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
-import 'package:gotodo/presentation/pages/signin_page/widgets/email_input.dart';
-import 'package:gotodo/presentation/pages/signin_page/widgets/password_input.dart';
-import 'package:gotodo/presentation/pages/signin_page/widgets/signin_button.dart';
-import 'package:gotodo/presentation/router/app_router.dart';
+import 'package:gotodo/presentation/pages/signup_page/widgets/email_input.dart';
+import 'package:gotodo/presentation/pages/signup_page/widgets/name_input.dart';
+import 'package:gotodo/presentation/pages/signup_page/widgets/password_input.dart';
+import 'package:gotodo/presentation/pages/signup_page/widgets/signup_button.dart';
 
-class SigninForm extends StatelessWidget {
-  const SigninForm({super.key});
+class SignupForm extends StatelessWidget {
+  const SignupForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,27 +18,29 @@ class SigninForm extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Signin',
+            'Signup',
             style: headLineText?.copyWith(
               fontWeight: FontWeight.w900,
             ),
           ),
           kHeightLarge,
+          const NameInput(),
+          kHeightMedium,
           const EmailInput(),
           kHeightMedium,
           const PasswordInput(),
           kHeightMedium,
-          const SigninButton(),
+          const SignupButton(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Don't have an account ?"),
+              const Text("Already have an account ?"),
               TextButton(
                 onPressed: () {
-                  context.pushRoute(const SignupRoute());
+                  context.popRoute();
                 },
                 child: const Text(
-                  'Signup',
+                  'Signin',
                   style: TextStyle(color: primaryColor),
                 ),
               ),

@@ -1,22 +1,22 @@
-part of 'signin_bloc.dart';
+part of 'signup_bloc.dart';
 
 @freezed
-class SigninState with _$SigninState {
-  const factory SigninState({
+class SignupState with _$SignupState {
+  const factory SignupState({
     required bool isSigning,
     required bool isUpdating,
-    required SigninCredentials credentials,
+    required SignupCredentials credentials,
     required bool hidePassword,
     required bool showErrorMessages,
     required Option<Either<Failure, Unit>> failureOrSuccessOption,
-  }) = _SigninState;
+  }) = _SignupState;
 
-  factory SigninState.initial() {
-    return SigninState(
+  factory SignupState.initial() {
+    return SignupState(
       isSigning: false,
       isUpdating: false,
-      credentials: SigninCredentials.empty(),
       hidePassword: true,
+      credentials: SignupCredentials.empty(),
       showErrorMessages: false,
       failureOrSuccessOption: none(),
     );

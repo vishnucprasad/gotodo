@@ -18,6 +18,14 @@ Either<ValueFailure<String>, String> validatePassWord(String input) {
   return left(ValueFailure.invalid(failedValue: input));
 }
 
+Either<ValueFailure<String>, String> validateName(String input) {
+  const nameRegex = r'^[a-zA-Z\s]{3,20}$';
+  if (RegExp(nameRegex).hasMatch(input)) {
+    return right(input);
+  }
+  return left(ValueFailure.invalid(failedValue: input));
+}
+
 Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
