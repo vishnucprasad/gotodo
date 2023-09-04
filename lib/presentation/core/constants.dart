@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gotodo/presentation/core/colors.dart';
 
 // constant height
 const Widget kHeightSmall = SizedBox(height: 5);
@@ -16,7 +15,5 @@ const Widget kWidthLarge = SizedBox(width: 20);
 // constant border
 final kTextFormFieldBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(10.0),
-  borderSide: const BorderSide(
-    color: secondaryDarkColor,
-  ),
+  borderSide: BorderSide.none,
 );

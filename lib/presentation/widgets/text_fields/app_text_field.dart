@@ -24,9 +24,12 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return TextFormField(
       controller: controller,
-      cursorColor: lightColor,
+      cursorColor: isDarkMode ? lightColor : darkColor,
       obscureText: obscureText,
       autovalidateMode: autoValidateMode,
       decoration: InputDecoration(
@@ -36,15 +39,17 @@ class AppTextField extends StatelessWidget {
         enabledBorder: kTextFormFieldBorder,
         errorBorder: kTextFormFieldBorder,
         errorMaxLines: 2,
-        fillColor: darkGreyColor.withOpacity(0.15),
+        fillColor: isDarkMode
+            ? darkGreyColor.withOpacity(0.15)
+            : lightGreyColor.withOpacity(0.1),
         hintText: hintText,
         hintStyle: const TextStyle(
           color: lightGreyColor,
         ),
         suffixIcon: suffixIcon,
       ),
-      style: const TextStyle(
-        color: lightColor,
+      style: TextStyle(
+        color: isDarkMode ? lightColor : darkColor,
       ),
       onChanged: onChanged,
       validator: validator,

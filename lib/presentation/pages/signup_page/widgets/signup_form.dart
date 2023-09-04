@@ -21,6 +21,7 @@ class SignupForm extends StatelessWidget {
             'Signup',
             style: headLineText?.copyWith(
               fontWeight: FontWeight.w900,
+              color: primaryColor,
             ),
           ),
           kHeightLarge,

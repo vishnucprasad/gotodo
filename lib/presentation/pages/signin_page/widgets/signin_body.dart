@@ -8,6 +8,8 @@ class SigninBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    final bool isDarkMode =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -25,9 +27,9 @@ class SigninBody extends StatelessWidget {
             Container(
               height: size.height / 2,
               padding: const EdgeInsets.all(30),
-              decoration: const BoxDecoration(
-                color: secondaryDarkColor,
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: isDarkMode ? secondaryDarkColor : secondaryLightColor,
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(48),
                   topRight: Radius.circular(48),
                 ),
