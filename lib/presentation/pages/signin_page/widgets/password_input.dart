@@ -47,7 +47,7 @@ class PasswordInput extends HookWidget {
                     (l) => l.maybeMap(
                       empty: (_) => "Password can't be empty",
                       invalid: (_) =>
-                          "Password must be minimum six characters, at least one letter and one number",
+                          "Password must be minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character",
                       orElse: () => "some",
                     ),
                     (r) => null,

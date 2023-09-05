@@ -38,7 +38,7 @@ class AppTextField extends StatelessWidget {
         focusedBorder: kTextFormFieldBorder,
         enabledBorder: kTextFormFieldBorder,
         errorBorder: kTextFormFieldBorder,
-        errorMaxLines: 2,
+        errorMaxLines: 3,
         fillColor: isDarkMode
             ? darkGreyColor.withOpacity(0.15)
             : lightGreyColor.withOpacity(0.1),

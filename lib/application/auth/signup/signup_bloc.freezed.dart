@@ -23,6 +23,7 @@ mixin _$SignupEvent {
     required TResult Function(String password) passwordChanged,
     required TResult Function() obscureTextChanged,
     required TResult Function() signup,
+    required TResult Function() saveTokens,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$SignupEvent {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? obscureTextChanged,
     TResult? Function()? signup,
+    TResult? Function()? saveTokens,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$SignupEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function()? obscureTextChanged,
     TResult Function()? signup,
+    TResult Function()? saveTokens,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$SignupEvent {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
     required TResult Function(_Signup value) signup,
+    required TResult Function(_SaveTokens value) saveTokens,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$SignupEvent {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult? Function(_Signup value)? signup,
+    TResult? Function(_SaveTokens value)? saveTokens,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$SignupEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult Function(_Signup value)? signup,
+    TResult Function(_SaveTokens value)? saveTokens,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,6 +167,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() obscureTextChanged,
     required TResult Function() signup,
+    required TResult Function() saveTokens,
   }) {
     return nameChanged(name);
   }
@@ -173,6 +180,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? obscureTextChanged,
     TResult? Function()? signup,
+    TResult? Function()? saveTokens,
   }) {
     return nameChanged?.call(name);
   }
@@ -185,6 +193,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? obscureTextChanged,
     TResult Function()? signup,
+    TResult Function()? saveTokens,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -201,6 +210,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
     required TResult Function(_Signup value) signup,
+    required TResult Function(_SaveTokens value) saveTokens,
   }) {
     return nameChanged(this);
   }
@@ -213,6 +223,7 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult? Function(_Signup value)? signup,
+    TResult? Function(_SaveTokens value)? saveTokens,
   }) {
     return nameChanged?.call(this);
   }
@@ -225,6 +236,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult Function(_Signup value)? signup,
+    TResult Function(_SaveTokens value)? saveTokens,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -314,6 +326,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() obscureTextChanged,
     required TResult Function() signup,
+    required TResult Function() saveTokens,
   }) {
     return emailAddressChanged(emailAddress);
   }
@@ -326,6 +339,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? obscureTextChanged,
     TResult? Function()? signup,
+    TResult? Function()? saveTokens,
   }) {
     return emailAddressChanged?.call(emailAddress);
   }
@@ -338,6 +352,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? obscureTextChanged,
     TResult Function()? signup,
+    TResult Function()? saveTokens,
     required TResult orElse(),
   }) {
     if (emailAddressChanged != null) {
@@ -354,6 +369,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
     required TResult Function(_Signup value) signup,
+    required TResult Function(_SaveTokens value) saveTokens,
   }) {
     return emailAddressChanged(this);
   }
@@ -366,6 +382,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult? Function(_Signup value)? signup,
+    TResult? Function(_SaveTokens value)? saveTokens,
   }) {
     return emailAddressChanged?.call(this);
   }
@@ -378,6 +395,7 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult Function(_Signup value)? signup,
+    TResult Function(_SaveTokens value)? saveTokens,
     required TResult orElse(),
   }) {
     if (emailAddressChanged != null) {
@@ -467,6 +485,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() obscureTextChanged,
     required TResult Function() signup,
+    required TResult Function() saveTokens,
   }) {
     return passwordChanged(password);
   }
@@ -479,6 +498,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? obscureTextChanged,
     TResult? Function()? signup,
+    TResult? Function()? saveTokens,
   }) {
     return passwordChanged?.call(password);
   }
@@ -491,6 +511,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? obscureTextChanged,
     TResult Function()? signup,
+    TResult Function()? saveTokens,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -507,6 +528,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
     required TResult Function(_Signup value) signup,
+    required TResult Function(_SaveTokens value) saveTokens,
   }) {
     return passwordChanged(this);
   }
@@ -519,6 +541,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult? Function(_Signup value)? signup,
+    TResult? Function(_SaveTokens value)? saveTokens,
   }) {
     return passwordChanged?.call(this);
   }
@@ -531,6 +554,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult Function(_Signup value)? signup,
+    TResult Function(_SaveTokens value)? saveTokens,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -592,6 +616,7 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() obscureTextChanged,
     required TResult Function() signup,
+    required TResult Function() saveTokens,
   }) {
     return obscureTextChanged();
   }
@@ -604,6 +629,7 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? obscureTextChanged,
     TResult? Function()? signup,
+    TResult? Function()? saveTokens,
   }) {
     return obscureTextChanged?.call();
   }
@@ -616,6 +642,7 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? obscureTextChanged,
     TResult Function()? signup,
+    TResult Function()? saveTokens,
     required TResult orElse(),
   }) {
     if (obscureTextChanged != null) {
@@ -632,6 +659,7 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
     required TResult Function(_Signup value) signup,
+    required TResult Function(_SaveTokens value) saveTokens,
   }) {
     return obscureTextChanged(this);
   }
@@ -644,6 +672,7 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult? Function(_Signup value)? signup,
+    TResult? Function(_SaveTokens value)? saveTokens,
   }) {
     return obscureTextChanged?.call(this);
   }
@@ -656,6 +685,7 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult Function(_Signup value)? signup,
+    TResult Function(_SaveTokens value)? saveTokens,
     required TResult orElse(),
   }) {
     if (obscureTextChanged != null) {
@@ -710,6 +740,7 @@ class _$_Signup implements _Signup {
     required TResult Function(String password) passwordChanged,
     required TResult Function() obscureTextChanged,
     required TResult Function() signup,
+    required TResult Function() saveTokens,
   }) {
     return signup();
   }
@@ -722,6 +753,7 @@ class _$_Signup implements _Signup {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? obscureTextChanged,
     TResult? Function()? signup,
+    TResult? Function()? saveTokens,
   }) {
     return signup?.call();
   }
@@ -734,6 +766,7 @@ class _$_Signup implements _Signup {
     TResult Function(String password)? passwordChanged,
     TResult Function()? obscureTextChanged,
     TResult Function()? signup,
+    TResult Function()? saveTokens,
     required TResult orElse(),
   }) {
     if (signup != null) {
@@ -750,6 +783,7 @@ class _$_Signup implements _Signup {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
     required TResult Function(_Signup value) signup,
+    required TResult Function(_SaveTokens value) saveTokens,
   }) {
     return signup(this);
   }
@@ -762,6 +796,7 @@ class _$_Signup implements _Signup {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult? Function(_Signup value)? signup,
+    TResult? Function(_SaveTokens value)? saveTokens,
   }) {
     return signup?.call(this);
   }
@@ -774,6 +809,7 @@ class _$_Signup implements _Signup {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
     TResult Function(_Signup value)? signup,
+    TResult Function(_SaveTokens value)? saveTokens,
     required TResult orElse(),
   }) {
     if (signup != null) {
@@ -788,13 +824,140 @@ abstract class _Signup implements SignupEvent {
 }
 
 /// @nodoc
+abstract class _$$_SaveTokensCopyWith<$Res> {
+  factory _$$_SaveTokensCopyWith(
+          _$_SaveTokens value, $Res Function(_$_SaveTokens) then) =
+      __$$_SaveTokensCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SaveTokensCopyWithImpl<$Res>
+    extends _$SignupEventCopyWithImpl<$Res, _$_SaveTokens>
+    implements _$$_SaveTokensCopyWith<$Res> {
+  __$$_SaveTokensCopyWithImpl(
+      _$_SaveTokens _value, $Res Function(_$_SaveTokens) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SaveTokens implements _SaveTokens {
+  const _$_SaveTokens();
+
+  @override
+  String toString() {
+    return 'SignupEvent.saveTokens()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SaveTokens);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String emailAddress) emailAddressChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() obscureTextChanged,
+    required TResult Function() signup,
+    required TResult Function() saveTokens,
+  }) {
+    return saveTokens();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String emailAddress)? emailAddressChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function()? obscureTextChanged,
+    TResult? Function()? signup,
+    TResult? Function()? saveTokens,
+  }) {
+    return saveTokens?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? nameChanged,
+    TResult Function(String emailAddress)? emailAddressChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? obscureTextChanged,
+    TResult Function()? signup,
+    TResult Function()? saveTokens,
+    required TResult orElse(),
+  }) {
+    if (saveTokens != null) {
+      return saveTokens();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_ObscureTextChanged value) obscureTextChanged,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_SaveTokens value) saveTokens,
+  }) {
+    return saveTokens(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_SaveTokens value)? saveTokens,
+  }) {
+    return saveTokens?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_ObscureTextChanged value)? obscureTextChanged,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_SaveTokens value)? saveTokens,
+    required TResult orElse(),
+  }) {
+    if (saveTokens != null) {
+      return saveTokens(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveTokens implements SignupEvent {
+  const factory _SaveTokens() = _$_SaveTokens;
+}
+
+/// @nodoc
 mixin _$SignupState {
   bool get isSigning => throw _privateConstructorUsedError;
   bool get isUpdating => throw _privateConstructorUsedError;
   SignupCredentials get credentials => throw _privateConstructorUsedError;
+  Tokens? get tokens => throw _privateConstructorUsedError;
   bool get hidePassword => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
-  Option<Either<Failure, Unit>> get failureOrSuccessOption =>
+  Option<Either<Failure, Tokens>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -812,11 +975,13 @@ abstract class $SignupStateCopyWith<$Res> {
       {bool isSigning,
       bool isUpdating,
       SignupCredentials credentials,
+      Tokens? tokens,
       bool hidePassword,
       bool showErrorMessages,
-      Option<Either<Failure, Unit>> failureOrSuccessOption});
+      Option<Either<Failure, Tokens>> failureOrSuccessOption});
 
   $SignupCredentialsCopyWith<$Res> get credentials;
+  $TokensCopyWith<$Res>? get tokens;
 }
 
 /// @nodoc
@@ -835,6 +1000,7 @@ class _$SignupStateCopyWithImpl<$Res, $Val extends SignupState>
     Object? isSigning = null,
     Object? isUpdating = null,
     Object? credentials = null,
+    Object? tokens = freezed,
     Object? hidePassword = null,
     Object? showErrorMessages = null,
     Object? failureOrSuccessOption = null,
@@ -852,6 +1018,10 @@ class _$SignupStateCopyWithImpl<$Res, $Val extends SignupState>
           ? _value.credentials
           : credentials // ignore: cast_nullable_to_non_nullable
               as SignupCredentials,
+      tokens: freezed == tokens
+          ? _value.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as Tokens?,
       hidePassword: null == hidePassword
           ? _value.hidePassword
           : hidePassword // ignore: cast_nullable_to_non_nullable
@@ -863,7 +1033,7 @@ class _$SignupStateCopyWithImpl<$Res, $Val extends SignupState>
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, Unit>>,
+              as Option<Either<Failure, Tokens>>,
     ) as $Val);
   }
 
@@ -872,6 +1042,18 @@ class _$SignupStateCopyWithImpl<$Res, $Val extends SignupState>
   $SignupCredentialsCopyWith<$Res> get credentials {
     return $SignupCredentialsCopyWith<$Res>(_value.credentials, (value) {
       return _then(_value.copyWith(credentials: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TokensCopyWith<$Res>? get tokens {
+    if (_value.tokens == null) {
+      return null;
+    }
+
+    return $TokensCopyWith<$Res>(_value.tokens!, (value) {
+      return _then(_value.copyWith(tokens: value) as $Val);
     });
   }
 }
@@ -888,12 +1070,15 @@ abstract class _$$_SignupStateCopyWith<$Res>
       {bool isSigning,
       bool isUpdating,
       SignupCredentials credentials,
+      Tokens? tokens,
       bool hidePassword,
       bool showErrorMessages,
-      Option<Either<Failure, Unit>> failureOrSuccessOption});
+      Option<Either<Failure, Tokens>> failureOrSuccessOption});
 
   @override
   $SignupCredentialsCopyWith<$Res> get credentials;
+  @override
+  $TokensCopyWith<$Res>? get tokens;
 }
 
 /// @nodoc
@@ -910,6 +1095,7 @@ class __$$_SignupStateCopyWithImpl<$Res>
     Object? isSigning = null,
     Object? isUpdating = null,
     Object? credentials = null,
+    Object? tokens = freezed,
     Object? hidePassword = null,
     Object? showErrorMessages = null,
     Object? failureOrSuccessOption = null,
@@ -927,6 +1113,10 @@ class __$$_SignupStateCopyWithImpl<$Res>
           ? _value.credentials
           : credentials // ignore: cast_nullable_to_non_nullable
               as SignupCredentials,
+      tokens: freezed == tokens
+          ? _value.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as Tokens?,
       hidePassword: null == hidePassword
           ? _value.hidePassword
           : hidePassword // ignore: cast_nullable_to_non_nullable
@@ -938,7 +1128,7 @@ class __$$_SignupStateCopyWithImpl<$Res>
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, Unit>>,
+              as Option<Either<Failure, Tokens>>,
     ));
   }
 }
@@ -950,6 +1140,7 @@ class _$_SignupState implements _SignupState {
       {required this.isSigning,
       required this.isUpdating,
       required this.credentials,
+      required this.tokens,
       required this.hidePassword,
       required this.showErrorMessages,
       required this.failureOrSuccessOption});
@@ -961,15 +1152,17 @@ class _$_SignupState implements _SignupState {
   @override
   final SignupCredentials credentials;
   @override
+  final Tokens? tokens;
+  @override
   final bool hidePassword;
   @override
   final bool showErrorMessages;
   @override
-  final Option<Either<Failure, Unit>> failureOrSuccessOption;
+  final Option<Either<Failure, Tokens>> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'SignupState(isSigning: $isSigning, isUpdating: $isUpdating, credentials: $credentials, hidePassword: $hidePassword, showErrorMessages: $showErrorMessages, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'SignupState(isSigning: $isSigning, isUpdating: $isUpdating, credentials: $credentials, tokens: $tokens, hidePassword: $hidePassword, showErrorMessages: $showErrorMessages, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -983,6 +1176,7 @@ class _$_SignupState implements _SignupState {
                 other.isUpdating == isUpdating) &&
             (identical(other.credentials, credentials) ||
                 other.credentials == credentials) &&
+            (identical(other.tokens, tokens) || other.tokens == tokens) &&
             (identical(other.hidePassword, hidePassword) ||
                 other.hidePassword == hidePassword) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
@@ -992,8 +1186,15 @@ class _$_SignupState implements _SignupState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isSigning, isUpdating,
-      credentials, hidePassword, showErrorMessages, failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isSigning,
+      isUpdating,
+      credentials,
+      tokens,
+      hidePassword,
+      showErrorMessages,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -1007,9 +1208,10 @@ abstract class _SignupState implements SignupState {
       {required final bool isSigning,
       required final bool isUpdating,
       required final SignupCredentials credentials,
+      required final Tokens? tokens,
       required final bool hidePassword,
       required final bool showErrorMessages,
-      required final Option<Either<Failure, Unit>>
+      required final Option<Either<Failure, Tokens>>
           failureOrSuccessOption}) = _$_SignupState;
 
   @override
@@ -1019,11 +1221,13 @@ abstract class _SignupState implements SignupState {
   @override
   SignupCredentials get credentials;
   @override
+  Tokens? get tokens;
+  @override
   bool get hidePassword;
   @override
   bool get showErrorMessages;
   @override
-  Option<Either<Failure, Unit>> get failureOrSuccessOption;
+  Option<Either<Failure, Tokens>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$_SignupStateCopyWith<_$_SignupState> get copyWith =>

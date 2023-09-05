@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gotodo/injectable.dart';
+import 'package:gotodo/injection.dart';
 import 'package:gotodo/presentation/gotodo_app.dart';
 import 'package:injectable/injectable.dart';
 

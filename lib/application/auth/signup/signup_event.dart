@@ -8,4 +8,5 @@ class SignupEvent with _$SignupEvent {
   const factory SignupEvent.passwordChanged(String password) = _PasswordChanged;
   const factory SignupEvent.obscureTextChanged() = _ObscureTextChanged;
   const factory SignupEvent.signup() = _Signup;
+  const factory SignupEvent.saveTokens() = _SaveTokens;
 }
