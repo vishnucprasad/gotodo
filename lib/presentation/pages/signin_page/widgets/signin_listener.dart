@@ -18,11 +18,10 @@ class SigninListener extends StatelessWidget {
         state.failureOrSuccessOption.fold(
           () => null,
           (some) => some.fold(
-            (f) => context.showErrorSnackBar(
-              message: f.map(
-                clientFailure: (e) => e.msg,
-                serverFailure: (e) => e.msg,
-              ),
+            (f) => f.maybeMap(
+              clientFailure: (e) => context.showErrorSnackBar(message: e.msg),
+              serverFailure: (e) => context.showErrorSnackBar(message: e.msg),
+              orElse: () => null,
             ),
             (_) {
               context.read<SigninBloc>().add(const SigninEvent.saveTokens());

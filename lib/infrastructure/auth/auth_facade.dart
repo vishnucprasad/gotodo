@@ -4,7 +4,9 @@ import 'package:gotodo/domain/auth/i_auth_facade.dart';
 import 'package:gotodo/domain/auth/signin_credentials.dart';
 import 'package:gotodo/domain/auth/signup_credentials.dart';
 import 'package:gotodo/domain/auth/tokens.dart';
+import 'package:gotodo/domain/auth/user.dart';
 import 'package:gotodo/domain/core/api_endpoints.dart';
+import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/domain/core/failure.dart';
 import 'package:gotodo/domain/core/keys.dart';
 import 'package:gotodo/injection.dart';
@@ -15,9 +17,39 @@ import 'package:shared_preferences/shared_preferences.dart';
 @prod
 class AuthFacade implements IAuthFacade {
   @override
-  Future<Either<Failure, Unit>> retriveUser() {
-    // TODO: implement retriveUser
-    throw UnimplementedError();
+  Future<Either<Failure, User>> retriveUser(String accessToken) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers["Authorization"] = "Bearer $accessToken";
+
+      final response = await dio.get(ApiEndpoints.retriveUser);
+
+      if (response.statusCode == 200) {
+        final user = User.fromJson(response.data);
+        return right(user);
+      }
+
+      return left(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.response?.statusCode == 401) {
+        return left(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
+    }
   }
 
   @override
@@ -39,7 +71,6 @@ class AuthFacade implements IAuthFacade {
         'Something went wrong, please try again',
       ));
     } on DioException catch (e) {
-      print(e.response?.data.toString());
       if (e.response?.statusCode == 400 ||
           e.response?.statusCode == 401 ||
           e.response?.statusCode == 403 ||
@@ -105,6 +136,12 @@ class AuthFacade implements IAuthFacade {
   }
 
   @override
+  Future<Either<Failure, Tokens>> refreshToken(String refreshToken) {
+    // TODO: implement refreshToken
+    throw UnimplementedError();
+  }
+
+  @override
   Future<void> saveTokens(Tokens tokens) async {
     await getIt<SharedPreferences>().setString(
       AppKeys.accessTokenKey,
@@ -117,9 +154,19 @@ class AuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<Failure, Tokens>> getTokens() {
-    // TODO: implement getTokens
-    throw UnimplementedError();
+  Option<Tokens> getTokens() {
+    final accessToken = getIt<SharedPreferences>().getString(
+      AppKeys.accessTokenKey,
+    );
+    final refreshToken = getIt<SharedPreferences>().getString(
+      AppKeys.refreshTokenKey,
+    );
+
+    bool isValid(String? value) => value != null && value.isNotEmpty;
+
+    return isValid(accessToken) && isValid(refreshToken)
+        ? some(Tokens(accessToken!, refreshToken!))
+        : none();
   }
 
   @override

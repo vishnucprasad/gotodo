@@ -16,23 +16,25 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Failure {
-  String get msg => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String msg) clientFailure,
     required TResult Function(String msg) serverFailure,
+    required TResult Function(TokenType type) tokenFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String msg)? clientFailure,
     TResult? Function(String msg)? serverFailure,
+    TResult? Function(TokenType type)? tokenFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String msg)? clientFailure,
     TResult Function(String msg)? serverFailure,
+    TResult Function(TokenType type)? tokenFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,32 +42,30 @@ mixin _$Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ClientFailure value) clientFailure,
     required TResult Function(_ServerFailure value) serverFailure,
+    required TResult Function(_TokenFailure value) tokenFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ClientFailure value)? clientFailure,
     TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_TokenFailure value)? tokenFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_TokenFailure value)? tokenFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $FailureCopyWith<Failure> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
       _$FailureCopyWithImpl<$Res, Failure>;
-  @useResult
-  $Res call({String msg});
 }
 
 /// @nodoc
@@ -77,28 +77,13 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? msg = null,
-  }) {
-    return _then(_value.copyWith(
-      msg: null == msg
-          ? _value.msg
-          : msg // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_ClientFailureCopyWith<$Res>
-    implements $FailureCopyWith<$Res> {
+abstract class _$$_ClientFailureCopyWith<$Res> {
   factory _$$_ClientFailureCopyWith(
           _$_ClientFailure value, $Res Function(_$_ClientFailure) then) =
       __$$_ClientFailureCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String msg});
 }
@@ -160,6 +145,7 @@ class _$_ClientFailure implements _ClientFailure {
   TResult when<TResult extends Object?>({
     required TResult Function(String msg) clientFailure,
     required TResult Function(String msg) serverFailure,
+    required TResult Function(TokenType type) tokenFailure,
   }) {
     return clientFailure(msg);
   }
@@ -169,6 +155,7 @@ class _$_ClientFailure implements _ClientFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String msg)? clientFailure,
     TResult? Function(String msg)? serverFailure,
+    TResult? Function(TokenType type)? tokenFailure,
   }) {
     return clientFailure?.call(msg);
   }
@@ -178,6 +165,7 @@ class _$_ClientFailure implements _ClientFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String msg)? clientFailure,
     TResult Function(String msg)? serverFailure,
+    TResult Function(TokenType type)? tokenFailure,
     required TResult orElse(),
   }) {
     if (clientFailure != null) {
@@ -191,6 +179,7 @@ class _$_ClientFailure implements _ClientFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ClientFailure value) clientFailure,
     required TResult Function(_ServerFailure value) serverFailure,
+    required TResult Function(_TokenFailure value) tokenFailure,
   }) {
     return clientFailure(this);
   }
@@ -200,6 +189,7 @@ class _$_ClientFailure implements _ClientFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ClientFailure value)? clientFailure,
     TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_TokenFailure value)? tokenFailure,
   }) {
     return clientFailure?.call(this);
   }
@@ -209,6 +199,7 @@ class _$_ClientFailure implements _ClientFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_TokenFailure value)? tokenFailure,
     required TResult orElse(),
   }) {
     if (clientFailure != null) {
@@ -221,21 +212,17 @@ class _$_ClientFailure implements _ClientFailure {
 abstract class _ClientFailure implements Failure {
   const factory _ClientFailure(final String msg) = _$_ClientFailure;
 
-  @override
   String get msg;
-  @override
   @JsonKey(ignore: true)
   _$$_ClientFailureCopyWith<_$_ClientFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ServerFailureCopyWith<$Res>
-    implements $FailureCopyWith<$Res> {
+abstract class _$$_ServerFailureCopyWith<$Res> {
   factory _$$_ServerFailureCopyWith(
           _$_ServerFailure value, $Res Function(_$_ServerFailure) then) =
       __$$_ServerFailureCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String msg});
 }
@@ -297,6 +284,7 @@ class _$_ServerFailure implements _ServerFailure {
   TResult when<TResult extends Object?>({
     required TResult Function(String msg) clientFailure,
     required TResult Function(String msg) serverFailure,
+    required TResult Function(TokenType type) tokenFailure,
   }) {
     return serverFailure(msg);
   }
@@ -306,6 +294,7 @@ class _$_ServerFailure implements _ServerFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String msg)? clientFailure,
     TResult? Function(String msg)? serverFailure,
+    TResult? Function(TokenType type)? tokenFailure,
   }) {
     return serverFailure?.call(msg);
   }
@@ -315,6 +304,7 @@ class _$_ServerFailure implements _ServerFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String msg)? clientFailure,
     TResult Function(String msg)? serverFailure,
+    TResult Function(TokenType type)? tokenFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -328,6 +318,7 @@ class _$_ServerFailure implements _ServerFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ClientFailure value) clientFailure,
     required TResult Function(_ServerFailure value) serverFailure,
+    required TResult Function(_TokenFailure value) tokenFailure,
   }) {
     return serverFailure(this);
   }
@@ -337,6 +328,7 @@ class _$_ServerFailure implements _ServerFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ClientFailure value)? clientFailure,
     TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_TokenFailure value)? tokenFailure,
   }) {
     return serverFailure?.call(this);
   }
@@ -346,6 +338,7 @@ class _$_ServerFailure implements _ServerFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_TokenFailure value)? tokenFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -358,10 +351,147 @@ class _$_ServerFailure implements _ServerFailure {
 abstract class _ServerFailure implements Failure {
   const factory _ServerFailure(final String msg) = _$_ServerFailure;
 
-  @override
   String get msg;
-  @override
   @JsonKey(ignore: true)
   _$$_ServerFailureCopyWith<_$_ServerFailure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TokenFailureCopyWith<$Res> {
+  factory _$$_TokenFailureCopyWith(
+          _$_TokenFailure value, $Res Function(_$_TokenFailure) then) =
+      __$$_TokenFailureCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TokenType type});
+}
+
+/// @nodoc
+class __$$_TokenFailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$_TokenFailure>
+    implements _$$_TokenFailureCopyWith<$Res> {
+  __$$_TokenFailureCopyWithImpl(
+      _$_TokenFailure _value, $Res Function(_$_TokenFailure) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_$_TokenFailure(
+      null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as TokenType,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TokenFailure implements _TokenFailure {
+  const _$_TokenFailure(this.type);
+
+  @override
+  final TokenType type;
+
+  @override
+  String toString() {
+    return 'Failure.tokenFailure(type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TokenFailure &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TokenFailureCopyWith<_$_TokenFailure> get copyWith =>
+      __$$_TokenFailureCopyWithImpl<_$_TokenFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String msg) clientFailure,
+    required TResult Function(String msg) serverFailure,
+    required TResult Function(TokenType type) tokenFailure,
+  }) {
+    return tokenFailure(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String msg)? clientFailure,
+    TResult? Function(String msg)? serverFailure,
+    TResult? Function(TokenType type)? tokenFailure,
+  }) {
+    return tokenFailure?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String msg)? clientFailure,
+    TResult Function(String msg)? serverFailure,
+    TResult Function(TokenType type)? tokenFailure,
+    required TResult orElse(),
+  }) {
+    if (tokenFailure != null) {
+      return tokenFailure(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClientFailure value) clientFailure,
+    required TResult Function(_ServerFailure value) serverFailure,
+    required TResult Function(_TokenFailure value) tokenFailure,
+  }) {
+    return tokenFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_ServerFailure value)? serverFailure,
+    TResult? Function(_TokenFailure value)? tokenFailure,
+  }) {
+    return tokenFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClientFailure value)? clientFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_TokenFailure value)? tokenFailure,
+    required TResult orElse(),
+  }) {
+    if (tokenFailure != null) {
+      return tokenFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TokenFailure implements Failure {
+  const factory _TokenFailure(final TokenType type) = _$_TokenFailure;
+
+  TokenType get type;
+  @JsonKey(ignore: true)
+  _$$_TokenFailureCopyWith<_$_TokenFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
