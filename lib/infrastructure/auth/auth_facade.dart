@@ -22,9 +22,42 @@ class AuthFacade implements IAuthFacade {
 
   @override
   Future<Either<Failure, Tokens>> signinWithCredentials(
-      SigninCredentials credentials) {
-    // TODO: implement signinWithCredentials
-    throw UnimplementedError();
+    SigninCredentials credentials,
+  ) async {
+    try {
+      final response = await getIt<Dio>().post(ApiEndpoints.signin, data: {
+        "email": credentials.emailAddress.getOrCrash(),
+        "password": credentials.password.getOrCrash(),
+      });
+
+      if (response.statusCode == 200) {
+        final tokens = Tokens.fromJson(response.data);
+        return right(tokens);
+      }
+
+      return left(const Failure.clientFailure(
+        'Something went wrong, please try again',
+      ));
+    } on DioException catch (e) {
+      print(e.response?.data.toString());
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 401 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure(
+        'Something went wrong, please try again',
+      ));
+    }
   }
 
   @override
@@ -52,8 +85,9 @@ class AuthFacade implements IAuthFacade {
           e.response?.statusCode == 403 ||
           e.response?.statusCode == 500) {
         final message = e.response?.data?['message'];
-        return left(
-            Failure.serverFailure(message is List ? message[0] : message));
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
       }
 
       return left(

@@ -54,6 +54,15 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
 
             failureOrSuccess =
                 await _facade.signupWithCredentials(state.credentials);
+
+            if (failureOrSuccess.isRight()) {
+              return emit(state.copyWith(
+                isSigning: false,
+                tokens: failureOrSuccess
+                    .getOrElse(() => throw UnimplementedError()),
+                failureOrSuccessOption: optionOf(failureOrSuccess),
+              ));
+            }
           }
 
           emit(state.copyWith(

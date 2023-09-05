@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/auth/signup/signup_bloc.dart';
-import 'package:gotodo/presentation/core/strings.dart';
 import 'package:gotodo/presentation/extension/snackbar_extension.dart';
 import 'package:gotodo/presentation/pages/signup_page/widgets/signup_body.dart';
 import 'package:gotodo/presentation/router/app_router.dart';
@@ -22,7 +21,7 @@ class SignupListener extends StatelessWidget {
             (f) => context.showErrorSnackBar(
               message: f.map(
                 clientFailure: (e) => e.msg,
-                serverFailure: (_) => AppStr.serverFailure,
+                serverFailure: (e) => e.msg,
               ),
             ),
             (_) {

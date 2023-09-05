@@ -34,7 +34,7 @@ extension GetItInjectableX on _i1.GetIt {
       registerFor: {_prod},
     );
     gh.factory<_i5.SigninBloc>(
-      () => _i5.SigninBloc(),
+      () => _i5.SigninBloc(gh<_i3.IAuthFacade>()),
       registerFor: {_prod},
     );
     gh.factory<_i6.SignupBloc>(

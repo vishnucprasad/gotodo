@@ -6,9 +6,10 @@ class SigninState with _$SigninState {
     required bool isSigning,
     required bool isUpdating,
     required SigninCredentials credentials,
+    required Tokens? tokens,
     required bool hidePassword,
     required bool showErrorMessages,
-    required Option<Either<Failure, Unit>> failureOrSuccessOption,
+    required Option<Either<Failure, Tokens>> failureOrSuccessOption,
   }) = _SigninState;
 
   factory SigninState.initial() {
@@ -16,6 +17,7 @@ class SigninState with _$SigninState {
       isSigning: false,
       isUpdating: false,
       credentials: SigninCredentials.empty(),
+      tokens: null,
       hidePassword: true,
       showErrorMessages: false,
       failureOrSuccessOption: none(),
