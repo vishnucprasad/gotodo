@@ -19,32 +19,38 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authCheckRequested,
+    required TResult Function(String refreshToken) refreshToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authCheckRequested,
+    TResult? Function(String refreshToken)? refreshToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authCheckRequested,
+    TResult Function(String refreshToken)? refreshToken,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_RefreshToken value) refreshToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_RefreshToken value)? refreshToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_RefreshToken value)? refreshToken,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() authCheckRequested,
+    required TResult Function(String refreshToken) refreshToken,
   }) {
     return authCheckRequested();
   }
@@ -114,6 +121,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? authCheckRequested,
+    TResult? Function(String refreshToken)? refreshToken,
   }) {
     return authCheckRequested?.call();
   }
@@ -122,6 +130,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? authCheckRequested,
+    TResult Function(String refreshToken)? refreshToken,
     required TResult orElse(),
   }) {
     if (authCheckRequested != null) {
@@ -134,6 +143,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_RefreshToken value) refreshToken,
   }) {
     return authCheckRequested(this);
   }
@@ -142,6 +152,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_RefreshToken value)? refreshToken,
   }) {
     return authCheckRequested?.call(this);
   }
@@ -150,6 +161,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_RefreshToken value)? refreshToken,
     required TResult orElse(),
   }) {
     if (authCheckRequested != null) {
@@ -161,6 +173,140 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
 
 abstract class _AuthCheckRequested implements AuthEvent {
   const factory _AuthCheckRequested() = _$_AuthCheckRequested;
+}
+
+/// @nodoc
+abstract class _$$_RefreshTokenCopyWith<$Res> {
+  factory _$$_RefreshTokenCopyWith(
+          _$_RefreshToken value, $Res Function(_$_RefreshToken) then) =
+      __$$_RefreshTokenCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String refreshToken});
+}
+
+/// @nodoc
+class __$$_RefreshTokenCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_RefreshToken>
+    implements _$$_RefreshTokenCopyWith<$Res> {
+  __$$_RefreshTokenCopyWithImpl(
+      _$_RefreshToken _value, $Res Function(_$_RefreshToken) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? refreshToken = null,
+  }) {
+    return _then(_$_RefreshToken(
+      null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RefreshToken implements _RefreshToken {
+  const _$_RefreshToken(this.refreshToken);
+
+  @override
+  final String refreshToken;
+
+  @override
+  String toString() {
+    return 'AuthEvent.refreshToken(refreshToken: $refreshToken)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RefreshToken &&
+            (identical(other.refreshToken, refreshToken) ||
+                other.refreshToken == refreshToken));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, refreshToken);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RefreshTokenCopyWith<_$_RefreshToken> get copyWith =>
+      __$$_RefreshTokenCopyWithImpl<_$_RefreshToken>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function(String refreshToken) refreshToken,
+  }) {
+    return refreshToken(this.refreshToken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function(String refreshToken)? refreshToken,
+  }) {
+    return refreshToken?.call(this.refreshToken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function(String refreshToken)? refreshToken,
+    required TResult orElse(),
+  }) {
+    if (refreshToken != null) {
+      return refreshToken(this.refreshToken);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_RefreshToken value) refreshToken,
+  }) {
+    return refreshToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_RefreshToken value)? refreshToken,
+  }) {
+    return refreshToken?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_RefreshToken value)? refreshToken,
+    required TResult orElse(),
+  }) {
+    if (refreshToken != null) {
+      return refreshToken(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshToken implements AuthEvent {
+  const factory _RefreshToken(final String refreshToken) = _$_RefreshToken;
+
+  String get refreshToken;
+  @JsonKey(ignore: true)
+  _$$_RefreshTokenCopyWith<_$_RefreshToken> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
