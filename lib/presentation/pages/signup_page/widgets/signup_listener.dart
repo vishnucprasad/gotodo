@@ -1,10 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gotodo/application/auth/auth_bloc.dart';
 import 'package:gotodo/application/auth/signup/signup_bloc.dart';
 import 'package:gotodo/presentation/extension/snackbar_extension.dart';
 import 'package:gotodo/presentation/pages/signup_page/widgets/signup_body.dart';
-import 'package:gotodo/presentation/router/app_router.dart';
 
 class SignupListener extends StatelessWidget {
   const SignupListener({super.key});
@@ -25,7 +24,9 @@ class SignupListener extends StatelessWidget {
             ),
             (_) {
               context.read<SignupBloc>().add(const SignupEvent.saveTokens());
-              context.replaceRoute(const HomeRoute());
+              context.read<AuthBloc>().add(
+                    const AuthEvent.authCheckRequested(),
+                  );
             },
           ),
         );

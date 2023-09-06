@@ -17,7 +17,7 @@ class SigninBody extends StatelessWidget {
           children: [
             Container(
               height: size.height / 2,
-              width: double.infinity,
+              width: size.width - size.width / 3,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/gotodo.png"),
