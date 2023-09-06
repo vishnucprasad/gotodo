@@ -166,13 +166,11 @@ class AuthFacade implements IAuthFacade {
         return left(const Failure.serverFailure('Connection timeout'));
       }
 
-      if (e.response?.statusCode == 401) {
+      if (e.response?.statusCode == 401 || e.response?.statusCode == 403) {
         return left(const Failure.tokenFailure(TokenType.refreshToken));
       }
 
-      if (e.response?.statusCode == 400 ||
-          e.response?.statusCode == 403 ||
-          e.response?.statusCode == 500) {
+      if (e.response?.statusCode == 400 || e.response?.statusCode == 500) {
         final message = e.response?.data?['message'];
         return left(Failure.serverFailure(
           message is List ? message[0] : message,

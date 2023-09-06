@@ -27,7 +27,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               tokenOption.getOrElse(() => throw UnimplementedError());
 
           final userOption = await _facade.retriveUser(tokens.accessToken);
-          print(userOption.toString());
           userOption.fold(
             (l) => l.map(
               clientFailure: (f) => emit(_ErrorState(errorMessage: f.msg)),
@@ -50,7 +49,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             (l) => emit(l.map(
               clientFailure: (f) => _ErrorState(errorMessage: f.msg),
               serverFailure: (f) => _ErrorState(errorMessage: f.msg),
-              tokenFailure: (f) => const _UnAuthenticated(),
+              tokenFailure: (f) {
+                _facade.removeTokens();
+                return const _UnAuthenticated();
+              },
             )),
             (r) async {
               await _facade.saveTokens(r);
