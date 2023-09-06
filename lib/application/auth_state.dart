@@ -7,4 +7,7 @@ class AuthState with _$AuthState {
     required User user,
   }) = _Authenticated;
   const factory AuthState.unAuthenticated() = _UnAuthenticated;
+  const factory AuthState.errorState({
+    required String errorMessage,
+  }) = _ErrorState;
 }

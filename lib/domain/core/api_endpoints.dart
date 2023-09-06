@@ -3,4 +3,5 @@ class ApiEndpoints {
   static const signin = '/auth/local/signin';
   static const retriveUser = '/auth/user';
   static const refreshToken = '/auth/refresh';
+  static const signout = '/auth/signout';
 }

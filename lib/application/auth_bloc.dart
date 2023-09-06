@@ -23,14 +23,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
           final tokenOption = _facade.getTokens();
           if (tokenOption.isNone()) return emit(const _UnAuthenticated());
-
           final tokens =
               tokenOption.getOrElse(() => throw UnimplementedError());
+
           final userOption = await _facade.retriveUser(tokens.accessToken);
+          print(userOption.toString());
           userOption.fold(
             (l) => l.map(
-              clientFailure: (_) => emit(const _UnAuthenticated()),
-              serverFailure: (_) => emit(const _UnAuthenticated()),
+              clientFailure: (f) => emit(_ErrorState(errorMessage: f.msg)),
+              serverFailure: (f) => emit(_ErrorState(errorMessage: f.msg)),
               tokenFailure: (f) {
                 if (f.type == TokenType.accessToken) {
                   _refreshEvent = const AuthEvent.authCheckRequested();
@@ -46,7 +47,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         refreshToken: (e) async {
           final tokenOption = await _facade.refreshToken(e.refreshToken);
           tokenOption.fold(
-            (l) => emit(const _UnAuthenticated()),
+            (l) => emit(l.map(
+              clientFailure: (f) => _ErrorState(errorMessage: f.msg),
+              serverFailure: (f) => _ErrorState(errorMessage: f.msg),
+              tokenFailure: (f) => const _UnAuthenticated(),
+            )),
             (r) async {
               await _facade.saveTokens(r);
 
@@ -54,6 +59,32 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 add(_refreshEvent!);
               }
             },
+          );
+        },
+        signout: (e) async {
+          final tokenOption = _facade.getTokens();
+          if (tokenOption.isNone()) return emit(const _UnAuthenticated());
+          final tokens =
+              tokenOption.getOrElse(() => throw UnimplementedError());
+
+          final signoutOption = await _facade.signout(tokens.accessToken);
+          signoutOption.fold(
+            () {
+              _facade.removeTokens();
+              return emit(const _UnAuthenticated());
+            },
+            (a) => a.map(
+              clientFailure: (_) => emit(const _UnAuthenticated()),
+              serverFailure: (_) => emit(const _UnAuthenticated()),
+              tokenFailure: (f) {
+                if (f.type == TokenType.accessToken) {
+                  _refreshEvent = const AuthEvent.signout();
+                  return add(AuthEvent.refreshToken(tokens.refreshToken));
+                }
+
+                return emit(const _UnAuthenticated());
+              },
+            ),
           );
         },
       );

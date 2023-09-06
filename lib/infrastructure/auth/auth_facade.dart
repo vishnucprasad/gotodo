@@ -31,6 +31,10 @@ class AuthFacade implements IAuthFacade {
 
       return left(const Failure.clientFailure('Something went wrong'));
     } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
       if (e.response?.statusCode == 401) {
         return left(const Failure.tokenFailure(TokenType.accessToken));
       }
@@ -71,6 +75,10 @@ class AuthFacade implements IAuthFacade {
         'Something went wrong, please try again',
       ));
     } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
       if (e.response?.statusCode == 400 ||
           e.response?.statusCode == 401 ||
           e.response?.statusCode == 403 ||
@@ -111,6 +119,10 @@ class AuthFacade implements IAuthFacade {
         'Something went wrong, please try again',
       ));
     } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
       if (e.response?.statusCode == 400 ||
           e.response?.statusCode == 401 ||
           e.response?.statusCode == 403 ||
@@ -150,6 +162,10 @@ class AuthFacade implements IAuthFacade {
 
       return left(const Failure.clientFailure('Something went wrong'));
     } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
       if (e.response?.statusCode == 401) {
         return left(const Failure.tokenFailure(TokenType.refreshToken));
       }
@@ -168,6 +184,43 @@ class AuthFacade implements IAuthFacade {
       ));
     } catch (_) {
       return left(const Failure.clientFailure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Option<Failure>> signout(String accessToken) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers["Authorization"] = "Bearer $accessToken";
+
+      final response = await dio.delete(ApiEndpoints.signout);
+      if (response.statusCode == 204) {
+        return none();
+      }
+
+      return some(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return some(const Failure.serverFailure('Connection timeout'));
+      }
+
+      if (e.response?.statusCode == 401) {
+        return some(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return some(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return some(const Failure.serverFailure(
+          'Something went wrong on the server side'));
+    } catch (_) {
+      return some(const Failure.clientFailure('Something went wrong'));
     }
   }
 
@@ -200,8 +253,8 @@ class AuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<void> removeTokens() {
-    // TODO: implement removeTokens
-    throw UnimplementedError();
+  Future<void> removeTokens() async {
+    await getIt<SharedPreferences>().remove(AppKeys.accessTokenKey);
+    await getIt<SharedPreferences>().remove(AppKeys.refreshTokenKey);
   }
 }
