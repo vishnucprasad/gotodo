@@ -8,12 +8,16 @@ class SignupButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LargeButton(
-      text: 'Signup',
-      onPressesd: () =>
-          context.read<SignupBloc>().add(const SignupEvent.signup()),
-      isLoading: false,
-      loadingText: 'Signing up...',
+    return BlocBuilder<SignupBloc, SignupState>(
+      builder: (context, state) {
+        return LargeButton(
+          text: 'Signup',
+          onPressesd: () =>
+              context.read<SignupBloc>().add(const SignupEvent.signup()),
+          isLoading: state.isSigning,
+          loadingText: 'Signing up...',
+        );
+      },
     );
   }
 }
