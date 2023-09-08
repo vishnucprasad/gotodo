@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/app/app_bloc.dart';
 import 'package:gotodo/application/auth/auth_bloc.dart';
+import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/injection.dart';
 import 'package:gotodo/presentation/core/globals.dart';
 import 'package:gotodo/presentation/extension/snackbar_extension.dart';
@@ -23,22 +24,37 @@ class GotodoApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<AppBloc>(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => getIt<TodoBloc>(),
+        ),
       ],
-      child: BlocListener<AuthBloc, AuthState>(
-        listener: (context, state) {
-          state.map(
-            initial: (_) {},
-            authenticated: (_) {
-              context.read<AppBloc>().add(const AppEvent.getDateList());
-              _appRouter.replace(const HomeRoute());
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<AuthBloc, AuthState>(
+            listener: (context, state) {
+              state.map(
+                initial: (_) {},
+                authenticated: (_) {
+                  context.read<AppBloc>().add(const AppEvent.getDateList());
+                  _appRouter.replaceAll([const HomeRoute()]);
+                },
+                unAuthenticated: (_) =>
+                    _appRouter.replaceAll([const SigninRoute()]),
+                errorState: (e) => context.showErrorSnackBar(
+                  message: e.errorMessage,
+                ),
+              );
             },
-            unAuthenticated: (_) => _appRouter.replace(const SigninRoute()),
-            errorState: (e) => context.showErrorSnackBar(
-              message: e.errorMessage,
-            ),
-          );
-        },
+          ),
+          BlocListener<AppBloc, AppState>(
+            listenWhen: (p, c) =>
+                p.dateList != c.dateList && c.dateList.length == 7,
+            listener: (context, state) => context
+                .read<TodoBloc>()
+                .add(TodoEvent.getTodoList(state.dateList)),
+          ),
+        ],
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           theme: buildLightTheme(),

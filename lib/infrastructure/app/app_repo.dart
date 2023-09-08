@@ -15,6 +15,7 @@ class AppRepo implements IAppRepo {
     final dateList = List.generate(
       7,
       (index) => Day(
+        dateTime: startFrom.add(Duration(days: index)),
         date: startFrom.add(Duration(days: index)).day,
         weekDay: startFrom.add(Duration(days: index)).weekday,
         weekDayAbbreviation: DateFormat('E').format(

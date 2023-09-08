@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Day {
+  DateTime get dateTime => throw _privateConstructorUsedError;
   int get date => throw _privateConstructorUsedError;
   int get weekDay => throw _privateConstructorUsedError;
   String get weekDayAbbreviation => throw _privateConstructorUsedError;
@@ -29,7 +30,8 @@ abstract class $DayCopyWith<$Res> {
   factory $DayCopyWith(Day value, $Res Function(Day) then) =
       _$DayCopyWithImpl<$Res, Day>;
   @useResult
-  $Res call({int date, int weekDay, String weekDayAbbreviation});
+  $Res call(
+      {DateTime dateTime, int date, int weekDay, String weekDayAbbreviation});
 }
 
 /// @nodoc
@@ -44,11 +46,16 @@ class _$DayCopyWithImpl<$Res, $Val extends Day> implements $DayCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? dateTime = null,
     Object? date = null,
     Object? weekDay = null,
     Object? weekDayAbbreviation = null,
   }) {
     return _then(_value.copyWith(
+      dateTime: null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -71,7 +78,8 @@ abstract class _$$_DayCopyWith<$Res> implements $DayCopyWith<$Res> {
       __$$_DayCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int date, int weekDay, String weekDayAbbreviation});
+  $Res call(
+      {DateTime dateTime, int date, int weekDay, String weekDayAbbreviation});
 }
 
 /// @nodoc
@@ -83,11 +91,16 @@ class __$$_DayCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$_Day>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? dateTime = null,
     Object? date = null,
     Object? weekDay = null,
     Object? weekDayAbbreviation = null,
   }) {
     return _then(_$_Day(
+      dateTime: null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -108,10 +121,13 @@ class __$$_DayCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$_Day>
 
 class _$_Day implements _Day {
   const _$_Day(
-      {required this.date,
+      {required this.dateTime,
+      required this.date,
       required this.weekDay,
       required this.weekDayAbbreviation});
 
+  @override
+  final DateTime dateTime;
   @override
   final int date;
   @override
@@ -121,7 +137,7 @@ class _$_Day implements _Day {
 
   @override
   String toString() {
-    return 'Day(date: $date, weekDay: $weekDay, weekDayAbbreviation: $weekDayAbbreviation)';
+    return 'Day(dateTime: $dateTime, date: $date, weekDay: $weekDay, weekDayAbbreviation: $weekDayAbbreviation)';
   }
 
   @override
@@ -129,6 +145,8 @@ class _$_Day implements _Day {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Day &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.weekDay, weekDay) || other.weekDay == weekDay) &&
             (identical(other.weekDayAbbreviation, weekDayAbbreviation) ||
@@ -137,7 +155,7 @@ class _$_Day implements _Day {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, date, weekDay, weekDayAbbreviation);
+      Object.hash(runtimeType, dateTime, date, weekDay, weekDayAbbreviation);
 
   @JsonKey(ignore: true)
   @override
@@ -148,10 +166,13 @@ class _$_Day implements _Day {
 
 abstract class _Day implements Day {
   const factory _Day(
-      {required final int date,
+      {required final DateTime dateTime,
+      required final int date,
       required final int weekDay,
       required final String weekDayAbbreviation}) = _$_Day;
 
+  @override
+  DateTime get dateTime;
   @override
   int get date;
   @override

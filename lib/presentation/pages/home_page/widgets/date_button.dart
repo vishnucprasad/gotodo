@@ -23,7 +23,7 @@ class DateButton extends StatelessWidget {
     final labelText = Theme.of(context).textTheme.labelLarge;
 
     return SizedBox(
-      height: 60,
+      height: 70,
       width: 50,
       child: ElevatedButton(
         onPressed: onPressed,

@@ -1,0 +1,22 @@
+part of 'todo_bloc.dart';
+
+@freezed
+class TodoState with _$TodoState {
+  const factory TodoState({
+    required bool isLoading,
+    required bool showError,
+    required String? errorMessage,
+    required List<List<Todo>?> todoList,
+    required Option<Either<Failure, dynamic>> failureOrSuccessOption,
+  }) = _TodoState;
+
+  factory TodoState.initial() {
+    return TodoState(
+      isLoading: false,
+      showError: false,
+      errorMessage: null,
+      todoList: [],
+      failureOrSuccessOption: none(),
+    );
+  }
+}
