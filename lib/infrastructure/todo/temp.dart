@@ -7,11 +7,12 @@ final todoListJson = [
     "category": {
       "id": 1,
       "name": "Work",
-      "color": "#ff0000",
+      "color": "#d4ce1c",
       "createdAt": "2023-08-29T04:43:38.558Z",
       "updateAt": "2023-08-29T04:43:38.558Z"
     },
-    "description": "Some description",
+    "description":
+        "Integrate a secure Authentication API into the Chateo App to enable user registration, login, and data protection, ensuring a seamless and secure user experience",
     "createdAt": "2023-08-29T04:43:38.558Z",
     "updatedAt": "2023-08-29T04:43:38.558Z"
   },
@@ -23,7 +24,7 @@ final todoListJson = [
     "category": {
       "id": 2,
       "name": "Personal",
-      "color": "#0000ff",
+      "color": "#05BD7A",
       "createdAt": "2023-08-29T04:43:38.558Z",
       "updateAt": "2023-08-29T04:43:38.558Z"
     },
@@ -39,11 +40,12 @@ final todoListJson = [
     "category": {
       "id": 1,
       "name": "Work",
-      "color": "#ff0000",
+      "color": "#d4ce1c",
       "createdAt": "2023-08-29T04:43:38.558Z",
       "updateAt": "2023-08-29T04:43:38.558Z"
     },
-    "description": "Some description",
+    "description":
+        "Integrate a secure Authentication API into the Chateo App to enable user registration, login, and data protection, ensuring a seamless and secure user experience",
     "createdAt": "2023-08-29T04:43:38.558Z",
     "updatedAt": "2023-08-29T04:43:38.558Z"
   },
@@ -55,11 +57,12 @@ final todoListJson = [
     "category": {
       "id": 1,
       "name": "Work",
-      "color": "#ff0000",
+      "color": "#d4ce1c",
       "createdAt": "2023-08-29T04:43:38.558Z",
       "updateAt": "2023-08-29T04:43:38.558Z"
     },
-    "description": "Some description",
+    "description":
+        "Integrate a secure Authentication API into the Chateo App to enable user registration, login, and data protection, ensuring a seamless and secure user experience",
     "createdAt": "2023-08-29T04:43:38.558Z",
     "updatedAt": "2023-08-29T04:43:38.558Z"
   },
@@ -71,7 +74,7 @@ final todoListJson = [
     "category": {
       "id": 2,
       "name": "Personal",
-      "color": "#0000ff",
+      "color": "#05BD7A",
       "createdAt": "2023-08-29T04:43:38.558Z",
       "updateAt": "2023-08-29T04:43:38.558Z"
     },
@@ -87,7 +90,7 @@ final todoListJson = [
     "category": {
       "id": 1,
       "name": "Work",
-      "color": "#ff0000",
+      "color": "#d4ce1c",
       "createdAt": "2023-08-29T04:43:38.558Z",
       "updateAt": "2023-08-29T04:43:38.558Z"
     },

@@ -10,7 +10,7 @@ class AppRepo implements IAppRepo {
   Future<Option<List<Day>>> getDateList() async {
     final now = DateTime.now();
     final startFrom = now.subtract(
-      Duration(days: now.weekday < 6 ? now.weekday : 0),
+      Duration(days: now.weekday < 7 ? now.weekday : 0),
     );
     final dateList = List.generate(
       7,

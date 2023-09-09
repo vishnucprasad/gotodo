@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gotodo/domain/todo/todo.dart';
-import 'package:gotodo/presentation/core/constants.dart';
+import 'package:gotodo/presentation/extension/dialog_extension.dart';
 
 class TodoListTile extends StatelessWidget {
   const TodoListTile({
@@ -23,20 +23,14 @@ class TodoListTile extends StatelessWidget {
         todo.task,
         style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
       ),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.crop_square,
-            color: Color(
-              int.parse(todo.category.color.substring(1, 7), radix: 16) +
-                  0xFF000000,
-            ),
-          ),
-          kWidthSmall,
-          Text(todo.category.name)
-        ],
+      trailing: Icon(
+        Icons.label,
+        color: Color(
+          int.parse(todo.category.color.substring(1, 7), radix: 16) +
+              0xFF000000,
+        ),
       ),
+      onTap: () => context.showTodoDialog(todo: todo),
     );
   }
 }

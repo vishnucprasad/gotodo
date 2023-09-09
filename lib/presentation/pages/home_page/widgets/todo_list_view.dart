@@ -15,19 +15,58 @@ class TodoListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ItemScrollController scrollController = ItemScrollController();
     final textTheme = Theme.of(context).textTheme;
     final today = DateTime.now().weekday;
 
-    return BlocBuilder<TodoBloc, TodoState>(
-      builder: (context, state) {
-        final dateList = context.read<AppBloc>().state.dateList;
-        final todoList = state.todoList;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      scrollController.jumpTo(
+        index: today < 7 ? today : 0,
+      );
+    });
 
-        return ScrollablePositionedList.separated(
-          padding: const EdgeInsets.all(16),
-          itemCount: todoList.length,
-          itemBuilder: (context, index) {
-            if (todoList[index] != null) {
+    return BlocListener<AppBloc, AppState>(
+      listenWhen: (p, c) => p.selectedDateIndex != c.selectedDateIndex,
+      listener: (context, state) => scrollController.jumpTo(
+        index: state.selectedDateIndex,
+      ),
+      child: BlocBuilder<TodoBloc, TodoState>(
+        builder: (context, state) {
+          final dateList = context.read<AppBloc>().state.dateList;
+          final todoList = state.todoList;
+
+          return ScrollablePositionedList.separated(
+            itemScrollController: scrollController,
+            padding: const EdgeInsets.all(16),
+            itemCount: todoList.length,
+            itemBuilder: (context, index) {
+              if (todoList[index] != null) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (index != 0) kHeightMedium,
+                    Text(
+                      DateFormat.MMMEd().format(
+                        dateList[index].dateTime,
+                      ),
+                      style: textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: index == today || (index == 0 && today > 6)
+                            ? primaryColor
+                            : lightGreyColor.withOpacity(0.75),
+                      ),
+                    ),
+                    kHeightMedium,
+                    Column(
+                      children: List.generate(
+                        todoList[index]!.length,
+                        (i) => TodoListTile(todo: todoList[index]![i]),
+                      ),
+                    ),
+                  ],
+                );
+              }
+
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -38,54 +77,29 @@ class TodoListView extends StatelessWidget {
                     ),
                     style: textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: index == today || (index == 0 && today > 6)
-                          ? primaryColor
-                          : lightGreyColor.withOpacity(0.75),
+                      color: lightGreyColor.withOpacity(0.75),
                     ),
                   ),
-                  kHeightMedium,
-                  Column(
-                    children: List.generate(
-                      todoList[index]!.length,
-                      (i) => TodoListTile(todo: todoList[index]![i]),
+                  ListTile(
+                    title: Text(
+                      'No tasks',
+                      textAlign: TextAlign.center,
+                      style: textTheme.titleLarge?.copyWith(
+                        color: lightGreyColor.withOpacity(0.5),
+                      ),
                     ),
                   ),
                 ],
               );
-            }
-
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (index != 0) kHeightMedium,
-                Text(
-                  DateFormat.MMMEd().format(
-                    dateList[index].dateTime,
-                  ),
-                  style: textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: lightGreyColor.withOpacity(0.75),
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    'No tasks',
-                    textAlign: TextAlign.center,
-                    style: textTheme.titleLarge?.copyWith(
-                      color: lightGreyColor.withOpacity(0.5),
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
-          separatorBuilder: (context, index) {
-            return const Divider(
-              thickness: 2,
-            );
-          },
-        );
-      },
+            },
+            separatorBuilder: (context, index) {
+              return const Divider(
+                thickness: 2,
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
