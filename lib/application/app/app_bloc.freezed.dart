@@ -20,18 +20,21 @@ mixin _$AppEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getDateList,
     required TResult Function(int index) changeSelectedDateIndex,
+    required TResult Function(Week week) gotoWeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDateList,
     TResult? Function(int index)? changeSelectedDateIndex,
+    TResult? Function(Week week)? gotoWeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDateList,
     TResult Function(int index)? changeSelectedDateIndex,
+    TResult Function(Week week)? gotoWeek,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$AppEvent {
     required TResult Function(_GetDateList value) getDateList,
     required TResult Function(_ChangeSelectedDateIndex value)
         changeSelectedDateIndex,
+    required TResult Function(_gotoWeek value) gotoWeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDateList value)? getDateList,
     TResult? Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult? Function(_gotoWeek value)? gotoWeek,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDateList value)? getDateList,
     TResult Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult Function(_gotoWeek value)? gotoWeek,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$_GetDateList implements _GetDateList {
   TResult when<TResult extends Object?>({
     required TResult Function() getDateList,
     required TResult Function(int index) changeSelectedDateIndex,
+    required TResult Function(Week week) gotoWeek,
   }) {
     return getDateList();
   }
@@ -123,6 +130,7 @@ class _$_GetDateList implements _GetDateList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDateList,
     TResult? Function(int index)? changeSelectedDateIndex,
+    TResult? Function(Week week)? gotoWeek,
   }) {
     return getDateList?.call();
   }
@@ -132,6 +140,7 @@ class _$_GetDateList implements _GetDateList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDateList,
     TResult Function(int index)? changeSelectedDateIndex,
+    TResult Function(Week week)? gotoWeek,
     required TResult orElse(),
   }) {
     if (getDateList != null) {
@@ -146,6 +155,7 @@ class _$_GetDateList implements _GetDateList {
     required TResult Function(_GetDateList value) getDateList,
     required TResult Function(_ChangeSelectedDateIndex value)
         changeSelectedDateIndex,
+    required TResult Function(_gotoWeek value) gotoWeek,
   }) {
     return getDateList(this);
   }
@@ -155,6 +165,7 @@ class _$_GetDateList implements _GetDateList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDateList value)? getDateList,
     TResult? Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult? Function(_gotoWeek value)? gotoWeek,
   }) {
     return getDateList?.call(this);
   }
@@ -164,6 +175,7 @@ class _$_GetDateList implements _GetDateList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDateList value)? getDateList,
     TResult Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult Function(_gotoWeek value)? gotoWeek,
     required TResult orElse(),
   }) {
     if (getDateList != null) {
@@ -245,6 +257,7 @@ class _$_ChangeSelectedDateIndex implements _ChangeSelectedDateIndex {
   TResult when<TResult extends Object?>({
     required TResult Function() getDateList,
     required TResult Function(int index) changeSelectedDateIndex,
+    required TResult Function(Week week) gotoWeek,
   }) {
     return changeSelectedDateIndex(index);
   }
@@ -254,6 +267,7 @@ class _$_ChangeSelectedDateIndex implements _ChangeSelectedDateIndex {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getDateList,
     TResult? Function(int index)? changeSelectedDateIndex,
+    TResult? Function(Week week)? gotoWeek,
   }) {
     return changeSelectedDateIndex?.call(index);
   }
@@ -263,6 +277,7 @@ class _$_ChangeSelectedDateIndex implements _ChangeSelectedDateIndex {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDateList,
     TResult Function(int index)? changeSelectedDateIndex,
+    TResult Function(Week week)? gotoWeek,
     required TResult orElse(),
   }) {
     if (changeSelectedDateIndex != null) {
@@ -277,6 +292,7 @@ class _$_ChangeSelectedDateIndex implements _ChangeSelectedDateIndex {
     required TResult Function(_GetDateList value) getDateList,
     required TResult Function(_ChangeSelectedDateIndex value)
         changeSelectedDateIndex,
+    required TResult Function(_gotoWeek value) gotoWeek,
   }) {
     return changeSelectedDateIndex(this);
   }
@@ -286,6 +302,7 @@ class _$_ChangeSelectedDateIndex implements _ChangeSelectedDateIndex {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetDateList value)? getDateList,
     TResult? Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult? Function(_gotoWeek value)? gotoWeek,
   }) {
     return changeSelectedDateIndex?.call(this);
   }
@@ -295,6 +312,7 @@ class _$_ChangeSelectedDateIndex implements _ChangeSelectedDateIndex {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetDateList value)? getDateList,
     TResult Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult Function(_gotoWeek value)? gotoWeek,
     required TResult orElse(),
   }) {
     if (changeSelectedDateIndex != null) {
@@ -312,6 +330,146 @@ abstract class _ChangeSelectedDateIndex implements AppEvent {
   @JsonKey(ignore: true)
   _$$_ChangeSelectedDateIndexCopyWith<_$_ChangeSelectedDateIndex>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_gotoWeekCopyWith<$Res> {
+  factory _$$_gotoWeekCopyWith(
+          _$_gotoWeek value, $Res Function(_$_gotoWeek) then) =
+      __$$_gotoWeekCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Week week});
+}
+
+/// @nodoc
+class __$$_gotoWeekCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_gotoWeek>
+    implements _$$_gotoWeekCopyWith<$Res> {
+  __$$_gotoWeekCopyWithImpl(
+      _$_gotoWeek _value, $Res Function(_$_gotoWeek) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? week = null,
+  }) {
+    return _then(_$_gotoWeek(
+      null == week
+          ? _value.week
+          : week // ignore: cast_nullable_to_non_nullable
+              as Week,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_gotoWeek implements _gotoWeek {
+  const _$_gotoWeek(this.week);
+
+  @override
+  final Week week;
+
+  @override
+  String toString() {
+    return 'AppEvent.gotoWeek(week: $week)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_gotoWeek &&
+            (identical(other.week, week) || other.week == week));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, week);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_gotoWeekCopyWith<_$_gotoWeek> get copyWith =>
+      __$$_gotoWeekCopyWithImpl<_$_gotoWeek>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getDateList,
+    required TResult Function(int index) changeSelectedDateIndex,
+    required TResult Function(Week week) gotoWeek,
+  }) {
+    return gotoWeek(week);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getDateList,
+    TResult? Function(int index)? changeSelectedDateIndex,
+    TResult? Function(Week week)? gotoWeek,
+  }) {
+    return gotoWeek?.call(week);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getDateList,
+    TResult Function(int index)? changeSelectedDateIndex,
+    TResult Function(Week week)? gotoWeek,
+    required TResult orElse(),
+  }) {
+    if (gotoWeek != null) {
+      return gotoWeek(week);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetDateList value) getDateList,
+    required TResult Function(_ChangeSelectedDateIndex value)
+        changeSelectedDateIndex,
+    required TResult Function(_gotoWeek value) gotoWeek,
+  }) {
+    return gotoWeek(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetDateList value)? getDateList,
+    TResult? Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult? Function(_gotoWeek value)? gotoWeek,
+  }) {
+    return gotoWeek?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetDateList value)? getDateList,
+    TResult Function(_ChangeSelectedDateIndex value)? changeSelectedDateIndex,
+    TResult Function(_gotoWeek value)? gotoWeek,
+    required TResult orElse(),
+  }) {
+    if (gotoWeek != null) {
+      return gotoWeek(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _gotoWeek implements AppEvent {
+  const factory _gotoWeek(final Week week) = _$_gotoWeek;
+
+  Week get week;
+  @JsonKey(ignore: true)
+  _$$_gotoWeekCopyWith<_$_gotoWeek> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

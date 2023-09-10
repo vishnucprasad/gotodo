@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/app/app_bloc.dart';
+import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/extension/mode_bottomsheet_extension.dart';
@@ -37,7 +38,11 @@ class BottomBar extends StatelessWidget {
                 ),
                 kWidth,
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context
+                        .read<AppBloc>()
+                        .add(const AppEvent.gotoWeek(Week.previous));
+                  },
                   icon: const Icon(Icons.arrow_back_ios),
                 ),
                 Text(
@@ -47,7 +52,11 @@ class BottomBar extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context
+                        .read<AppBloc>()
+                        .add(const AppEvent.gotoWeek(Week.next));
+                  },
                   icon: const Icon(Icons.arrow_forward_ios),
                 ),
                 const Spacer(),

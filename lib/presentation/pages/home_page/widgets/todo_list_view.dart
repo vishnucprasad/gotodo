@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/app/app_bloc.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
+import 'package:gotodo/domain/app/day.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/pages/home_page/widgets/todo_list_tile.dart';
@@ -51,7 +52,7 @@ class TodoListView extends StatelessWidget {
                       ),
                       style: textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: index == today || (index == 0 && today > 6)
+                        color: Day.isToday(dateList[index])
                             ? primaryColor
                             : lightGreyColor.withOpacity(0.75),
                       ),
@@ -77,7 +78,9 @@ class TodoListView extends StatelessWidget {
                     ),
                     style: textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: lightGreyColor.withOpacity(0.75),
+                      color: Day.isToday(dateList[index])
+                          ? primaryColor
+                          : lightGreyColor.withOpacity(0.75),
                     ),
                   ),
                   ListTile(

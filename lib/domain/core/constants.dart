@@ -5,3 +5,8 @@ enum TokenType {
   accessToken,
   refreshToken,
 }
+
+enum Week {
+  previous,
+  next,
+}

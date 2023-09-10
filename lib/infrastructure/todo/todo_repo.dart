@@ -7,6 +7,7 @@ import 'package:gotodo/domain/todo/i_todo_repo.dart';
 import 'package:gotodo/domain/todo/todo.dart';
 import 'package:gotodo/infrastructure/todo/temp.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl.dart';
 
 @Injectable(as: ITodoRepo)
 class TodoRepo implements ITodoRepo {
@@ -32,11 +33,16 @@ class TodoRepo implements ITodoRepo {
         return Todo.fromJson(result);
       }).toList();
 
-      final todoGroupedByDate = groupBy(todos, (todo) => todo.date.day);
+      final todoGroupedByDate = groupBy(
+        todos,
+        (todo) => DateFormat.yMd().format(todo.date),
+      );
 
       final List<List<Todo>?> todoList = List.generate(
         dateList.length,
-        (index) => todoGroupedByDate[dateList[index].date],
+        (index) => todoGroupedByDate[DateFormat.yMd().format(
+          dateList[index].dateTime,
+        )],
       );
 
       return right(todoList);

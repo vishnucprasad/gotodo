@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gotodo/domain/app/day.dart';
 import 'package:gotodo/domain/app/i_app_repo.dart';
+import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/domain/core/failure.dart';
 import 'package:injectable/injectable.dart';
 
@@ -34,6 +35,21 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         changeSelectedDateIndex: (e) {
           emit(state.copyWith(
             selectedDateIndex: e.index,
+          ));
+        },
+        gotoWeek: (e) async {
+          final dateOption =
+              await _appRepo.getWeekDateList(state.dateList, e.week);
+          if (dateOption.isNone()) {
+            return emit(state.copyWith(
+              showError: true,
+              errorMessage: "Date list error",
+            ));
+          }
+          emit(state.copyWith(
+            showError: false,
+            errorMessage: null,
+            dateList: dateOption.getOrElse(() => throw UnimplementedError()),
           ));
         },
       );

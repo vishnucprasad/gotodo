@@ -10,4 +10,18 @@ class Day with _$Day {
     required int weekDay,
     required String weekDayAbbreviation,
   }) = _Day;
+
+  static bool isToday(Day day) {
+    final today = DateTime.now();
+    return day.dateTime.day == today.day &&
+        day.dateTime.month == today.month &&
+        day.dateTime.year == today.year;
+  }
+
+  static bool isPreviousDay(Day day) {
+    final today = DateTime.now();
+    return day.dateTime.day < today.day ||
+        day.dateTime.month < today.month ||
+        day.dateTime.year < today.year;
+  }
 }
