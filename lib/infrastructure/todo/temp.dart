@@ -1,3 +1,20 @@
+final categoryListJson = [
+  {
+    "id": 1,
+    "name": "Work",
+    "color": "#d4ce1c",
+    "createdAt": "2023-08-29T04:43:38.558Z",
+    "updateAt": "2023-08-29T04:43:38.558Z"
+  },
+  {
+    "id": 2,
+    "name": "Personal",
+    "color": "#05BD7A",
+    "createdAt": "2023-08-29T04:43:38.558Z",
+    "updateAt": "2023-08-29T04:43:38.558Z"
+  }
+];
+
 final todoListJson = [
   {
     "id": 1,

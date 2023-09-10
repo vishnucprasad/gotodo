@@ -8,6 +8,7 @@ ThemeData buildLightTheme() {
     primaryColor: primaryColor,
     primarySwatch: primarySwatch,
     scaffoldBackgroundColor: lightColor,
+    canvasColor: Colors.transparent,
     fontFamily: GoogleFonts.workSans().fontFamily,
   );
 }
@@ -18,6 +19,7 @@ ThemeData buildDarkTheme() {
     primaryColor: primaryColor,
     primarySwatch: primarySwatch,
     scaffoldBackgroundColor: darkColor,
+    canvasColor: Colors.transparent,
     fontFamily: GoogleFonts.workSans().fontFamily,
   );
 }

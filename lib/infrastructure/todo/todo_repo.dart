@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:gotodo/domain/app/day.dart';
 import 'package:gotodo/domain/core/failure.dart';
+import 'package:gotodo/domain/todo/category.dart';
 import 'package:gotodo/domain/todo/i_todo_repo.dart';
 import 'package:gotodo/domain/todo/todo.dart';
 import 'package:gotodo/infrastructure/todo/temp.dart';
@@ -9,6 +10,19 @@ import 'package:injectable/injectable.dart';
 
 @Injectable(as: ITodoRepo)
 class TodoRepo implements ITodoRepo {
+  @override
+  Future<Either<Failure, List<Category>>> getCategoryList() async {
+    try {
+      final List<Category> categoryList = categoryListJson.map((result) {
+        return Category.fromJson(result);
+      }).toList();
+
+      return right(categoryList);
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
+    }
+  }
+
   @override
   Future<Either<Failure, List<List<Todo>?>>> getTodoList(
     List<Day> dateList,

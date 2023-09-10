@@ -50,9 +50,12 @@ class GotodoApp extends StatelessWidget {
           BlocListener<AppBloc, AppState>(
             listenWhen: (p, c) =>
                 p.dateList != c.dateList && c.dateList.length == 7,
-            listener: (context, state) => context
-                .read<TodoBloc>()
-                .add(TodoEvent.getTodoList(state.dateList)),
+            listener: (context, state) {
+              context.read<TodoBloc>().add(const TodoEvent.getCategoryList());
+              context
+                  .read<TodoBloc>()
+                  .add(TodoEvent.getTodoList(state.dateList));
+            },
           ),
         ],
         child: MaterialApp.router(

@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TodoEvent {
-  List<Day> get dateList => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getCategoryList value) getCategoryList,
     required TResult Function(_getTodoList value) getTodoList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getCategoryList value)? getCategoryList,
     TResult? Function(_getTodoList value)? getTodoList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getCategoryList value)? getCategoryList,
     TResult Function(_getTodoList value)? getTodoList,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $TodoEventCopyWith<TodoEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -59,8 +60,6 @@ mixin _$TodoEvent {
 abstract class $TodoEventCopyWith<$Res> {
   factory $TodoEventCopyWith(TodoEvent value, $Res Function(TodoEvent) then) =
       _$TodoEventCopyWithImpl<$Res, TodoEvent>;
-  @useResult
-  $Res call({List<Day> dateList});
 }
 
 /// @nodoc
@@ -72,28 +71,115 @@ class _$TodoEventCopyWithImpl<$Res, $Val extends TodoEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? dateList = null,
-  }) {
-    return _then(_value.copyWith(
-      dateList: null == dateList
-          ? _value.dateList
-          : dateList // ignore: cast_nullable_to_non_nullable
-              as List<Day>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_getTodoListCopyWith<$Res>
-    implements $TodoEventCopyWith<$Res> {
+abstract class _$$_getCategoryListCopyWith<$Res> {
+  factory _$$_getCategoryListCopyWith(
+          _$_getCategoryList value, $Res Function(_$_getCategoryList) then) =
+      __$$_getCategoryListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_getCategoryListCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_getCategoryList>
+    implements _$$_getCategoryListCopyWith<$Res> {
+  __$$_getCategoryListCopyWithImpl(
+      _$_getCategoryList _value, $Res Function(_$_getCategoryList) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_getCategoryList implements _getCategoryList {
+  const _$_getCategoryList();
+
+  @override
+  String toString() {
+    return 'TodoEvent.getCategoryList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_getCategoryList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCategoryList,
+    required TResult Function(List<Day> dateList) getTodoList,
+  }) {
+    return getCategoryList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCategoryList,
+    TResult? Function(List<Day> dateList)? getTodoList,
+  }) {
+    return getCategoryList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCategoryList,
+    TResult Function(List<Day> dateList)? getTodoList,
+    required TResult orElse(),
+  }) {
+    if (getCategoryList != null) {
+      return getCategoryList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getCategoryList value) getCategoryList,
+    required TResult Function(_getTodoList value) getTodoList,
+  }) {
+    return getCategoryList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getCategoryList value)? getCategoryList,
+    TResult? Function(_getTodoList value)? getTodoList,
+  }) {
+    return getCategoryList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getCategoryList value)? getCategoryList,
+    TResult Function(_getTodoList value)? getTodoList,
+    required TResult orElse(),
+  }) {
+    if (getCategoryList != null) {
+      return getCategoryList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getCategoryList implements TodoEvent {
+  const factory _getCategoryList() = _$_getCategoryList;
+}
+
+/// @nodoc
+abstract class _$$_getTodoListCopyWith<$Res> {
   factory _$$_getTodoListCopyWith(
           _$_getTodoList value, $Res Function(_$_getTodoList) then) =
       __$$_getTodoListCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({List<Day> dateList});
 }
@@ -159,6 +245,7 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
   }) {
     return getTodoList(dateList);
@@ -167,6 +254,7 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
   }) {
     return getTodoList?.call(dateList);
@@ -175,6 +263,7 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
     required TResult orElse(),
   }) {
@@ -187,6 +276,7 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getCategoryList value) getCategoryList,
     required TResult Function(_getTodoList value) getTodoList,
   }) {
     return getTodoList(this);
@@ -195,6 +285,7 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_getCategoryList value)? getCategoryList,
     TResult? Function(_getTodoList value)? getTodoList,
   }) {
     return getTodoList?.call(this);
@@ -203,6 +294,7 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getCategoryList value)? getCategoryList,
     TResult Function(_getTodoList value)? getTodoList,
     required TResult orElse(),
   }) {
@@ -216,9 +308,7 @@ class _$_getTodoList implements _getTodoList {
 abstract class _getTodoList implements TodoEvent {
   const factory _getTodoList(final List<Day> dateList) = _$_getTodoList;
 
-  @override
   List<Day> get dateList;
-  @override
   @JsonKey(ignore: true)
   _$$_getTodoListCopyWith<_$_getTodoList> get copyWith =>
       throw _privateConstructorUsedError;
@@ -229,6 +319,7 @@ mixin _$TodoState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
+  List<Category> get categoryList => throw _privateConstructorUsedError;
   List<List<Todo>?> get todoList => throw _privateConstructorUsedError;
   Option<Either<Failure, dynamic>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -247,6 +338,7 @@ abstract class $TodoStateCopyWith<$Res> {
       {bool isLoading,
       bool showError,
       String? errorMessage,
+      List<Category> categoryList,
       List<List<Todo>?> todoList,
       Option<Either<Failure, dynamic>> failureOrSuccessOption});
 }
@@ -267,6 +359,7 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
     Object? isLoading = null,
     Object? showError = null,
     Object? errorMessage = freezed,
+    Object? categoryList = null,
     Object? todoList = null,
     Object? failureOrSuccessOption = null,
   }) {
@@ -283,6 +376,10 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      categoryList: null == categoryList
+          ? _value.categoryList
+          : categoryList // ignore: cast_nullable_to_non_nullable
+              as List<Category>,
       todoList: null == todoList
           ? _value.todoList
           : todoList // ignore: cast_nullable_to_non_nullable
@@ -306,6 +403,7 @@ abstract class _$$_TodoStateCopyWith<$Res> implements $TodoStateCopyWith<$Res> {
       {bool isLoading,
       bool showError,
       String? errorMessage,
+      List<Category> categoryList,
       List<List<Todo>?> todoList,
       Option<Either<Failure, dynamic>> failureOrSuccessOption});
 }
@@ -324,6 +422,7 @@ class __$$_TodoStateCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? showError = null,
     Object? errorMessage = freezed,
+    Object? categoryList = null,
     Object? todoList = null,
     Object? failureOrSuccessOption = null,
   }) {
@@ -340,6 +439,10 @@ class __$$_TodoStateCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      categoryList: null == categoryList
+          ? _value._categoryList
+          : categoryList // ignore: cast_nullable_to_non_nullable
+              as List<Category>,
       todoList: null == todoList
           ? _value._todoList
           : todoList // ignore: cast_nullable_to_non_nullable
@@ -359,9 +462,11 @@ class _$_TodoState implements _TodoState {
       {required this.isLoading,
       required this.showError,
       required this.errorMessage,
+      required final List<Category> categoryList,
       required final List<List<Todo>?> todoList,
       required this.failureOrSuccessOption})
-      : _todoList = todoList;
+      : _categoryList = categoryList,
+        _todoList = todoList;
 
   @override
   final bool isLoading;
@@ -369,6 +474,14 @@ class _$_TodoState implements _TodoState {
   final bool showError;
   @override
   final String? errorMessage;
+  final List<Category> _categoryList;
+  @override
+  List<Category> get categoryList {
+    if (_categoryList is EqualUnmodifiableListView) return _categoryList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categoryList);
+  }
+
   final List<List<Todo>?> _todoList;
   @override
   List<List<Todo>?> get todoList {
@@ -382,7 +495,7 @@ class _$_TodoState implements _TodoState {
 
   @override
   String toString() {
-    return 'TodoState(isLoading: $isLoading, showError: $showError, errorMessage: $errorMessage, todoList: $todoList, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'TodoState(isLoading: $isLoading, showError: $showError, errorMessage: $errorMessage, categoryList: $categoryList, todoList: $todoList, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -396,6 +509,8 @@ class _$_TodoState implements _TodoState {
                 other.showError == showError) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
+            const DeepCollectionEquality()
+                .equals(other._categoryList, _categoryList) &&
             const DeepCollectionEquality().equals(other._todoList, _todoList) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
                 other.failureOrSuccessOption == failureOrSuccessOption));
@@ -407,6 +522,7 @@ class _$_TodoState implements _TodoState {
       isLoading,
       showError,
       errorMessage,
+      const DeepCollectionEquality().hash(_categoryList),
       const DeepCollectionEquality().hash(_todoList),
       failureOrSuccessOption);
 
@@ -422,6 +538,7 @@ abstract class _TodoState implements TodoState {
       {required final bool isLoading,
       required final bool showError,
       required final String? errorMessage,
+      required final List<Category> categoryList,
       required final List<List<Todo>?> todoList,
       required final Option<Either<Failure, dynamic>>
           failureOrSuccessOption}) = _$_TodoState;
@@ -432,6 +549,8 @@ abstract class _TodoState implements TodoState {
   bool get showError;
   @override
   String? get errorMessage;
+  @override
+  List<Category> get categoryList;
   @override
   List<List<Todo>?> get todoList;
   @override

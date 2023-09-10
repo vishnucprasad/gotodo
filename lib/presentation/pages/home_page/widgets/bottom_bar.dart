@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/app/app_bloc.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
+import 'package:gotodo/presentation/extension/mode_bottomsheet_extension.dart';
 import 'package:intl/intl.dart';
 
 class BottomBar extends StatelessWidget {
@@ -64,7 +65,9 @@ class BottomBar extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.showCreateTodoBottomsheet();
+                    },
                     child: const Icon(
                       Icons.add,
                       size: 24,

@@ -6,6 +6,7 @@ class TodoState with _$TodoState {
     required bool isLoading,
     required bool showError,
     required String? errorMessage,
+    required List<Category> categoryList,
     required List<List<Todo>?> todoList,
     required Option<Either<Failure, dynamic>> failureOrSuccessOption,
   }) = _TodoState;
@@ -15,6 +16,7 @@ class TodoState with _$TodoState {
       isLoading: false,
       showError: false,
       errorMessage: null,
+      categoryList: [],
       todoList: [],
       failureOrSuccessOption: none(),
     );

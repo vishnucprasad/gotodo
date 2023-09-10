@@ -11,6 +11,8 @@ class AppTextField extends StatelessWidget {
     this.obscureText = false,
     this.autoValidateMode,
     this.suffixIcon,
+    this.filled = true,
+    this.maxLines = 1,
     super.key,
   });
 
@@ -21,6 +23,8 @@ class AppTextField extends StatelessWidget {
   final bool obscureText;
   final AutovalidateMode? autoValidateMode;
   final Widget? suffixIcon;
+  final bool filled;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +35,10 @@ class AppTextField extends StatelessWidget {
       controller: controller,
       cursorColor: isDarkMode ? lightColor : darkColor,
       obscureText: obscureText,
+      maxLines: maxLines,
       autovalidateMode: autoValidateMode,
       decoration: InputDecoration(
-        filled: true,
+        filled: filled,
         border: kTextFormFieldBorder,
         focusedBorder: kTextFormFieldBorder,
         enabledBorder: kTextFormFieldBorder,
