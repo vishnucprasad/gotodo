@@ -20,11 +20,12 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Category {
-  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id')
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updateAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,11 +39,11 @@ abstract class $CategoryCopyWith<$Res> {
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: '_id') String id,
       String name,
       String color,
       DateTime createdAt,
-      DateTime updateAt});
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -62,13 +63,13 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
     Object? name = null,
     Object? color = null,
     Object? createdAt = null,
-    Object? updateAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -81,9 +82,9 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updateAt: null == updateAt
-          ? _value.updateAt
-          : updateAt // ignore: cast_nullable_to_non_nullable
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
   }
@@ -97,11 +98,11 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: '_id') String id,
       String name,
       String color,
       DateTime createdAt,
-      DateTime updateAt});
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -119,13 +120,13 @@ class __$$_CategoryCopyWithImpl<$Res>
     Object? name = null,
     Object? color = null,
     Object? createdAt = null,
-    Object? updateAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$_Category(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -138,9 +139,9 @@ class __$$_CategoryCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updateAt: null == updateAt
-          ? _value.updateAt
-          : updateAt // ignore: cast_nullable_to_non_nullable
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -150,17 +151,18 @@ class __$$_CategoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Category implements _Category {
   const _$_Category(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       required this.name,
       required this.color,
       required this.createdAt,
-      required this.updateAt});
+      required this.updatedAt});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryFromJson(json);
 
   @override
-  final int id;
+  @JsonKey(name: '_id')
+  final String id;
   @override
   final String name;
   @override
@@ -168,11 +170,11 @@ class _$_Category implements _Category {
   @override
   final DateTime createdAt;
   @override
-  final DateTime updateAt;
+  final DateTime updatedAt;
 
   @override
   String toString() {
-    return 'Category(id: $id, name: $name, color: $color, createdAt: $createdAt, updateAt: $updateAt)';
+    return 'Category(id: $id, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -185,14 +187,14 @@ class _$_Category implements _Category {
             (identical(other.color, color) || other.color == color) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updateAt, updateAt) ||
-                other.updateAt == updateAt));
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, color, createdAt, updateAt);
+      Object.hash(runtimeType, id, name, color, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -210,16 +212,17 @@ class _$_Category implements _Category {
 
 abstract class _Category implements Category {
   const factory _Category(
-      {required final int id,
+      {@JsonKey(name: '_id') required final String id,
       required final String name,
       required final String color,
       required final DateTime createdAt,
-      required final DateTime updateAt}) = _$_Category;
+      required final DateTime updatedAt}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 
   @override
-  int get id;
+  @JsonKey(name: '_id')
+  String get id;
   @override
   String get name;
   @override
@@ -227,7 +230,7 @@ abstract class _Category implements Category {
   @override
   DateTime get createdAt;
   @override
-  DateTime get updateAt;
+  DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryCopyWith<_$_Category> get copyWith =>

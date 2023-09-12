@@ -20,7 +20,8 @@ Todo _$TodoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Todo {
-  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id')
+  String get id => throw _privateConstructorUsedError;
   String get task => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   TodoStatus get status => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $TodoCopyWith<$Res> {
       _$TodoCopyWithImpl<$Res, Todo>;
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: '_id') String id,
       String task,
       DateTime date,
       TodoStatus status,
@@ -78,7 +79,7 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       task: null == task
           ? _value.task
           : task // ignore: cast_nullable_to_non_nullable
@@ -126,7 +127,7 @@ abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: '_id') String id,
       String task,
       DateTime date,
       TodoStatus status,
@@ -161,7 +162,7 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       task: null == task
           ? _value.task
           : task // ignore: cast_nullable_to_non_nullable
@@ -198,7 +199,7 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
 @JsonSerializable()
 class _$_Todo implements _Todo {
   const _$_Todo(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       required this.task,
       required this.date,
       required this.status,
@@ -210,7 +211,8 @@ class _$_Todo implements _Todo {
   factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
 
   @override
-  final int id;
+  @JsonKey(name: '_id')
+  final String id;
   @override
   final String task;
   @override
@@ -271,7 +273,7 @@ class _$_Todo implements _Todo {
 
 abstract class _Todo implements Todo {
   const factory _Todo(
-      {required final int id,
+      {@JsonKey(name: '_id') required final String id,
       required final String task,
       required final DateTime date,
       required final TodoStatus status,
@@ -283,7 +285,8 @@ abstract class _Todo implements Todo {
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
-  int get id;
+  @JsonKey(name: '_id')
+  String get id;
   @override
   String get task;
   @override

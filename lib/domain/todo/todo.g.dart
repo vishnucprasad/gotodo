@@ -7,7 +7,7 @@ part of 'todo.dart';
 // **************************************************************************
 
 _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
-      id: json['id'] as int,
+      id: json['_id'] as String,
       task: json['task'] as String,
       date: DateTime.parse(json['date'] as String),
       status: $enumDecode(_$TodoStatusEnumMap, json['status']),
@@ -18,7 +18,7 @@ _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
     );
 
 Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'task': instance.task,
       'date': instance.date.toIso8601String(),
       'status': _$TodoStatusEnumMap[instance.status]!,

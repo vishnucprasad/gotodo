@@ -20,11 +20,12 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id')
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updateAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +38,11 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: '_id') String id,
       String name,
       String email,
       DateTime createdAt,
-      DateTime updateAt});
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -61,13 +62,13 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? name = null,
     Object? email = null,
     Object? createdAt = null,
-    Object? updateAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -80,9 +81,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updateAt: null == updateAt
-          ? _value.updateAt
-          : updateAt // ignore: cast_nullable_to_non_nullable
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
   }
@@ -95,11 +96,11 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: '_id') String id,
       String name,
       String email,
       DateTime createdAt,
-      DateTime updateAt});
+      DateTime updatedAt});
 }
 
 /// @nodoc
@@ -115,13 +116,13 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? name = null,
     Object? email = null,
     Object? createdAt = null,
-    Object? updateAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$_User(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -134,9 +135,9 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updateAt: null == updateAt
-          ? _value.updateAt
-          : updateAt // ignore: cast_nullable_to_non_nullable
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -146,16 +147,17 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 @JsonSerializable()
 class _$_User implements _User {
   const _$_User(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       required this.name,
       required this.email,
       required this.createdAt,
-      required this.updateAt});
+      required this.updatedAt});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final int id;
+  @JsonKey(name: '_id')
+  final String id;
   @override
   final String name;
   @override
@@ -163,11 +165,11 @@ class _$_User implements _User {
   @override
   final DateTime createdAt;
   @override
-  final DateTime updateAt;
+  final DateTime updatedAt;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, email: $email, createdAt: $createdAt, updateAt: $updateAt)';
+    return 'User(id: $id, name: $name, email: $email, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -180,14 +182,14 @@ class _$_User implements _User {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.updateAt, updateAt) ||
-                other.updateAt == updateAt));
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, email, createdAt, updateAt);
+      Object.hash(runtimeType, id, name, email, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -205,16 +207,17 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final int id,
+      {@JsonKey(name: '_id') required final String id,
       required final String name,
       required final String email,
       required final DateTime createdAt,
-      required final DateTime updateAt}) = _$_User;
+      required final DateTime updatedAt}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  int get id;
+  @JsonKey(name: '_id')
+  String get id;
   @override
   String get name;
   @override
@@ -222,7 +225,7 @@ abstract class _User implements User {
   @override
   DateTime get createdAt;
   @override
-  DateTime get updateAt;
+  DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
