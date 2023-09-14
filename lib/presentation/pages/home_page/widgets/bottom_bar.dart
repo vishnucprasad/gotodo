@@ -4,7 +4,7 @@ import 'package:gotodo/application/app/app_bloc.dart';
 import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
-import 'package:gotodo/presentation/extension/mode_bottomsheet_extension.dart';
+import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
 import 'package:intl/intl.dart';
 
 class BottomBar extends StatelessWidget {
@@ -30,7 +30,9 @@ class BottomBar extends StatelessWidget {
             child: Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.showMenuBottomsheet();
+                  },
                   icon: const Icon(
                     Icons.menu,
                     size: 36,
