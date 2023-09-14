@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
+import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
 
 class MenuListView extends StatelessWidget {
   const MenuListView({super.key});
@@ -71,6 +72,9 @@ class MenuListView extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    onTap: () {
+                      context.showCreateCategoryBottomsheet();
+                    },
                   ),
                   const Divider(thickness: 1),
                   ...List.generate(
