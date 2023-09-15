@@ -51,7 +51,10 @@ extension GetItInjectableX on _i1.GetIt {
       registerFor: {_prod},
     );
     gh.factory<_i11.TodoBloc>(
-      () => _i11.TodoBloc(gh<_i7.ITodoRepo>()),
+      () => _i11.TodoBloc(
+        gh<_i7.ITodoRepo>(),
+        gh<_i5.IAuthFacade>(),
+      ),
       registerFor: {_prod},
     );
     gh.factory<_i12.AppBloc>(

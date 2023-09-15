@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/pages/home_page/widgets/bottom_bar.dart';
 import 'package:gotodo/presentation/pages/home_page/widgets/date_list.dart';
@@ -12,15 +14,23 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: BottomBar(),
+    return Scaffold(
+      bottomNavigationBar: const BottomBar(),
       body: SafeArea(
         child: Column(
           children: [
-            GotodoAppBar(),
+            const GotodoAppBar(),
             kHeight,
-            DateList(),
-            Expanded(child: TodoListView()),
+            const DateList(),
+            Expanded(child: BlocBuilder<TodoBloc, TodoState>(
+              builder: (context, state) {
+                return state.isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : const TodoListView();
+              },
+            )),
           ],
         ),
       ),

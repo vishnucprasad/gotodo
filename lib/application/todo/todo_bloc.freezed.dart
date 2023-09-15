@@ -20,37 +20,49 @@ mixin _$TodoEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getCategoryList value) getCategoryList,
-    required TResult Function(_getTodoList value) getTodoList,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getCategoryList value)? getCategoryList,
-    TResult? Function(_getTodoList value)? getTodoList,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getCategoryList value)? getCategoryList,
-    TResult Function(_getTodoList value)? getTodoList,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,25 +86,25 @@ class _$TodoEventCopyWithImpl<$Res, $Val extends TodoEvent>
 }
 
 /// @nodoc
-abstract class _$$_getCategoryListCopyWith<$Res> {
-  factory _$$_getCategoryListCopyWith(
-          _$_getCategoryList value, $Res Function(_$_getCategoryList) then) =
-      __$$_getCategoryListCopyWithImpl<$Res>;
+abstract class _$$_GetCategoryListCopyWith<$Res> {
+  factory _$$_GetCategoryListCopyWith(
+          _$_GetCategoryList value, $Res Function(_$_GetCategoryList) then) =
+      __$$_GetCategoryListCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_getCategoryListCopyWithImpl<$Res>
-    extends _$TodoEventCopyWithImpl<$Res, _$_getCategoryList>
-    implements _$$_getCategoryListCopyWith<$Res> {
-  __$$_getCategoryListCopyWithImpl(
-      _$_getCategoryList _value, $Res Function(_$_getCategoryList) _then)
+class __$$_GetCategoryListCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_GetCategoryList>
+    implements _$$_GetCategoryListCopyWith<$Res> {
+  __$$_GetCategoryListCopyWithImpl(
+      _$_GetCategoryList _value, $Res Function(_$_GetCategoryList) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_getCategoryList implements _getCategoryList {
-  const _$_getCategoryList();
+class _$_GetCategoryList implements _GetCategoryList {
+  const _$_GetCategoryList();
 
   @override
   String toString() {
@@ -102,7 +114,7 @@ class _$_getCategoryList implements _getCategoryList {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_getCategoryList);
+        (other.runtimeType == runtimeType && other is _$_GetCategoryList);
   }
 
   @override
@@ -113,6 +125,8 @@ class _$_getCategoryList implements _getCategoryList {
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
   }) {
     return getCategoryList();
   }
@@ -122,6 +136,8 @@ class _$_getCategoryList implements _getCategoryList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
   }) {
     return getCategoryList?.call();
   }
@@ -131,6 +147,8 @@ class _$_getCategoryList implements _getCategoryList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
     required TResult orElse(),
   }) {
     if (getCategoryList != null) {
@@ -142,8 +160,10 @@ class _$_getCategoryList implements _getCategoryList {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getCategoryList value) getCategoryList,
-    required TResult Function(_getTodoList value) getTodoList,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
   }) {
     return getCategoryList(this);
   }
@@ -151,8 +171,10 @@ class _$_getCategoryList implements _getCategoryList {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getCategoryList value)? getCategoryList,
-    TResult? Function(_getTodoList value)? getTodoList,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
   }) {
     return getCategoryList?.call(this);
   }
@@ -160,8 +182,10 @@ class _$_getCategoryList implements _getCategoryList {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getCategoryList value)? getCategoryList,
-    TResult Function(_getTodoList value)? getTodoList,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
     required TResult orElse(),
   }) {
     if (getCategoryList != null) {
@@ -171,25 +195,25 @@ class _$_getCategoryList implements _getCategoryList {
   }
 }
 
-abstract class _getCategoryList implements TodoEvent {
-  const factory _getCategoryList() = _$_getCategoryList;
+abstract class _GetCategoryList implements TodoEvent {
+  const factory _GetCategoryList() = _$_GetCategoryList;
 }
 
 /// @nodoc
-abstract class _$$_getTodoListCopyWith<$Res> {
-  factory _$$_getTodoListCopyWith(
-          _$_getTodoList value, $Res Function(_$_getTodoList) then) =
-      __$$_getTodoListCopyWithImpl<$Res>;
+abstract class _$$_GetTodoListCopyWith<$Res> {
+  factory _$$_GetTodoListCopyWith(
+          _$_GetTodoList value, $Res Function(_$_GetTodoList) then) =
+      __$$_GetTodoListCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Day> dateList});
 }
 
 /// @nodoc
-class __$$_getTodoListCopyWithImpl<$Res>
-    extends _$TodoEventCopyWithImpl<$Res, _$_getTodoList>
-    implements _$$_getTodoListCopyWith<$Res> {
-  __$$_getTodoListCopyWithImpl(
-      _$_getTodoList _value, $Res Function(_$_getTodoList) _then)
+class __$$_GetTodoListCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_GetTodoList>
+    implements _$$_GetTodoListCopyWith<$Res> {
+  __$$_GetTodoListCopyWithImpl(
+      _$_GetTodoList _value, $Res Function(_$_GetTodoList) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -197,7 +221,7 @@ class __$$_getTodoListCopyWithImpl<$Res>
   $Res call({
     Object? dateList = null,
   }) {
-    return _then(_$_getTodoList(
+    return _then(_$_GetTodoList(
       null == dateList
           ? _value._dateList
           : dateList // ignore: cast_nullable_to_non_nullable
@@ -208,8 +232,8 @@ class __$$_getTodoListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getTodoList implements _getTodoList {
-  const _$_getTodoList(final List<Day> dateList) : _dateList = dateList;
+class _$_GetTodoList implements _GetTodoList {
+  const _$_GetTodoList(final List<Day> dateList) : _dateList = dateList;
 
   final List<Day> _dateList;
   @override
@@ -228,7 +252,7 @@ class _$_getTodoList implements _getTodoList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_getTodoList &&
+            other is _$_GetTodoList &&
             const DeepCollectionEquality().equals(other._dateList, _dateList));
   }
 
@@ -239,14 +263,16 @@ class _$_getTodoList implements _getTodoList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_getTodoListCopyWith<_$_getTodoList> get copyWith =>
-      __$$_getTodoListCopyWithImpl<_$_getTodoList>(this, _$identity);
+  _$$_GetTodoListCopyWith<_$_GetTodoList> get copyWith =>
+      __$$_GetTodoListCopyWithImpl<_$_GetTodoList>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
   }) {
     return getTodoList(dateList);
   }
@@ -256,6 +282,8 @@ class _$_getTodoList implements _getTodoList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
   }) {
     return getTodoList?.call(dateList);
   }
@@ -265,6 +293,8 @@ class _$_getTodoList implements _getTodoList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
     required TResult orElse(),
   }) {
     if (getTodoList != null) {
@@ -276,8 +306,10 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_getCategoryList value) getCategoryList,
-    required TResult Function(_getTodoList value) getTodoList,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
   }) {
     return getTodoList(this);
   }
@@ -285,8 +317,10 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_getCategoryList value)? getCategoryList,
-    TResult? Function(_getTodoList value)? getTodoList,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
   }) {
     return getTodoList?.call(this);
   }
@@ -294,8 +328,10 @@ class _$_getTodoList implements _getTodoList {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_getCategoryList value)? getCategoryList,
-    TResult Function(_getTodoList value)? getTodoList,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
     required TResult orElse(),
   }) {
     if (getTodoList != null) {
@@ -305,18 +341,279 @@ class _$_getTodoList implements _getTodoList {
   }
 }
 
-abstract class _getTodoList implements TodoEvent {
-  const factory _getTodoList(final List<Day> dateList) = _$_getTodoList;
+abstract class _GetTodoList implements TodoEvent {
+  const factory _GetTodoList(final List<Day> dateList) = _$_GetTodoList;
 
   List<Day> get dateList;
   @JsonKey(ignore: true)
-  _$$_getTodoListCopyWith<_$_getTodoList> get copyWith =>
+  _$$_GetTodoListCopyWith<_$_GetTodoList> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RefreshTokenCopyWith<$Res> {
+  factory _$$_RefreshTokenCopyWith(
+          _$_RefreshToken value, $Res Function(_$_RefreshToken) then) =
+      __$$_RefreshTokenCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String refreshToken});
+}
+
+/// @nodoc
+class __$$_RefreshTokenCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_RefreshToken>
+    implements _$$_RefreshTokenCopyWith<$Res> {
+  __$$_RefreshTokenCopyWithImpl(
+      _$_RefreshToken _value, $Res Function(_$_RefreshToken) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? refreshToken = null,
+  }) {
+    return _then(_$_RefreshToken(
+      null == refreshToken
+          ? _value.refreshToken
+          : refreshToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RefreshToken implements _RefreshToken {
+  const _$_RefreshToken(this.refreshToken);
+
+  @override
+  final String refreshToken;
+
+  @override
+  String toString() {
+    return 'TodoEvent.refreshToken(refreshToken: $refreshToken)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RefreshToken &&
+            (identical(other.refreshToken, refreshToken) ||
+                other.refreshToken == refreshToken));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, refreshToken);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_RefreshTokenCopyWith<_$_RefreshToken> get copyWith =>
+      __$$_RefreshTokenCopyWithImpl<_$_RefreshToken>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCategoryList,
+    required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
+  }) {
+    return refreshToken(this.refreshToken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCategoryList,
+    TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
+  }) {
+    return refreshToken?.call(this.refreshToken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCategoryList,
+    TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (refreshToken != null) {
+      return refreshToken(this.refreshToken);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+  }) {
+    return refreshToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+  }) {
+    return refreshToken?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (refreshToken != null) {
+      return refreshToken(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshToken implements TodoEvent {
+  const factory _RefreshToken(final String refreshToken) = _$_RefreshToken;
+
+  String get refreshToken;
+  @JsonKey(ignore: true)
+  _$$_RefreshTokenCopyWith<_$_RefreshToken> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AuthCheckRequestedCopyWith<$Res> {
+  factory _$$_AuthCheckRequestedCopyWith(_$_AuthCheckRequested value,
+          $Res Function(_$_AuthCheckRequested) then) =
+      __$$_AuthCheckRequestedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_AuthCheckRequestedCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_AuthCheckRequested>
+    implements _$$_AuthCheckRequestedCopyWith<$Res> {
+  __$$_AuthCheckRequestedCopyWithImpl(
+      _$_AuthCheckRequested _value, $Res Function(_$_AuthCheckRequested) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_AuthCheckRequested implements _AuthCheckRequested {
+  const _$_AuthCheckRequested();
+
+  @override
+  String toString() {
+    return 'TodoEvent.authCheckRequested()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AuthCheckRequested);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCategoryList,
+    required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
+  }) {
+    return authCheckRequested();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCategoryList,
+    TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
+  }) {
+    return authCheckRequested?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCategoryList,
+    TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (authCheckRequested != null) {
+      return authCheckRequested();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+  }) {
+    return authCheckRequested(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+  }) {
+    return authCheckRequested?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (authCheckRequested != null) {
+      return authCheckRequested(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthCheckRequested implements TodoEvent {
+  const factory _AuthCheckRequested() = _$_AuthCheckRequested;
 }
 
 /// @nodoc
 mixin _$TodoState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get checkAuth => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   List<Category> get categoryList => throw _privateConstructorUsedError;
@@ -336,6 +633,7 @@ abstract class $TodoStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool checkAuth,
       bool showError,
       String? errorMessage,
       List<Category> categoryList,
@@ -357,6 +655,7 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? checkAuth = null,
     Object? showError = null,
     Object? errorMessage = freezed,
     Object? categoryList = null,
@@ -367,6 +666,10 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      checkAuth: null == checkAuth
+          ? _value.checkAuth
+          : checkAuth // ignore: cast_nullable_to_non_nullable
               as bool,
       showError: null == showError
           ? _value.showError
@@ -401,6 +704,7 @@ abstract class _$$_TodoStateCopyWith<$Res> implements $TodoStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool checkAuth,
       bool showError,
       String? errorMessage,
       List<Category> categoryList,
@@ -420,6 +724,7 @@ class __$$_TodoStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? checkAuth = null,
     Object? showError = null,
     Object? errorMessage = freezed,
     Object? categoryList = null,
@@ -430,6 +735,10 @@ class __$$_TodoStateCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      checkAuth: null == checkAuth
+          ? _value.checkAuth
+          : checkAuth // ignore: cast_nullable_to_non_nullable
               as bool,
       showError: null == showError
           ? _value.showError
@@ -460,6 +769,7 @@ class __$$_TodoStateCopyWithImpl<$Res>
 class _$_TodoState implements _TodoState {
   const _$_TodoState(
       {required this.isLoading,
+      required this.checkAuth,
       required this.showError,
       required this.errorMessage,
       required final List<Category> categoryList,
@@ -470,6 +780,8 @@ class _$_TodoState implements _TodoState {
 
   @override
   final bool isLoading;
+  @override
+  final bool checkAuth;
   @override
   final bool showError;
   @override
@@ -495,7 +807,7 @@ class _$_TodoState implements _TodoState {
 
   @override
   String toString() {
-    return 'TodoState(isLoading: $isLoading, showError: $showError, errorMessage: $errorMessage, categoryList: $categoryList, todoList: $todoList, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'TodoState(isLoading: $isLoading, checkAuth: $checkAuth, showError: $showError, errorMessage: $errorMessage, categoryList: $categoryList, todoList: $todoList, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -505,6 +817,8 @@ class _$_TodoState implements _TodoState {
             other is _$_TodoState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.checkAuth, checkAuth) ||
+                other.checkAuth == checkAuth) &&
             (identical(other.showError, showError) ||
                 other.showError == showError) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -520,6 +834,7 @@ class _$_TodoState implements _TodoState {
   int get hashCode => Object.hash(
       runtimeType,
       isLoading,
+      checkAuth,
       showError,
       errorMessage,
       const DeepCollectionEquality().hash(_categoryList),
@@ -536,6 +851,7 @@ class _$_TodoState implements _TodoState {
 abstract class _TodoState implements TodoState {
   const factory _TodoState(
       {required final bool isLoading,
+      required final bool checkAuth,
       required final bool showError,
       required final String? errorMessage,
       required final List<Category> categoryList,
@@ -545,6 +861,8 @@ abstract class _TodoState implements TodoState {
 
   @override
   bool get isLoading;
+  @override
+  bool get checkAuth;
   @override
   bool get showError;
   @override

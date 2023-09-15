@@ -49,12 +49,40 @@ class GotodoApp extends StatelessWidget {
           ),
           BlocListener<AppBloc, AppState>(
             listenWhen: (p, c) =>
-                p.dateList != c.dateList && c.dateList.length == 7,
+                (p.dateList != c.dateList && c.dateList.length == 7) ||
+                c.showError,
             listener: (context, state) {
-              context.read<TodoBloc>().add(const TodoEvent.getCategoryList());
+              if (state.showError && state.errorMessage != null) {
+                return context.showErrorSnackBar(message: state.errorMessage!);
+              }
+
+              context.read<AuthBloc>().state.mapOrNull(
+                authenticated: (state) {
+                  context
+                      .read<TodoBloc>()
+                      .add(const TodoEvent.getCategoryList());
+                },
+              );
               context
                   .read<TodoBloc>()
                   .add(TodoEvent.getTodoList(state.dateList));
+            },
+          ),
+          BlocListener<TodoBloc, TodoState>(
+            listenWhen: (p, c) => p.checkAuth != c.checkAuth || c.showError,
+            listener: (context, state) {
+              if (state.showError && state.errorMessage != null) {
+                return context.showErrorSnackBar(message: state.errorMessage!);
+              }
+
+              if (state.checkAuth) {
+                context
+                    .read<AuthBloc>()
+                    .add(const AuthEvent.authCheckRequested());
+                context
+                    .read<TodoBloc>()
+                    .add(const TodoEvent.authCheckRequested());
+              }
             },
           ),
         ],
