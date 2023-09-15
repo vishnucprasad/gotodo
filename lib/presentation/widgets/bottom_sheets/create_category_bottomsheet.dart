@@ -37,9 +37,6 @@ class CreateCategoryBottomsheet extends HookWidget {
           controller.text =
               state.categoryData.categoryName.value.getOrElse(() => "");
         },
-        buildWhen: (p, c) =>
-            p.showValidationError != c.showValidationError ||
-            p.isSubmitting != c.isSubmitting,
         builder: (context, state) {
           return DraggableScrollableSheet(
             initialChildSize: 0.25,

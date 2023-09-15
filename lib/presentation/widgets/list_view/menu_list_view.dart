@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
+import 'package:gotodo/presentation/extension/dialog_extension.dart';
 import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
 
 class MenuListView extends StatelessWidget {
@@ -51,12 +52,23 @@ class MenuListView extends StatelessWidget {
               ],
             ),
             kHeightLarge,
-            Text(
-              'Categories',
-              style: textTheme.titleMedium?.copyWith(
-                color: lightGreyColor,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              children: [
+                Text(
+                  'Categories',
+                  style: textTheme.titleMedium?.copyWith(
+                    color: lightGreyColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+                if (state.isSubmitting)
+                  const SizedBox(
+                    height: 16,
+                    width: 16,
+                    child: CircularProgressIndicator(),
+                  ),
+              ],
             ),
             kHeight,
             Expanded(
@@ -101,6 +113,39 @@ class MenuListView extends StatelessWidget {
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
+                            ),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.edit_square,
+                                    color: Colors.lightBlue,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    context.showConfirmationDialog(
+                                      title:
+                                          'Are you sure you want to delete the category ${category.name} ?',
+                                      icon: Icons.delete,
+                                      onConfirm: () {
+                                        context
+                                            .read<TodoBloc>()
+                                            .add(TodoEvent.deleteCategory(
+                                              category.id,
+                                            ));
+                                        Navigator.pop(context);
+                                      },
+                                    );
+                                  },
+                                  icon: const Icon(
+                                    Icons.delete,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           const Divider(thickness: 1)

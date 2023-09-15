@@ -22,6 +22,7 @@ mixin _$TodoEvent {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -33,6 +34,7 @@ mixin _$TodoEvent {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -44,6 +46,7 @@ mixin _$TodoEvent {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -56,6 +59,7 @@ mixin _$TodoEvent {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -67,6 +71,7 @@ mixin _$TodoEvent {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -78,6 +83,7 @@ mixin _$TodoEvent {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
@@ -173,6 +179,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -187,6 +194,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -201,6 +209,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -219,6 +228,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -233,6 +243,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -247,6 +258,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
@@ -339,6 +351,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -353,6 +366,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -367,6 +381,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -385,6 +400,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -399,6 +415,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -413,6 +430,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
@@ -477,6 +495,7 @@ class _$_CreateCategory implements _CreateCategory {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -491,6 +510,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -505,6 +525,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -523,6 +544,7 @@ class _$_CreateCategory implements _CreateCategory {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -537,6 +559,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -551,6 +574,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
@@ -609,6 +633,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -623,6 +648,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -637,6 +663,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -655,6 +682,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -669,6 +697,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -683,6 +712,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
@@ -697,6 +727,176 @@ class _$_GetCategoryList implements _GetCategoryList {
 
 abstract class _GetCategoryList implements TodoEvent {
   const factory _GetCategoryList() = _$_GetCategoryList;
+}
+
+/// @nodoc
+abstract class _$$_DeleteCategoryCopyWith<$Res> {
+  factory _$$_DeleteCategoryCopyWith(
+          _$_DeleteCategory value, $Res Function(_$_DeleteCategory) then) =
+      __$$_DeleteCategoryCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String categoryId});
+}
+
+/// @nodoc
+class __$$_DeleteCategoryCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_DeleteCategory>
+    implements _$$_DeleteCategoryCopyWith<$Res> {
+  __$$_DeleteCategoryCopyWithImpl(
+      _$_DeleteCategory _value, $Res Function(_$_DeleteCategory) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categoryId = null,
+  }) {
+    return _then(_$_DeleteCategory(
+      null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteCategory implements _DeleteCategory {
+  const _$_DeleteCategory(this.categoryId);
+
+  @override
+  final String categoryId;
+
+  @override
+  String toString() {
+    return 'TodoEvent.deleteCategory(categoryId: $categoryId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteCategory &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, categoryId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
+      __$$_DeleteCategoryCopyWithImpl<_$_DeleteCategory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
+    required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
+  }) {
+    return deleteCategory(categoryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
+    TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
+  }) {
+    return deleteCategory?.call(categoryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
+    TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
+    TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (deleteCategory != null) {
+      return deleteCategory(categoryId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+  }) {
+    return deleteCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+  }) {
+    return deleteCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (deleteCategory != null) {
+      return deleteCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCategory implements TodoEvent {
+  const factory _DeleteCategory(final String categoryId) = _$_DeleteCategory;
+
+  String get categoryId;
+  @JsonKey(ignore: true)
+  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -773,6 +973,7 @@ class _$_GetTodoList implements _GetTodoList {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -787,6 +988,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -801,6 +1003,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -819,6 +1022,7 @@ class _$_GetTodoList implements _GetTodoList {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -833,6 +1037,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -847,6 +1052,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
@@ -937,6 +1143,7 @@ class _$_RefreshToken implements _RefreshToken {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -951,6 +1158,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -965,6 +1173,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -983,6 +1192,7 @@ class _$_RefreshToken implements _RefreshToken {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -997,6 +1207,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -1011,6 +1222,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
@@ -1074,6 +1286,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(String colorString) colorStringChanged,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() authCheckRequested,
@@ -1088,6 +1301,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult? Function(String colorString)? colorStringChanged,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? authCheckRequested,
@@ -1102,6 +1316,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(String colorString)? colorStringChanged,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? authCheckRequested,
@@ -1120,6 +1335,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(_ColorStringChanged value) colorStringChanged,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
@@ -1134,6 +1350,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult? Function(_ColorStringChanged value)? colorStringChanged,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_AuthCheckRequested value)? authCheckRequested,
@@ -1148,6 +1365,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(_ColorStringChanged value)? colorStringChanged,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,

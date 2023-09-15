@@ -15,4 +15,8 @@ abstract class ITodoRepo {
     CategoryData categoryData,
     String accessToken,
   );
+  Future<Either<Failure, String>> deleteCategory(
+    String categoryId,
+    String accessToken,
+  );
 }
