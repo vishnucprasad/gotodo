@@ -6,4 +6,5 @@ class ApiEndpoints {
   static const signout = '/auth/signout';
   static const getCategories = '/category/all';
   static const getTodos = '/todo/all';
+  static const createCategory = '/category/create';
 }

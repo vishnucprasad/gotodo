@@ -7,7 +7,9 @@ import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
 
 class MenuListView extends StatelessWidget {
-  const MenuListView({super.key});
+  const MenuListView({this.controller, super.key});
+
+  final ScrollController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,7 @@ class MenuListView extends StatelessWidget {
             kHeight,
             Expanded(
               child: ListView(
+                controller: controller,
                 children: [
                   ListTile(
                     leading: const Icon(

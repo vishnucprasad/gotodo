@@ -35,3 +35,12 @@ class Name extends ValueObject<String> {
   }
   const Name._(this.value);
 }
+
+class CategoryName extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  factory CategoryName(String input) {
+    return CategoryName._(validateStringNotEmpty(input));
+  }
+  const CategoryName._(this.value);
+}

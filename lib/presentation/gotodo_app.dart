@@ -69,7 +69,8 @@ class GotodoApp extends StatelessWidget {
             },
           ),
           BlocListener<TodoBloc, TodoState>(
-            listenWhen: (p, c) => p.checkAuth != c.checkAuth || c.showError,
+            listenWhen: (p, c) =>
+                (p.checkAuth != c.checkAuth) || (p.showError != c.showError),
             listener: (context, state) {
               if (state.showError && state.errorMessage != null) {
                 return context.showErrorSnackBar(message: state.errorMessage!);

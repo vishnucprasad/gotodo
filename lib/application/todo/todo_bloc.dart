@@ -5,7 +5,9 @@ import 'package:gotodo/domain/app/day.dart';
 import 'package:gotodo/domain/auth/i_auth_facade.dart';
 import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/domain/core/failure.dart';
+import 'package:gotodo/domain/core/value_objects.dart';
 import 'package:gotodo/domain/todo/category.dart';
+import 'package:gotodo/domain/todo/category_data.dart';
 import 'package:gotodo/domain/todo/i_todo_repo.dart';
 import 'package:gotodo/domain/todo/todo.dart';
 import 'package:injectable/injectable.dart';
@@ -24,6 +26,90 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   TodoBloc(this._todoRepo, this._facade) : super(TodoState.initial()) {
     on<TodoEvent>((event, emit) async {
       await event.map(
+        categoryNameChanged: (e) async => emit(state.copyWith(
+          categoryData: state.categoryData.copyWith(
+            categoryName: CategoryName(e.categoryName),
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        colorStringChanged: (e) async => emit(state.copyWith(
+          categoryData: state.categoryData.copyWith(
+            colorString: e.colorString,
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        createCategory: (e) async {
+          if (state.isSubmitting) return;
+          Either<Failure, dynamic>? failureOrSuccess;
+
+          final isDataValid = state.categoryData.failureOption.isNone();
+          if (isDataValid) {
+            emit(state.copyWith(
+              isSubmitting: true,
+              failureOrSuccessOption: none(),
+            ));
+
+            final tokenOption = _facade.getTokens();
+            if (tokenOption.isNone()) {
+              return emit(state.copyWith(
+                isSubmitting: false,
+                showError: true,
+                checkAuth: true,
+                errorMessage: 'No token',
+              ));
+            }
+            final tokens =
+                tokenOption.getOrElse(() => throw UnimplementedError());
+
+            failureOrSuccess = await _todoRepo.createCategory(
+              state.categoryData,
+              tokens.accessToken,
+            );
+
+            return failureOrSuccess.fold(
+              (l) => l.map(
+                clientFailure: (f) => emit(state.copyWith(
+                  isSubmitting: false,
+                  showError: true,
+                  errorMessage: f.msg,
+                  failureOrSuccessOption: some(left(l)),
+                )),
+                serverFailure: (f) => emit(state.copyWith(
+                  isSubmitting: false,
+                  showError: true,
+                  errorMessage: f.msg,
+                  failureOrSuccessOption: some(left(l)),
+                )),
+                tokenFailure: (f) {
+                  if (f.type == TokenType.accessToken) {
+                    _refreshEvent = const TodoEvent.createCategory();
+                    return add(TodoEvent.refreshToken(tokens.refreshToken));
+                  }
+
+                  return emit(state.copyWith(
+                    isSubmitting: false,
+                    checkAuth: true,
+                    showError: true,
+                    errorMessage: 'Token expired',
+                    failureOrSuccessOption: some(left(f)),
+                  ));
+                },
+              ),
+              (r) {
+                return emit(state.copyWith(
+                  isSubmitting: false,
+                  categoryList: [...state.categoryList, r],
+                  failureOrSuccessOption: optionOf(failureOrSuccess),
+                ));
+              },
+            );
+          }
+
+          emit(state.copyWith(
+            showValidationError: true,
+            failureOrSuccessOption: optionOf(failureOrSuccess),
+          ));
+        },
         getTodoList: (e) async {
           emit(state.copyWith(
             isLoading: true,
@@ -69,7 +155,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
               tokenFailure: (f) {
                 if (f.type == TokenType.accessToken) {
                   _refreshEvent = TodoEvent.getTodoList(e.dateList);
-                  add(TodoEvent.refreshToken(tokens.refreshToken));
+                  return add(TodoEvent.refreshToken(tokens.refreshToken));
                 }
 
                 return emit(state.copyWith(
@@ -93,7 +179,6 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
         },
         getCategoryList: (e) async {
           emit(state.copyWith(
-            isLoading: true,
             showError: false,
             errorMessage: null,
             categoryList: [],
@@ -103,7 +188,6 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
           final tokenOption = _facade.getTokens();
           if (tokenOption.isNone()) {
             return emit(state.copyWith(
-              isLoading: false,
               showError: true,
               checkAuth: true,
               errorMessage: 'No token',
@@ -118,14 +202,12 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
           todoOption.fold(
             (l) => l.map(
               clientFailure: (f) => emit(state.copyWith(
-                isLoading: false,
                 checkAuth: true,
                 showError: true,
                 errorMessage: f.msg,
                 failureOrSuccessOption: some(left(f)),
               )),
               serverFailure: (f) => emit(state.copyWith(
-                isLoading: false,
                 checkAuth: true,
                 showError: true,
                 errorMessage: f.msg,
@@ -134,11 +216,10 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
               tokenFailure: (f) {
                 if (f.type == TokenType.accessToken) {
                   _refreshEvent = const TodoEvent.getCategoryList();
-                  add(TodoEvent.refreshToken(tokens.refreshToken));
+                  return add(TodoEvent.refreshToken(tokens.refreshToken));
                 }
 
                 return emit(state.copyWith(
-                  isLoading: false,
                   checkAuth: true,
                   showError: true,
                   errorMessage: 'Token expired',
@@ -159,7 +240,6 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
           final tokenOption = await _facade.refreshToken(e.refreshToken);
           tokenOption.fold(
             (l) => emit(state.copyWith(
-              isLoading: false,
               showError: true,
               checkAuth: true,
               errorMessage: 'Something went wrong',

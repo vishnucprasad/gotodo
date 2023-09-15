@@ -8,6 +8,7 @@ extension ModalBottomsheetExtension on BuildContext {
     showModalBottomSheet(
       context: this,
       isScrollControlled: true,
+      useSafeArea: true,
       builder: (context) => const CreateTodoBottomsheet(),
     );
   }
@@ -16,6 +17,7 @@ extension ModalBottomsheetExtension on BuildContext {
     showModalBottomSheet(
       context: this,
       isScrollControlled: true,
+      useSafeArea: true,
       builder: (context) => const MenuBottomsheet(),
     );
   }
@@ -24,6 +26,7 @@ extension ModalBottomsheetExtension on BuildContext {
     showModalBottomSheet(
       context: this,
       isScrollControlled: true,
+      useSafeArea: true,
       builder: (context) => const CreateCategoryBottomsheet(),
     );
   }

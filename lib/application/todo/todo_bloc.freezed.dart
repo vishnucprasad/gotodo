@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TodoEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
@@ -26,6 +29,9 @@ mixin _$TodoEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
@@ -34,6 +40,9 @@ mixin _$TodoEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
@@ -43,6 +52,9 @@ mixin _$TodoEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
@@ -51,6 +63,9 @@ mixin _$TodoEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
@@ -59,6 +74,9 @@ mixin _$TodoEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
@@ -83,6 +101,470 @@ class _$TodoEventCopyWithImpl<$Res, $Val extends TodoEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$CategoryNameChangedCopyWith<$Res> {
+  factory _$$CategoryNameChangedCopyWith(_$CategoryNameChanged value,
+          $Res Function(_$CategoryNameChanged) then) =
+      __$$CategoryNameChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String categoryName});
+}
+
+/// @nodoc
+class __$$CategoryNameChangedCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$CategoryNameChanged>
+    implements _$$CategoryNameChangedCopyWith<$Res> {
+  __$$CategoryNameChangedCopyWithImpl(
+      _$CategoryNameChanged _value, $Res Function(_$CategoryNameChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categoryName = null,
+  }) {
+    return _then(_$CategoryNameChanged(
+      null == categoryName
+          ? _value.categoryName
+          : categoryName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CategoryNameChanged implements CategoryNameChanged {
+  const _$CategoryNameChanged(this.categoryName);
+
+  @override
+  final String categoryName;
+
+  @override
+  String toString() {
+    return 'TodoEvent.categoryNameChanged(categoryName: $categoryName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CategoryNameChanged &&
+            (identical(other.categoryName, categoryName) ||
+                other.categoryName == categoryName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, categoryName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CategoryNameChangedCopyWith<_$CategoryNameChanged> get copyWith =>
+      __$$CategoryNameChangedCopyWithImpl<_$CategoryNameChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
+  }) {
+    return categoryNameChanged(categoryName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
+  }) {
+    return categoryNameChanged?.call(categoryName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
+    TResult Function()? getCategoryList,
+    TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (categoryNameChanged != null) {
+      return categoryNameChanged(categoryName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+  }) {
+    return categoryNameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+  }) {
+    return categoryNameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (categoryNameChanged != null) {
+      return categoryNameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CategoryNameChanged implements TodoEvent {
+  const factory CategoryNameChanged(final String categoryName) =
+      _$CategoryNameChanged;
+
+  String get categoryName;
+  @JsonKey(ignore: true)
+  _$$CategoryNameChangedCopyWith<_$CategoryNameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ColorStringChangedCopyWith<$Res> {
+  factory _$$_ColorStringChangedCopyWith(_$_ColorStringChanged value,
+          $Res Function(_$_ColorStringChanged) then) =
+      __$$_ColorStringChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String colorString});
+}
+
+/// @nodoc
+class __$$_ColorStringChangedCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_ColorStringChanged>
+    implements _$$_ColorStringChangedCopyWith<$Res> {
+  __$$_ColorStringChangedCopyWithImpl(
+      _$_ColorStringChanged _value, $Res Function(_$_ColorStringChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? colorString = null,
+  }) {
+    return _then(_$_ColorStringChanged(
+      null == colorString
+          ? _value.colorString
+          : colorString // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ColorStringChanged implements _ColorStringChanged {
+  const _$_ColorStringChanged(this.colorString);
+
+  @override
+  final String colorString;
+
+  @override
+  String toString() {
+    return 'TodoEvent.colorStringChanged(colorString: $colorString)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ColorStringChanged &&
+            (identical(other.colorString, colorString) ||
+                other.colorString == colorString));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, colorString);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ColorStringChangedCopyWith<_$_ColorStringChanged> get copyWith =>
+      __$$_ColorStringChangedCopyWithImpl<_$_ColorStringChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
+  }) {
+    return colorStringChanged(colorString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
+  }) {
+    return colorStringChanged?.call(colorString);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
+    TResult Function()? getCategoryList,
+    TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (colorStringChanged != null) {
+      return colorStringChanged(colorString);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+  }) {
+    return colorStringChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+  }) {
+    return colorStringChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (colorStringChanged != null) {
+      return colorStringChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ColorStringChanged implements TodoEvent {
+  const factory _ColorStringChanged(final String colorString) =
+      _$_ColorStringChanged;
+
+  String get colorString;
+  @JsonKey(ignore: true)
+  _$$_ColorStringChangedCopyWith<_$_ColorStringChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CreateCategoryCopyWith<$Res> {
+  factory _$$_CreateCategoryCopyWith(
+          _$_CreateCategory value, $Res Function(_$_CreateCategory) then) =
+      __$$_CreateCategoryCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CreateCategoryCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_CreateCategory>
+    implements _$$_CreateCategoryCopyWith<$Res> {
+  __$$_CreateCategoryCopyWithImpl(
+      _$_CreateCategory _value, $Res Function(_$_CreateCategory) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CreateCategory implements _CreateCategory {
+  const _$_CreateCategory();
+
+  @override
+  String toString() {
+    return 'TodoEvent.createCategory()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CreateCategory);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
+  }) {
+    return createCategory();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
+  }) {
+    return createCategory?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
+    TResult Function()? getCategoryList,
+    TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (createCategory != null) {
+      return createCategory();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+  }) {
+    return createCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+  }) {
+    return createCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (createCategory != null) {
+      return createCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateCategory implements TodoEvent {
+  const factory _CreateCategory() = _$_CreateCategory;
 }
 
 /// @nodoc
@@ -123,6 +605,9 @@ class _$_GetCategoryList implements _GetCategoryList {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
@@ -134,6 +619,9 @@ class _$_GetCategoryList implements _GetCategoryList {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
@@ -145,6 +633,9 @@ class _$_GetCategoryList implements _GetCategoryList {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
@@ -160,6 +651,9 @@ class _$_GetCategoryList implements _GetCategoryList {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
@@ -171,6 +665,9 @@ class _$_GetCategoryList implements _GetCategoryList {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
@@ -182,6 +679,9 @@ class _$_GetCategoryList implements _GetCategoryList {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
@@ -269,6 +769,9 @@ class _$_GetTodoList implements _GetTodoList {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
@@ -280,6 +783,9 @@ class _$_GetTodoList implements _GetTodoList {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
@@ -291,6 +797,9 @@ class _$_GetTodoList implements _GetTodoList {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
@@ -306,6 +815,9 @@ class _$_GetTodoList implements _GetTodoList {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
@@ -317,6 +829,9 @@ class _$_GetTodoList implements _GetTodoList {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
@@ -328,6 +843,9 @@ class _$_GetTodoList implements _GetTodoList {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
@@ -415,6 +933,9 @@ class _$_RefreshToken implements _RefreshToken {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
@@ -426,6 +947,9 @@ class _$_RefreshToken implements _RefreshToken {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
@@ -437,6 +961,9 @@ class _$_RefreshToken implements _RefreshToken {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
@@ -452,6 +979,9 @@ class _$_RefreshToken implements _RefreshToken {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
@@ -463,6 +993,9 @@ class _$_RefreshToken implements _RefreshToken {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
@@ -474,6 +1007,9 @@ class _$_RefreshToken implements _RefreshToken {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
@@ -534,6 +1070,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(List<Day> dateList) getTodoList,
     required TResult Function(String refreshToken) refreshToken,
@@ -545,6 +1084,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(List<Day> dateList)? getTodoList,
     TResult? Function(String refreshToken)? refreshToken,
@@ -556,6 +1098,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(List<Day> dateList)? getTodoList,
     TResult Function(String refreshToken)? refreshToken,
@@ -571,6 +1116,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_GetTodoList value) getTodoList,
     required TResult Function(_RefreshToken value) refreshToken,
@@ -582,6 +1130,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_GetTodoList value)? getTodoList,
     TResult? Function(_RefreshToken value)? refreshToken,
@@ -593,6 +1144,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_GetTodoList value)? getTodoList,
     TResult Function(_RefreshToken value)? refreshToken,
@@ -613,8 +1167,11 @@ abstract class _AuthCheckRequested implements TodoEvent {
 /// @nodoc
 mixin _$TodoState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
   bool get checkAuth => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
+  bool get showValidationError => throw _privateConstructorUsedError;
+  CategoryData get categoryData => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   List<Category> get categoryList => throw _privateConstructorUsedError;
   List<List<Todo>?> get todoList => throw _privateConstructorUsedError;
@@ -633,12 +1190,17 @@ abstract class $TodoStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isSubmitting,
       bool checkAuth,
       bool showError,
+      bool showValidationError,
+      CategoryData categoryData,
       String? errorMessage,
       List<Category> categoryList,
       List<List<Todo>?> todoList,
       Option<Either<Failure, dynamic>> failureOrSuccessOption});
+
+  $CategoryDataCopyWith<$Res> get categoryData;
 }
 
 /// @nodoc
@@ -655,8 +1217,11 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isSubmitting = null,
     Object? checkAuth = null,
     Object? showError = null,
+    Object? showValidationError = null,
+    Object? categoryData = null,
     Object? errorMessage = freezed,
     Object? categoryList = null,
     Object? todoList = null,
@@ -667,6 +1232,10 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
       checkAuth: null == checkAuth
           ? _value.checkAuth
           : checkAuth // ignore: cast_nullable_to_non_nullable
@@ -675,6 +1244,14 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
           ? _value.showError
           : showError // ignore: cast_nullable_to_non_nullable
               as bool,
+      showValidationError: null == showValidationError
+          ? _value.showValidationError
+          : showValidationError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      categoryData: null == categoryData
+          ? _value.categoryData
+          : categoryData // ignore: cast_nullable_to_non_nullable
+              as CategoryData,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -693,6 +1270,14 @@ class _$TodoStateCopyWithImpl<$Res, $Val extends TodoState>
               as Option<Either<Failure, dynamic>>,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryDataCopyWith<$Res> get categoryData {
+    return $CategoryDataCopyWith<$Res>(_value.categoryData, (value) {
+      return _then(_value.copyWith(categoryData: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -704,12 +1289,18 @@ abstract class _$$_TodoStateCopyWith<$Res> implements $TodoStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isSubmitting,
       bool checkAuth,
       bool showError,
+      bool showValidationError,
+      CategoryData categoryData,
       String? errorMessage,
       List<Category> categoryList,
       List<List<Todo>?> todoList,
       Option<Either<Failure, dynamic>> failureOrSuccessOption});
+
+  @override
+  $CategoryDataCopyWith<$Res> get categoryData;
 }
 
 /// @nodoc
@@ -724,8 +1315,11 @@ class __$$_TodoStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isSubmitting = null,
     Object? checkAuth = null,
     Object? showError = null,
+    Object? showValidationError = null,
+    Object? categoryData = null,
     Object? errorMessage = freezed,
     Object? categoryList = null,
     Object? todoList = null,
@@ -736,6 +1330,10 @@ class __$$_TodoStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
       checkAuth: null == checkAuth
           ? _value.checkAuth
           : checkAuth // ignore: cast_nullable_to_non_nullable
@@ -744,6 +1342,14 @@ class __$$_TodoStateCopyWithImpl<$Res>
           ? _value.showError
           : showError // ignore: cast_nullable_to_non_nullable
               as bool,
+      showValidationError: null == showValidationError
+          ? _value.showValidationError
+          : showValidationError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      categoryData: null == categoryData
+          ? _value.categoryData
+          : categoryData // ignore: cast_nullable_to_non_nullable
+              as CategoryData,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -769,8 +1375,11 @@ class __$$_TodoStateCopyWithImpl<$Res>
 class _$_TodoState implements _TodoState {
   const _$_TodoState(
       {required this.isLoading,
+      required this.isSubmitting,
       required this.checkAuth,
       required this.showError,
+      required this.showValidationError,
+      required this.categoryData,
       required this.errorMessage,
       required final List<Category> categoryList,
       required final List<List<Todo>?> todoList,
@@ -781,9 +1390,15 @@ class _$_TodoState implements _TodoState {
   @override
   final bool isLoading;
   @override
+  final bool isSubmitting;
+  @override
   final bool checkAuth;
   @override
   final bool showError;
+  @override
+  final bool showValidationError;
+  @override
+  final CategoryData categoryData;
   @override
   final String? errorMessage;
   final List<Category> _categoryList;
@@ -807,7 +1422,7 @@ class _$_TodoState implements _TodoState {
 
   @override
   String toString() {
-    return 'TodoState(isLoading: $isLoading, checkAuth: $checkAuth, showError: $showError, errorMessage: $errorMessage, categoryList: $categoryList, todoList: $todoList, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'TodoState(isLoading: $isLoading, isSubmitting: $isSubmitting, checkAuth: $checkAuth, showError: $showError, showValidationError: $showValidationError, categoryData: $categoryData, errorMessage: $errorMessage, categoryList: $categoryList, todoList: $todoList, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -817,10 +1432,16 @@ class _$_TodoState implements _TodoState {
             other is _$_TodoState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
             (identical(other.checkAuth, checkAuth) ||
                 other.checkAuth == checkAuth) &&
             (identical(other.showError, showError) ||
                 other.showError == showError) &&
+            (identical(other.showValidationError, showValidationError) ||
+                other.showValidationError == showValidationError) &&
+            (identical(other.categoryData, categoryData) ||
+                other.categoryData == categoryData) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             const DeepCollectionEquality()
@@ -834,8 +1455,11 @@ class _$_TodoState implements _TodoState {
   int get hashCode => Object.hash(
       runtimeType,
       isLoading,
+      isSubmitting,
       checkAuth,
       showError,
+      showValidationError,
+      categoryData,
       errorMessage,
       const DeepCollectionEquality().hash(_categoryList),
       const DeepCollectionEquality().hash(_todoList),
@@ -851,8 +1475,11 @@ class _$_TodoState implements _TodoState {
 abstract class _TodoState implements TodoState {
   const factory _TodoState(
       {required final bool isLoading,
+      required final bool isSubmitting,
       required final bool checkAuth,
       required final bool showError,
+      required final bool showValidationError,
+      required final CategoryData categoryData,
       required final String? errorMessage,
       required final List<Category> categoryList,
       required final List<List<Todo>?> todoList,
@@ -862,9 +1489,15 @@ abstract class _TodoState implements TodoState {
   @override
   bool get isLoading;
   @override
+  bool get isSubmitting;
+  @override
   bool get checkAuth;
   @override
   bool get showError;
+  @override
+  bool get showValidationError;
+  @override
+  CategoryData get categoryData;
   @override
   String? get errorMessage;
   @override

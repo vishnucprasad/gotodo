@@ -16,89 +16,97 @@ class CreateTodoBottomsheet extends StatelessWidget {
         Theme.of(context).colorScheme.brightness == Brightness.dark;
     final size = MediaQuery.of(context).size;
 
-    return SingleChildScrollView(
-      child: Container(
-        width: double.infinity,
-        color: Colors.transparent,
-        child: Container(
-          padding: EdgeInsets.only(
-            top: 16,
-            left: 16,
-            right: 16,
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-          ),
-          decoration: BoxDecoration(
-            color: isDarkMode ? secondaryDarkColor : secondaryLightColor,
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(26),
-              topRight: Radius.circular(26),
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: DraggableScrollableSheet(
+        initialChildSize: 0.4,
+        minChildSize: 0.4,
+        maxChildSize: 0.75,
+        builder: (context, scrollController) => Container(
+          width: double.infinity,
+          color: Colors.transparent,
+          child: Container(
+            padding: EdgeInsets.only(
+              top: 16,
+              left: 16,
+              right: 16,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Divider(
-                thickness: 5,
-                indent: size.width / 2.75,
-                endIndent: size.width / 2.75,
+            decoration: BoxDecoration(
+              color: isDarkMode ? secondaryDarkColor : secondaryLightColor,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(26),
+                topRight: Radius.circular(26),
               ),
-              kHeightMedium,
-              AppTextField(
-                onChanged: (value) {},
-                hintText: 'Write your task',
-              ),
-              kHeightMedium,
-              AppTextField(
-                onChanged: (value) {},
-                hintText: 'Write description',
-                maxLines: 4,
-              ),
-              kHeightMedium,
-              Row(
-                children: [
-                  FormButton(
-                    icon: Icons.calendar_month,
-                    label: 'Today',
-                    onPressed: () async {
-                      final selectedDate = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime.now(),
-                        lastDate: DateTime(2100),
-                      );
+            ),
+            child: ListView(
+              controller: scrollController,
+              children: [
+                Divider(
+                  thickness: 5,
+                  indent: size.width / 2.75,
+                  endIndent: size.width / 2.75,
+                ),
+                kHeightMedium,
+                AppTextField(
+                  onChanged: (value) {},
+                  hintText: 'Write your task',
+                ),
+                kHeightMedium,
+                AppTextField(
+                  onChanged: (value) {},
+                  hintText: 'Write description',
+                  maxLines: 4,
+                ),
+                kHeightMedium,
+                Row(
+                  children: [
+                    FormButton(
+                      icon: Icons.calendar_month,
+                      label: 'Today',
+                      onPressed: () async {
+                        final selectedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime.now(),
+                          lastDate: DateTime(2100),
+                        );
 
-                      print(selectedDate.toString());
-                    },
-                  ),
-                  kWidthMedium,
-                  const CategoryDropdownButton(),
-                  const Spacer(),
-                  SizedBox(
-                    height: 60,
-                    width: 60,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: const MaterialStatePropertyAll<Color>(
-                          primaryColor,
-                        ),
-                        shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
+                        print(selectedDate.toString());
+                      },
+                    ),
+                    kWidthMedium,
+                    const CategoryDropdownButton(),
+                    const Spacer(),
+                    SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              const MaterialStatePropertyAll<Color>(
+                            primaryColor,
+                          ),
+                          shape:
+                              MaterialStatePropertyAll<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18),
+                            ),
                           ),
                         ),
-                      ),
-                      onPressed: () {},
-                      child: const Icon(
-                        Icons.send,
-                        size: 24,
-                        color: lightColor,
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.send,
+                          size: 24,
+                          color: lightColor,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              kHeight,
-            ],
+                  ],
+                ),
+                kHeight,
+              ],
+            ),
           ),
         ),
       ),

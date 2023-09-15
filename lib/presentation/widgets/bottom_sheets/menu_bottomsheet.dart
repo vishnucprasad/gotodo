@@ -16,6 +16,7 @@ class MenuBottomsheet extends StatelessWidget {
 
     return DraggableScrollableSheet(
       initialChildSize: 0.75,
+      minChildSize: 0.5,
       builder: (context, scrollController) => Container(
         width: double.infinity,
         color: Colors.transparent,
@@ -42,7 +43,11 @@ class MenuBottomsheet extends StatelessWidget {
                 endIndent: size.width / 2.75,
               ),
               kHeightMedium,
-              const Expanded(child: MenuListView()),
+              Expanded(
+                child: MenuListView(
+                  controller: scrollController,
+                ),
+              ),
               kHeight,
             ],
           ),
