@@ -69,7 +69,11 @@ class TodoRepo implements ITodoRepo {
       final dio = getIt<Dio>();
       dio.options.headers['Authorization'] = 'Bearer $accessToken';
 
-      final response = await dio.get(ApiEndpoints.getTodos);
+      final fromDate = dateList[0].dateTime.toIso8601String();
+      final toDate = dateList[6].dateTime.toIso8601String();
+
+      final response =
+          await dio.get('${ApiEndpoints.getTodos}?from=$fromDate&to=$toDate');
 
       if (response.statusCode == 200) {
         final List<Todo> todos = response.data.length != 0
