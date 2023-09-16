@@ -11,6 +11,7 @@ import 'package:gotodo/domain/todo/category.dart';
 import 'package:gotodo/domain/todo/category_data.dart';
 import 'package:gotodo/domain/todo/i_todo_repo.dart';
 import 'package:gotodo/domain/todo/todo.dart';
+import 'package:gotodo/domain/todo/todo_data.dart';
 import 'package:injectable/injectable.dart';
 
 part 'todo_event.dart';
@@ -36,6 +37,30 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
         colorStringChanged: (e) async => emit(state.copyWith(
           categoryData: state.categoryData.copyWith(
             colorString: e.colorString,
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        todoTaskChanged: (e) async => emit(state.copyWith(
+          todoData: state.todoData.copyWith(
+            task: TodoTask(e.task),
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        todoDateChanged: (e) async => emit(state.copyWith(
+          todoData: state.todoData.copyWith(
+            date: e.date,
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        todoCategoryChanged: (e) async => emit(state.copyWith(
+          todoData: state.todoData.copyWith(
+            category: e.category,
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        todoDescriptionChanged: (e) async => emit(state.copyWith(
+          todoData: state.todoData.copyWith(
+            description: e.description,
           ),
           failureOrSuccessOption: none(),
         )),
@@ -305,6 +330,18 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
               ));
             },
           );
+        },
+        createTodo: (e) async {
+          if (state.isSubmitting) return;
+          Either<Failure, dynamic>? failureOrSuccess;
+
+          final isDataValid = state.todoData.failureOption.isNone();
+          if (isDataValid) {}
+
+          emit(state.copyWith(
+            showValidationError: true,
+            failureOrSuccessOption: optionOf(failureOrSuccess),
+          ));
         },
         getTodoList: (e) async {
           emit(state.copyWith(

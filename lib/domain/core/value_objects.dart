@@ -44,3 +44,12 @@ class CategoryName extends ValueObject<String> {
   }
   const CategoryName._(this.value);
 }
+
+class TodoTask extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  factory TodoTask(String input) {
+    return TodoTask._(validateStringNotEmpty(input));
+  }
+  const TodoTask._(this.value);
+}

@@ -23,7 +23,9 @@ class CategoryDropdownButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: DropdownButton(
-            onChanged: (value) {},
+            onChanged: (value) => context
+                .read<TodoBloc>()
+                .add(TodoEvent.todoCategoryChanged(value)),
             itemHeight: 50,
             underline: const SizedBox(),
             dropdownColor:
@@ -33,31 +35,44 @@ class CategoryDropdownButton extends StatelessWidget {
               children: [
                 Icon(Icons.label_off),
                 kWidthSmall,
-                Text('No Category'),
+                Text('Category'),
               ],
             ),
-            items: state.categoryList.map((e) {
-              return DropdownMenuItem(
-                value: e,
+            value: state.todoData.category,
+            items: [
+              const DropdownMenuItem(
+                value: null,
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
-                      Icons.label,
-                      color: Color(
-                        int.parse(
-                              e.color.substring(1, 7),
-                              radix: 16,
-                            ) +
-                            0xFF000000,
-                      ),
-                    ),
-                    kWidthMedium,
-                    Text(e.name),
+                    Icon(Icons.label_off),
+                    kWidthSmall,
+                    Text('Category'),
                   ],
                 ),
-              );
-            }).toList(),
+              ),
+              ...state.categoryList.map((e) {
+                return DropdownMenuItem(
+                  value: e,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.label,
+                        color: Color(
+                          int.parse(
+                                e.color.substring(1, 7),
+                                radix: 16,
+                              ) +
+                              0xFF000000,
+                        ),
+                      ),
+                      kWidthMedium,
+                      Text(e.name),
+                    ],
+                  ),
+                );
+              }).toList()
+            ],
           ),
         );
       },
