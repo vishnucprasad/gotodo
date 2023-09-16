@@ -23,13 +23,17 @@ class TodoListTile extends StatelessWidget {
         todo.task,
         style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
       ),
-      trailing: Icon(
-        Icons.label,
-        color: Color(
-          int.parse(todo.category.color.substring(1, 7), radix: 16) +
-              0xFF000000,
-        ),
-      ),
+      trailing: todo.category != null
+          ? Icon(
+              Icons.label,
+              color: Color(
+                int.parse(todo.category!.color.substring(1, 7), radix: 16) +
+                    0xFF000000,
+              ),
+            )
+          : const Icon(
+              Icons.label_off,
+            ),
       onTap: () => context.showTodoDialog(todo: todo),
     );
   }

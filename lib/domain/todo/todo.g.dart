@@ -11,7 +11,9 @@ _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
       task: json['task'] as String,
       date: DateTime.parse(json['date'] as String),
       status: $enumDecode(_$TodoStatusEnumMap, json['status']),
-      category: Category.fromJson(json['category'] as Map<String, dynamic>),
+      category: json['category'] == null
+          ? null
+          : Category.fromJson(json['category'] as Map<String, dynamic>),
       description: json['description'] as String?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),

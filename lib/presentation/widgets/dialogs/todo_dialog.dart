@@ -38,27 +38,42 @@ class TodoDialog extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.label,
-                    color: Color(
-                      int.parse(
-                            todo.category.color.substring(1, 7),
-                            radix: 16,
-                          ) +
-                          0xFF000000,
+              todo.category != null
+                  ? Row(
+                      children: [
+                        Icon(
+                          Icons.label,
+                          color: Color(
+                            int.parse(
+                                  todo.category!.color.substring(1, 7),
+                                  radix: 16,
+                                ) +
+                                0xFF000000,
+                          ),
+                        ),
+                        kWidthSmall,
+                        Text(
+                          todo.category!.name,
+                          style: textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    )
+                  : Row(
+                      children: [
+                        const Icon(
+                          Icons.label_off,
+                        ),
+                        kWidthSmall,
+                        Text(
+                          'No category',
+                          style: textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  kWidthSmall,
-                  Text(
-                    todo.category.name,
-                    style: textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
               kHeight,
               Text(
                 'Description',
@@ -70,7 +85,9 @@ class TodoDialog extends StatelessWidget {
                 thickness: 2,
               ),
               kHeight,
-              SingleChildScrollView(child: Text(todo.description!)),
+              SingleChildScrollView(
+                child: Text(todo.description ?? 'No description'),
+              ),
               kHeight,
               Text(
                 'Status',

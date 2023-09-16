@@ -14,7 +14,7 @@ class Todo with _$Todo {
     required String task,
     required DateTime date,
     required TodoStatus status,
-    required Category category,
+    required Category? category,
     required String? description,
     required DateTime createdAt,
     required DateTime updatedAt,

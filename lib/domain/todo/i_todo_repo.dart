@@ -4,6 +4,7 @@ import 'package:gotodo/domain/core/failure.dart';
 import 'package:gotodo/domain/todo/category.dart';
 import 'package:gotodo/domain/todo/category_data.dart';
 import 'package:gotodo/domain/todo/todo.dart';
+import 'package:gotodo/domain/todo/todo_data.dart';
 
 abstract class ITodoRepo {
   Future<Either<Failure, List<Category>>> getCategoryList(String accessToken);
@@ -22,6 +23,10 @@ abstract class ITodoRepo {
   Future<Either<Failure, Category>> editCategory(
     String categoryId,
     CategoryData categoryData,
+    String accessToken,
+  );
+  Future<Either<Failure, Todo>> createTodo(
+    TodoData todoData,
     String accessToken,
   );
 }

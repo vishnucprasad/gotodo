@@ -9,6 +9,7 @@ import 'package:gotodo/domain/todo/category.dart';
 import 'package:gotodo/domain/todo/category_data.dart';
 import 'package:gotodo/domain/todo/i_todo_repo.dart';
 import 'package:gotodo/domain/todo/todo.dart';
+import 'package:gotodo/domain/todo/todo_data.dart';
 import 'package:gotodo/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
@@ -79,7 +80,7 @@ class TodoRepo implements ITodoRepo {
 
       if (response.statusCode == 200) {
         final List<Todo> todos = response.data.length != 0
-            ? response.data.map((result) {
+            ? (response.data as List).map((result) {
                 return Todo.fromJson(result);
               }).toList()
             : [];
@@ -237,6 +238,61 @@ class TodoRepo implements ITodoRepo {
       if (response.statusCode == 200) {
         final category = Category.fromJson(response.data);
         return right(category);
+      }
+
+      return left(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
+      if (e.response?.statusCode == 401) {
+        return left(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Todo>> createTodo(
+    TodoData todoData,
+    String accessToken,
+  ) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers['Authorization'] = 'Bearer $accessToken';
+
+      final Map<String, String?> data = {
+        "categoryId": todoData.category?.id,
+        "task": todoData.task.getOrCrash(),
+        "date": todoData.date.toIso8601String(),
+        "description": todoData.description,
+      };
+
+      final response = await dio.post(
+        ApiEndpoints.createTodo,
+        data: data..removeWhere((key, value) => value == null),
+      );
+
+      if (response.statusCode == 201) {
+        final todo = Todo.fromJson(response.data);
+        return todoData.category != null
+            ? right(todo.copyWith(category: todoData.category))
+            : right(todo);
       }
 
       return left(const Failure.clientFailure('Something went wrong'));

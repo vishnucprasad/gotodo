@@ -25,7 +25,7 @@ mixin _$Todo {
   String get task => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   TodoStatus get status => throw _privateConstructorUsedError;
-  Category get category => throw _privateConstructorUsedError;
+  Category? get category => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
@@ -45,12 +45,12 @@ abstract class $TodoCopyWith<$Res> {
       String task,
       DateTime date,
       TodoStatus status,
-      Category category,
+      Category? category,
       String? description,
       DateTime createdAt,
       DateTime updatedAt});
 
-  $CategoryCopyWith<$Res> get category;
+  $CategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
     Object? task = null,
     Object? date = null,
     Object? status = null,
-    Object? category = null,
+    Object? category = freezed,
     Object? description = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -92,10 +92,10 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TodoStatus,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as Category?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,12 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryCopyWith<$Res> get category {
-    return $CategoryCopyWith<$Res>(_value.category, (value) {
+  $CategoryCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $CategoryCopyWith<$Res>(_value.category!, (value) {
       return _then(_value.copyWith(category: value) as $Val);
     });
   }
@@ -131,13 +135,13 @@ abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       String task,
       DateTime date,
       TodoStatus status,
-      Category category,
+      Category? category,
       String? description,
       DateTime createdAt,
       DateTime updatedAt});
 
   @override
-  $CategoryCopyWith<$Res> get category;
+  $CategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -153,7 +157,7 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
     Object? task = null,
     Object? date = null,
     Object? status = null,
-    Object? category = null,
+    Object? category = freezed,
     Object? description = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -175,10 +179,10 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as TodoStatus,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
+              as Category?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -220,7 +224,7 @@ class _$_Todo implements _Todo {
   @override
   final TodoStatus status;
   @override
-  final Category category;
+  final Category? category;
   @override
   final String? description;
   @override
@@ -277,7 +281,7 @@ abstract class _Todo implements Todo {
       required final String task,
       required final DateTime date,
       required final TodoStatus status,
-      required final Category category,
+      required final Category? category,
       required final String? description,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$_Todo;
@@ -294,7 +298,7 @@ abstract class _Todo implements Todo {
   @override
   TodoStatus get status;
   @override
-  Category get category;
+  Category? get category;
   @override
   String? get description;
   @override

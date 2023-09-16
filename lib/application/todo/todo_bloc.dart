@@ -13,6 +13,7 @@ import 'package:gotodo/domain/todo/i_todo_repo.dart';
 import 'package:gotodo/domain/todo/todo.dart';
 import 'package:gotodo/domain/todo/todo_data.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl.dart';
 
 part 'todo_event.dart';
 part 'todo_state.dart';
@@ -336,7 +337,87 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
           Either<Failure, dynamic>? failureOrSuccess;
 
           final isDataValid = state.todoData.failureOption.isNone();
-          if (isDataValid) {}
+          if (isDataValid) {
+            emit(state.copyWith(
+              isSubmitting: true,
+              failureOrSuccessOption: none(),
+            ));
+
+            final tokenOption = _facade.getTokens();
+            if (tokenOption.isNone()) {
+              return emit(state.copyWith(
+                isSubmitting: false,
+                showError: true,
+                checkAuth: true,
+                errorMessage: 'No token',
+              ));
+            }
+            final tokens =
+                tokenOption.getOrElse(() => throw UnimplementedError());
+
+            failureOrSuccess = await _todoRepo.createTodo(
+              state.todoData,
+              tokens.accessToken,
+            );
+
+            return failureOrSuccess.fold(
+              (l) => l.map(
+                clientFailure: (f) => emit(state.copyWith(
+                  isSubmitting: false,
+                  showError: true,
+                  errorMessage: f.msg,
+                  failureOrSuccessOption: some(left(l)),
+                )),
+                serverFailure: (f) => emit(state.copyWith(
+                  isSubmitting: false,
+                  showError: true,
+                  errorMessage: f.msg,
+                  failureOrSuccessOption: some(left(l)),
+                )),
+                tokenFailure: (f) {
+                  if (f.type == TokenType.accessToken) {
+                    _refreshEvent = TodoEvent.createTodo(e.dateList);
+                    return add(TodoEvent.refreshToken(tokens.refreshToken));
+                  }
+
+                  return emit(state.copyWith(
+                    isSubmitting: false,
+                    checkAuth: true,
+                    showError: true,
+                    errorMessage: 'Token expired',
+                    failureOrSuccessOption: some(left(f)),
+                  ));
+                },
+              ),
+              (r) {
+                final List<Todo> todos = [
+                  ...state.todoList
+                      .expand((element) => element ?? [])
+                      .where((value) => value != null)
+                      .toList(),
+                  r
+                ];
+
+                final todoGroupedByDate = groupBy(
+                  todos,
+                  (todo) => DateFormat.yMd().format(todo.date),
+                );
+
+                final List<List<Todo>?> todoList = List.generate(
+                  e.dateList.length,
+                  (index) => todoGroupedByDate[DateFormat.yMd().format(
+                    e.dateList[index].dateTime,
+                  )],
+                );
+
+                return emit(state.copyWith(
+                  isSubmitting: false,
+                  todoList: todoList,
+                  failureOrSuccessOption: optionOf(failureOrSuccess),
+                ));
+              },
+            );
+          }
 
           emit(state.copyWith(
             showValidationError: true,

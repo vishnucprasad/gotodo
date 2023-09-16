@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gotodo/application/app/app_bloc.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
@@ -35,8 +36,7 @@ class CreateTodoBottomsheet extends HookWidget {
             ),
           );
 
-          controller.text =
-              state.categoryData.categoryName.value.getOrElse(() => "");
+          controller.text = state.todoData.task.value.getOrElse(() => "");
         },
         builder: (context, state) {
           return DraggableScrollableSheet(
@@ -143,12 +143,22 @@ class CreateTodoBottomsheet extends HookWidget {
                             ),
                             onPressed: () => context
                                 .read<TodoBloc>()
-                                .add(const TodoEvent.createTodo()),
-                            child: const Icon(
-                              Icons.send,
-                              size: 24,
-                              color: lightColor,
-                            ),
+                                .add(TodoEvent.createTodo(
+                                  context.read<AppBloc>().state.dateList,
+                                )),
+                            child: state.isSubmitting
+                                ? const SizedBox(
+                                    width: 30,
+                                    height: 30,
+                                    child: CircularProgressIndicator(
+                                      color: lightColor,
+                                    ),
+                                  )
+                                : const Icon(
+                                    Icons.send,
+                                    size: 24,
+                                    color: lightColor,
+                                  ),
                           ),
                         ),
                       ],
