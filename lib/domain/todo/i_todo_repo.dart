@@ -19,4 +19,9 @@ abstract class ITodoRepo {
     String categoryId,
     String accessToken,
   );
+  Future<Either<Failure, Category>> editCategory(
+    String categoryId,
+    CategoryData categoryData,
+    String accessToken,
+  );
 }

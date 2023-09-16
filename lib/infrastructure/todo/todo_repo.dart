@@ -215,4 +215,54 @@ class TodoRepo implements ITodoRepo {
       return left(const Failure.clientFailure('Something went wrong'));
     }
   }
+
+  @override
+  Future<Either<Failure, Category>> editCategory(
+    String categoryId,
+    CategoryData categoryData,
+    String accessToken,
+  ) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers['Authorization'] = 'Bearer $accessToken';
+
+      final response = await dio.patch(
+        '${ApiEndpoints.editCategory}/$categoryId',
+        data: {
+          "name": categoryData.categoryName.getOrCrash(),
+          "color": categoryData.colorString,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final category = Category.fromJson(response.data);
+        return right(category);
+      }
+
+      return left(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
+      if (e.response?.statusCode == 401) {
+        return left(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
+    }
+  }
 }

@@ -16,10 +16,15 @@ extension DialogExtension on BuildContext {
 
   void showColorpickerDialog({
     required void Function(Color) onColorChanged,
+    required String pickerColor,
   }) {
     showDialog(
       context: this,
-      builder: (context) => ColorPickerDialog(onColorChanged: onColorChanged),
+      builder: (context) => ColorPickerDialog(
+          pickerColor: Color(
+            int.parse(pickerColor.substring(1, 7), radix: 16) + 0xFF000000,
+          ),
+          onColorChanged: onColorChanged),
     );
   }
 

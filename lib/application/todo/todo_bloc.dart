@@ -237,6 +237,75 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
             },
           );
         },
+        editCategory: (e) async {
+          if (state.isSubmitting) return;
+          Either<Failure, dynamic>? failureOrSuccess;
+
+          emit(state.copyWith(
+            isSubmitting: true,
+            failureOrSuccessOption: none(),
+          ));
+
+          final tokenOption = _facade.getTokens();
+          if (tokenOption.isNone()) {
+            return emit(state.copyWith(
+              isSubmitting: false,
+              showError: true,
+              checkAuth: true,
+              errorMessage: 'No token',
+            ));
+          }
+          final tokens =
+              tokenOption.getOrElse(() => throw UnimplementedError());
+
+          failureOrSuccess = await _todoRepo.editCategory(
+            e.categoryId,
+            state.categoryData,
+            tokens.accessToken,
+          );
+
+          return failureOrSuccess.fold(
+            (l) => l.map(
+              clientFailure: (f) => emit(state.copyWith(
+                isSubmitting: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
+              serverFailure: (f) => emit(state.copyWith(
+                isSubmitting: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
+              tokenFailure: (f) {
+                if (f.type == TokenType.accessToken) {
+                  _refreshEvent = const TodoEvent.createCategory();
+                  return add(TodoEvent.refreshToken(tokens.refreshToken));
+                }
+
+                return emit(state.copyWith(
+                  isSubmitting: false,
+                  checkAuth: true,
+                  showError: true,
+                  errorMessage: 'Token expired',
+                  failureOrSuccessOption: some(left(f)),
+                ));
+              },
+            ),
+            (r) {
+              return emit(state.copyWith(
+                isSubmitting: false,
+                categoryList: [
+                  ...state.categoryList.map(
+                    (element) => element.id == e.categoryId ? r : element,
+                  )
+                ],
+                failureOrSuccessOption: optionOf(failureOrSuccess),
+              ));
+            },
+          );
+        },
         getTodoList: (e) async {
           emit(state.copyWith(
             isLoading: true,

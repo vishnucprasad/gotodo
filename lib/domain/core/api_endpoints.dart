@@ -7,5 +7,6 @@ class ApiEndpoints {
   static const getCategories = '/category/all';
   static const getTodos = '/todo/all';
   static const createCategory = '/category/create';
+  static const editCategory = '/category';
   static const deleteCategory = '/category';
 }

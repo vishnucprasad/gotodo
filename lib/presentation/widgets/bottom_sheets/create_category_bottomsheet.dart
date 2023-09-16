@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
+import 'package:gotodo/domain/todo/category.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/extension/dialog_extension.dart';
@@ -12,7 +13,10 @@ import 'package:gotodo/presentation/widgets/text_fields/app_text_field.dart';
 class CreateCategoryBottomsheet extends HookWidget {
   const CreateCategoryBottomsheet({
     super.key,
+    this.category,
   });
+
+  final Category? category;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +25,24 @@ class CreateCategoryBottomsheet extends HookWidget {
     final size = MediaQuery.of(context).size;
     final controller = useTextEditingController();
 
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (category != null) {
+        context
+            .read<TodoBloc>()
+            .add(TodoEvent.colorStringChanged(category!.color));
+        context
+            .read<TodoBloc>()
+            .add(TodoEvent.categoryNameChanged(category!.name));
+      }
+    });
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: BlocConsumer<TodoBloc, TodoState>(
         listenWhen: (p, c) =>
             p.showValidationError != c.showValidationError ||
-            p.failureOrSuccessOption != c.failureOrSuccessOption,
+            p.failureOrSuccessOption != c.failureOrSuccessOption ||
+            p.categoryData != c.categoryData,
         listener: (context, state) {
           state.failureOrSuccessOption.map(
             (a) => a.map(
@@ -99,6 +115,7 @@ class CreateCategoryBottomsheet extends HookWidget {
                           label: state.categoryData.colorString,
                           onPressed: () {
                             context.showColorpickerDialog(
+                              pickerColor: state.categoryData.colorString,
                               onColorChanged: (Color color) {
                                 context.read<TodoBloc>().add(
                                     TodoEvent.colorStringChanged(
@@ -125,6 +142,12 @@ class CreateCategoryBottomsheet extends HookWidget {
                               ),
                             ),
                             onPressed: () {
+                              if (category != null) {
+                                return context
+                                    .read<TodoBloc>()
+                                    .add(TodoEvent.editCategory(category!.id));
+                              }
+
                               context
                                   .read<TodoBloc>()
                                   .add(const TodoEvent.createCategory());

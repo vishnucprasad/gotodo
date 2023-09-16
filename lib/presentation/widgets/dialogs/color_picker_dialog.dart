@@ -8,9 +8,11 @@ class ColorPickerDialog extends StatelessWidget {
   const ColorPickerDialog({
     super.key,
     required this.onColorChanged,
+    required this.pickerColor,
   });
 
   final void Function(Color) onColorChanged;
+  final Color pickerColor;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class ColorPickerDialog extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: SingleChildScrollView(
             child: HueRingPicker(
-              pickerColor: primaryColor,
+              pickerColor: pickerColor,
               onColorChanged: onColorChanged,
             ),
           ),

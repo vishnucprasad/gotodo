@@ -118,7 +118,11 @@ class MenuListView extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    context.showCreateCategoryBottomsheet(
+                                      category: category,
+                                    );
+                                  },
                                   icon: const Icon(
                                     Icons.edit_square,
                                     color: Colors.lightBlue,
