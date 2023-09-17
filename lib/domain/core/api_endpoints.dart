@@ -11,4 +11,5 @@ class ApiEndpoints {
   static const getTodos = '/todo/all';
   static const createTodo = '/todo/create';
   static const editTodo = '/todo';
+  static const deleteTodo = '/todo';
 }

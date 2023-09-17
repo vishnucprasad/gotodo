@@ -521,6 +521,89 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
             failureOrSuccessOption: optionOf(failureOrSuccess),
           ));
         },
+        deleteTodo: (e) async {
+          if (state.isSubmitting) return;
+          emit(state.copyWith(
+            isSubmitting: true,
+            failureOrSuccessOption: none(),
+          ));
+
+          final tokenOption = _facade.getTokens();
+          if (tokenOption.isNone()) {
+            return emit(state.copyWith(
+              isSubmitting: false,
+              showError: true,
+              checkAuth: true,
+              errorMessage: 'No token',
+            ));
+          }
+          final tokens =
+              tokenOption.getOrElse(() => throw UnimplementedError());
+
+          final failureOrSuccess = await _todoRepo.deleteTodo(
+            e.todoId,
+            tokens.accessToken,
+          );
+
+          return failureOrSuccess.fold(
+            (l) => l.map(
+              clientFailure: (f) => emit(state.copyWith(
+                isSubmitting: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
+              serverFailure: (f) => emit(state.copyWith(
+                isSubmitting: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
+              tokenFailure: (f) {
+                if (f.type == TokenType.accessToken) {
+                  _refreshEvent = TodoEvent.createTodo(e.dateList);
+                  return add(TodoEvent.refreshToken(tokens.refreshToken));
+                }
+
+                return emit(state.copyWith(
+                  isSubmitting: false,
+                  checkAuth: true,
+                  showError: true,
+                  errorMessage: 'Token expired',
+                  failureOrSuccessOption: some(left(f)),
+                ));
+              },
+            ),
+            (r) {
+              final List<Todo> todos = [
+                ...state.todoList
+                    .expand((element) => element ?? [])
+                    .where((value) => value != null)
+                    .toList()
+                    .whereNot((element) => element.id == e.todoId)
+                    .toList(),
+              ];
+
+              final todoGroupedByDate = groupBy(
+                todos,
+                (todo) => DateFormat.yMd().format(todo.date),
+              );
+
+              final List<List<Todo>?> todoList = List.generate(
+                e.dateList.length,
+                (index) => todoGroupedByDate[DateFormat.yMd().format(
+                  e.dateList[index].dateTime,
+                )],
+              );
+
+              return emit(state.copyWith(
+                isSubmitting: false,
+                todoList: todoList,
+                failureOrSuccessOption: optionOf(failureOrSuccess),
+              ));
+            },
+          );
+        },
         getTodoList: (e) async {
           emit(state.copyWith(
             isLoading: true,

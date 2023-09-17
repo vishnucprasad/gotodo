@@ -34,4 +34,8 @@ abstract class ITodoRepo {
     TodoData todoData,
     String accessToken,
   );
+  Future<Either<Failure, String>> deleteTodo(
+    String todoId,
+    String accessToken,
+  );
 }
