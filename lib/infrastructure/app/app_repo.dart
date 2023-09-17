@@ -9,7 +9,11 @@ import 'package:intl/intl.dart';
 class AppRepo implements IAppRepo {
   @override
   Future<Option<List<Day>>> getDateList() async {
-    final now = DateTime.now();
+    final now = DateTime(
+      DateTime.now().year,
+      DateTime.now().month,
+      DateTime.now().day,
+    );
     final startFrom = now.subtract(
       Duration(days: now.weekday < 7 ? now.weekday : 0),
     );

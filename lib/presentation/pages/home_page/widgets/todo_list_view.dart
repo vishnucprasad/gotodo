@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/app/app_bloc.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/domain/app/day.dart';
+import 'package:gotodo/domain/todo/todo.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/pages/home_page/widgets/todo_list_tile.dart';
@@ -31,7 +32,29 @@ class TodoListView extends StatelessWidget {
       listener: (context, state) => scrollController.jumpTo(
         index: state.selectedDateIndex,
       ),
-      child: BlocBuilder<TodoBloc, TodoState>(
+      child: BlocConsumer<TodoBloc, TodoState>(
+        listenWhen: (p, c) => p.todoList != c.todoList,
+        listener: (context, state) {
+          if (state.failureOrSuccessOption.isSome()) {
+            state.failureOrSuccessOption.map((a) => a.map((r) {
+                  if (r is Todo) {
+                    final index = state.todoList.indexWhere((element) {
+                      if (element != null) {
+                        return element.contains(r);
+                      }
+
+                      return false;
+                    });
+
+                    if (index != -1) {
+                      scrollController.jumpTo(
+                        index: index,
+                      );
+                    }
+                  }
+                }));
+          }
+        },
         builder: (context, state) {
           final dateList = context.read<AppBloc>().state.dateList;
           final todoList = state.todoList;

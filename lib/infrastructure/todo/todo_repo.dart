@@ -73,7 +73,11 @@ class TodoRepo implements ITodoRepo {
       dio.options.headers['Authorization'] = 'Bearer $accessToken';
 
       final fromDate = dateList[0].dateTime.toIso8601String();
-      final toDate = dateList[6].dateTime.toIso8601String();
+      final toDate = dateList[6]
+          .dateTime
+          .add(const Duration(days: 1))
+          .subtract(const Duration(seconds: 1))
+          .toIso8601String();
 
       final response =
           await dio.get('${ApiEndpoints.getTodos}?from=$fromDate&to=$toDate');
