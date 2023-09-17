@@ -28,6 +28,11 @@ class TodoEvent with _$TodoEvent {
   ) = _EditTodo;
   const factory TodoEvent.deleteTodo(String todoId, List<Day> dateList) =
       _DeleteTodo;
+  const factory TodoEvent.changeTodoStatus(
+    String todoId,
+    TodoStatus status,
+    List<Day> dateList,
+  ) = _changeTodoStatus;
   const factory TodoEvent.getTodoList(List<Day> dateList) = _GetTodoList;
   const factory TodoEvent.refreshToken(String refreshToken) = _RefreshToken;
   const factory TodoEvent.authCheckRequested() = _AuthCheckRequested;

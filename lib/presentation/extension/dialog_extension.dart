@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gotodo/domain/todo/todo.dart';
 import 'package:gotodo/presentation/widgets/dialogs/color_picker_dialog.dart';
 import 'package:gotodo/presentation/widgets/dialogs/confirmation_dialog.dart';
 import 'package:gotodo/presentation/widgets/dialogs/todo_dialog.dart';
 
 extension DialogExtension on BuildContext {
   void showTodoDialog({
-    required Todo todo,
+    required String todoId,
   }) {
     showDialog(
       context: this,
-      builder: (ctx) => TodoDialog(todo: todo),
+      builder: (ctx) => TodoDialog(todoId: todoId),
     );
   }
 

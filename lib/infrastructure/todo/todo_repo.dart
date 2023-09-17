@@ -10,6 +10,7 @@ import 'package:gotodo/domain/todo/category_data.dart';
 import 'package:gotodo/domain/todo/i_todo_repo.dart';
 import 'package:gotodo/domain/todo/todo.dart';
 import 'package:gotodo/domain/todo/todo_data.dart';
+import 'package:gotodo/domain/todo/todo_status.dart';
 import 'package:gotodo/injection.dart';
 import 'package:injectable/injectable.dart';
 import 'package:intl/intl.dart';
@@ -396,6 +397,54 @@ class TodoRepo implements ITodoRepo {
       );
 
       if (response.statusCode == 204) {
+        return right(todoId);
+      }
+
+      return left(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
+      if (e.response?.statusCode == 401) {
+        return left(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> changeTodoStatus(
+    String todoId,
+    TodoStatus status,
+    String accessToken,
+  ) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers['Authorization'] = 'Bearer $accessToken';
+
+      final response = await dio.patch(
+        '${ApiEndpoints.changeStatus}/$todoId',
+        data: {
+          "status": status.name,
+        },
+      );
+
+      if (response.statusCode == 200) {
         return right(todoId);
       }
 
