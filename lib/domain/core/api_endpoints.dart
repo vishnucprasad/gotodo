@@ -10,4 +10,5 @@ class ApiEndpoints {
   static const deleteCategory = '/category';
   static const getTodos = '/todo/all';
   static const createTodo = '/todo/create';
+  static const editTodo = '/todo';
 }

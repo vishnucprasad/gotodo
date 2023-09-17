@@ -58,7 +58,6 @@ class ConfirmationDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 DialogButton(
-                  icon: Icons.cancel,
                   label: 'Cancel',
                   onPressed: () {
                     Navigator.pop(context);
@@ -66,8 +65,7 @@ class ConfirmationDialog extends StatelessWidget {
                 ),
                 kWidthMedium,
                 DialogButton(
-                  icon: Icons.check,
-                  label: 'YES',
+                  label: 'Confirm',
                   onPressed: onConfirm,
                   foregroundColor: lightColor,
                   backgroundColor: primaryColor,

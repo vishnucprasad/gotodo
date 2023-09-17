@@ -29,4 +29,9 @@ abstract class ITodoRepo {
     TodoData todoData,
     String accessToken,
   );
+  Future<Either<Failure, Todo>> editTodo(
+    String todoId,
+    TodoData todoData,
+    String accessToken,
+  );
 }

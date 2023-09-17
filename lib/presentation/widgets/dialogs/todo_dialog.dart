@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/domain/todo/todo.dart';
+import 'package:gotodo/domain/todo/todo_status.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
+import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
+import 'package:gotodo/presentation/widgets/buttons/dialog_button.dart';
 
 class TodoDialog extends StatelessWidget {
   const TodoDialog({
@@ -21,7 +26,7 @@ class TodoDialog extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: BorderSide(
-            color: darkGreyColor.withOpacity(0.5),
+            color: darkGreyColor.withOpacity(0.75),
             width: 0.5,
           ),
         ),
@@ -100,7 +105,8 @@ class TodoDialog extends StatelessWidget {
               ),
               CheckboxListTile(
                 contentPadding: EdgeInsets.zero,
-                value: false,
+                checkColor: darkColor,
+                value: todo.status == TodoStatus.todo,
                 onChanged: (value) {},
                 title: Text(
                   'Todo',
@@ -111,7 +117,7 @@ class TodoDialog extends StatelessWidget {
               ),
               CheckboxListTile(
                 contentPadding: EdgeInsets.zero,
-                value: false,
+                value: todo.status == TodoStatus.inProgress,
                 onChanged: (value) {},
                 title: Text(
                   'In Progress',
@@ -122,7 +128,7 @@ class TodoDialog extends StatelessWidget {
               ),
               CheckboxListTile(
                 contentPadding: EdgeInsets.zero,
-                value: false,
+                value: todo.status == TodoStatus.completed,
                 onChanged: (value) {},
                 title: Text(
                   'Completed',
@@ -134,6 +140,54 @@ class TodoDialog extends StatelessWidget {
             ],
           ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              bottom: 16,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                DialogButton(
+                  label: 'Edit',
+                  onPressed: () {
+                    Navigator.pop(context);
+
+                    context
+                        .read<TodoBloc>()
+                        .add(TodoEvent.todoTaskChanged(todo.task));
+                    context
+                        .read<TodoBloc>()
+                        .add(TodoEvent.todoDescriptionChanged(
+                          todo.description ?? "",
+                        ));
+                    context
+                        .read<TodoBloc>()
+                        .add(TodoEvent.todoDateChanged(todo.date));
+                    context
+                        .read<TodoBloc>()
+                        .add(TodoEvent.todoCategoryChanged(todo.category));
+
+                    context.showCreateTodoBottomsheet(
+                      todo: todo,
+                    );
+                  },
+                  foregroundColor: lightColor,
+                  backgroundColor: Colors.lightBlue,
+                ),
+                kWidthMedium,
+                DialogButton(
+                  label: 'Delete',
+                  onPressed: () {},
+                  foregroundColor: lightColor,
+                  backgroundColor: Colors.red,
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

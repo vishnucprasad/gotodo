@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gotodo/application/app/app_bloc.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
+import 'package:gotodo/domain/todo/todo.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/widgets/buttons/category_dropdown_button.dart';
@@ -12,8 +13,11 @@ import 'package:intl/intl.dart';
 
 class CreateTodoBottomsheet extends HookWidget {
   const CreateTodoBottomsheet({
+    this.todo,
     super.key,
   });
+
+  final Todo? todo;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +25,20 @@ class CreateTodoBottomsheet extends HookWidget {
         Theme.of(context).colorScheme.brightness == Brightness.dark;
     final size = MediaQuery.of(context).size;
     final controller = useTextEditingController();
+    final descriptionController = useTextEditingController();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (todo != null) {
+        final state = context.read<TodoBloc>().state;
+
+        controller.text = controller.text.isEmpty
+            ? state.todoData.task.value.getOrElse(() => "")
+            : controller.text;
+        descriptionController.text = descriptionController.text.isEmpty
+            ? state.todoData.description ?? ""
+            : descriptionController.text;
+      }
+    });
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -37,6 +55,7 @@ class CreateTodoBottomsheet extends HookWidget {
           );
 
           controller.text = state.todoData.task.value.getOrElse(() => "");
+          descriptionController.text = state.todoData.description ?? "";
         },
         builder: (context, state) {
           return DraggableScrollableSheet(
@@ -94,6 +113,7 @@ class CreateTodoBottomsheet extends HookWidget {
                     ),
                     kHeightMedium,
                     AppTextField(
+                      controller: descriptionController,
                       onChanged: (value) => context
                           .read<TodoBloc>()
                           .add(TodoEvent.todoDescriptionChanged(value)),
@@ -141,11 +161,20 @@ class CreateTodoBottomsheet extends HookWidget {
                                 ),
                               ),
                             ),
-                            onPressed: () => context
-                                .read<TodoBloc>()
-                                .add(TodoEvent.createTodo(
-                                  context.read<AppBloc>().state.dateList,
-                                )),
+                            onPressed: () {
+                              if (todo != null) {
+                                return context
+                                    .read<TodoBloc>()
+                                    .add(TodoEvent.editTodo(
+                                      todo!.id,
+                                      context.read<AppBloc>().state.dateList,
+                                    ));
+                              }
+
+                              context.read<TodoBloc>().add(TodoEvent.createTodo(
+                                    context.read<AppBloc>().state.dateList,
+                                  ));
+                            },
                             child: state.isSubmitting
                                 ? const SizedBox(
                                     width: 30,

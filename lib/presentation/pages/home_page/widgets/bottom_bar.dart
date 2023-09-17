@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gotodo/application/app/app_bloc.dart';
+import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
@@ -77,6 +78,9 @@ class BottomBar extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      context
+                          .read<TodoBloc>()
+                          .add(const TodoEvent.clearTodoData());
                       context.showCreateTodoBottomsheet();
                     },
                     child: const Icon(

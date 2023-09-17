@@ -325,4 +325,60 @@ class TodoRepo implements ITodoRepo {
       return left(const Failure.clientFailure('Something went wrong'));
     }
   }
+
+  @override
+  Future<Either<Failure, Todo>> editTodo(
+    String todoId,
+    TodoData todoData,
+    String accessToken,
+  ) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers['Authorization'] = 'Bearer $accessToken';
+
+      final response = await dio.patch(
+        '${ApiEndpoints.editTodo}/$todoId',
+        data: {
+          "categoryId": todoData.category?.id,
+          "task": todoData.task.getOrCrash(),
+          "date": todoData.date.toIso8601String(),
+          "description": (todoData.description ?? "").isEmpty
+              ? null
+              : todoData.description,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final todo = Todo.fromJson(response.data);
+        return todoData.category != null
+            ? right(todo.copyWith(category: todoData.category))
+            : right(todo);
+      }
+
+      return left(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
+      if (e.response?.statusCode == 401) {
+        return left(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
+    }
+  }
 }

@@ -16,11 +16,16 @@ class TodoEvent with _$TodoEvent {
   const factory TodoEvent.todoDescriptionChanged(
     String description,
   ) = _TodoDescriptionChanged;
+  const factory TodoEvent.clearTodoData() = _ClearTodoData;
   const factory TodoEvent.createCategory() = _CreateCategory;
   const factory TodoEvent.getCategoryList() = _GetCategoryList;
   const factory TodoEvent.deleteCategory(String categoryId) = _DeleteCategory;
   const factory TodoEvent.editCategory(String categoryId) = _EditCategory;
   const factory TodoEvent.createTodo(List<Day> dateList) = _CreateTodo;
+  const factory TodoEvent.editTodo(
+    String todoId,
+    List<Day> dateList,
+  ) = _EditTodo;
   const factory TodoEvent.getTodoList(List<Day> dateList) = _GetTodoList;
   const factory TodoEvent.refreshToken(String refreshToken) = _RefreshToken;
   const factory TodoEvent.authCheckRequested() = _AuthCheckRequested;
