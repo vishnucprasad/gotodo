@@ -780,6 +780,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
 
               if (_refreshEvent != null) {
                 add(_refreshEvent!);
+                _refreshEvent = null;
               }
             },
           );

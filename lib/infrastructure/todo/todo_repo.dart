@@ -5,6 +5,7 @@ import 'package:gotodo/domain/app/day.dart';
 import 'package:gotodo/domain/core/api_endpoints.dart';
 import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/domain/core/failure.dart';
+import 'package:gotodo/domain/statistics/date_range.dart';
 import 'package:gotodo/domain/todo/category.dart';
 import 'package:gotodo/domain/todo/category_data.dart';
 import 'package:gotodo/domain/todo/i_todo_repo.dart';
@@ -35,6 +36,58 @@ class TodoRepo implements ITodoRepo {
             : [];
 
         return right(categoryList);
+      }
+
+      return left(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
+      if (e.response?.statusCode == 401) {
+        return left(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Todo>>> getTodoListByDateRange(
+    DateRange dateRange,
+    String accessToken,
+  ) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers['Authorization'] = 'Bearer $accessToken';
+
+      final fromDate = dateRange.fromDate.toIso8601String();
+      final toDate = dateRange.toDate.toIso8601String();
+
+      final response =
+          await dio.get('${ApiEndpoints.getTodos}?from=$fromDate&to=$toDate');
+
+      if (response.statusCode == 200) {
+        final List<Todo> todoList = response.data.length != 0
+            ? (response.data as List).map((result) {
+                return Todo.fromJson(result);
+              }).toList()
+            : [];
+
+        return right(todoList);
       }
 
       return left(const Failure.clientFailure('Something went wrong'));

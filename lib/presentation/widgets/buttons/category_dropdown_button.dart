@@ -23,6 +23,7 @@ class CategoryDropdownButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: DropdownButton(
+            icon: const SizedBox.shrink(),
             onChanged: (value) => context
                 .read<TodoBloc>()
                 .add(TodoEvent.todoCategoryChanged(value)),
@@ -35,7 +36,7 @@ class CategoryDropdownButton extends StatelessWidget {
               children: [
                 Icon(Icons.label_off),
                 kWidthSmall,
-                Text('Category'),
+                Text('No category'),
               ],
             ),
             value: state.todoData.category,
@@ -46,7 +47,7 @@ class CategoryDropdownButton extends StatelessWidget {
                   children: [
                     Icon(Icons.label_off),
                     kWidthSmall,
-                    Text('Category'),
+                    Text('No category'),
                   ],
                 ),
               ),
