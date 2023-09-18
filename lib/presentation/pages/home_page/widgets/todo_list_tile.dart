@@ -35,14 +35,13 @@ class TodoListTile extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   ),
                 )
-              : InkWell(
-                  customBorder: const CircleBorder(),
-                  onTapDown: (details) async {
+              : GestureDetector(
+                  onPanDown: (details) async {
                     final status = await context.showTodoStatusMenu(
                       offset: details.globalPosition,
                     );
 
-                    if (status != null) {
+                    if (status != null && status != todo.status) {
                       context.read<TodoBloc>().add(TodoEvent.changeTodoStatus(
                           todo.id,
                           status,

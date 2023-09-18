@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/extension/dialog_extension.dart';
 import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
+import 'package:gotodo/presentation/router/app_router.dart';
 
 class MenuListView extends StatelessWidget {
   const MenuListView({this.controller, super.key});
@@ -21,22 +23,23 @@ class MenuListView extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Column(
+            Column(
               children: [
                 ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     CupertinoIcons.chart_pie_fill,
                     color: lightGreyColor,
                   ),
-                  title: Text(
+                  title: const Text(
                     'Statistics',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  onTap: () => context.pushRoute(const StatisticsRoute()),
                 ),
-                Divider(thickness: 1),
-                ListTile(
+                const Divider(thickness: 1),
+                const ListTile(
                   leading: Icon(
                     Icons.settings,
                     color: lightGreyColor,
@@ -48,7 +51,7 @@ class MenuListView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Divider(thickness: 1),
+                const Divider(thickness: 1),
               ],
             ),
             kHeightLarge,

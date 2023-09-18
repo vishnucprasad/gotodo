@@ -3,6 +3,7 @@ import 'package:gotodo/presentation/pages/splash_page/splash_page.dart';
 import 'package:gotodo/presentation/pages/signin_page/signin_page.dart';
 import 'package:gotodo/presentation/pages/signup_page/signup_page.dart';
 import 'package:gotodo/presentation/pages/home_page/home_page.dart';
+import 'package:gotodo/presentation/pages/statistics_page/statistics_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -25,6 +26,10 @@ class AppRouter extends _$AppRouter {
       ),
       CustomRoute(
         page: HomeRoute.page,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      ),
+      CustomRoute(
+        page: StatisticsRoute.page,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       ),
     ];
