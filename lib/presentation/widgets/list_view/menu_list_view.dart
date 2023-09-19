@@ -39,17 +39,18 @@ class MenuListView extends StatelessWidget {
                   onTap: () => context.pushRoute(const StatisticsRoute()),
                 ),
                 const Divider(thickness: 1),
-                const ListTile(
-                  leading: Icon(
+                ListTile(
+                  leading: const Icon(
                     Icons.settings,
                     color: lightGreyColor,
                   ),
-                  title: Text(
+                  title: const Text(
                     'Settings',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  onTap: () => context.pushRoute(const SettingsRoute()),
                 ),
                 const Divider(thickness: 1),
               ],
