@@ -24,38 +24,19 @@ class CreateTodoBottomsheet extends HookWidget {
     final isDarkMode =
         Theme.of(context).colorScheme.brightness == Brightness.dark;
     final size = MediaQuery.of(context).size;
-    final controller = useTextEditingController();
-    final descriptionController = useTextEditingController();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (todo != null) {
-        final state = context.read<TodoBloc>().state;
-
-        controller.text = controller.text.isEmpty
-            ? state.todoData.task.value.getOrElse(() => "")
-            : controller.text;
-        descriptionController.text = descriptionController.text.isEmpty
-            ? state.todoData.description ?? ""
-            : descriptionController.text;
-      }
-    });
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: BlocConsumer<TodoBloc, TodoState>(
         listenWhen: (p, c) =>
             p.showValidationError != c.showValidationError ||
-            p.failureOrSuccessOption != c.failureOrSuccessOption ||
-            p.todoData != c.todoData,
+            p.failureOrSuccessOption != c.failureOrSuccessOption,
         listener: (context, state) {
           state.failureOrSuccessOption.map(
             (a) => a.map(
               (r) => Navigator.pop(context),
             ),
           );
-
-          controller.text = state.todoData.task.value.getOrElse(() => "");
-          descriptionController.text = state.todoData.description ?? "";
         },
         builder: (context, state) {
           return DraggableScrollableSheet(
@@ -89,7 +70,7 @@ class CreateTodoBottomsheet extends HookWidget {
                     ),
                     kHeightMedium,
                     AppTextField(
-                      controller: controller,
+                      initialValue: todo?.task,
                       hintText: 'Write your task',
                       autoValidateMode: state.showValidationError
                           ? AutovalidateMode.always
@@ -113,7 +94,7 @@ class CreateTodoBottomsheet extends HookWidget {
                     ),
                     kHeightMedium,
                     AppTextField(
-                      controller: descriptionController,
+                      initialValue: todo?.description,
                       onChanged: (value) => context
                           .read<TodoBloc>()
                           .add(TodoEvent.todoDescriptionChanged(value)),

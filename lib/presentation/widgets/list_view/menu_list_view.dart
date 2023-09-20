@@ -123,6 +123,16 @@ class MenuListView extends StatelessWidget {
                               children: [
                                 IconButton(
                                   onPressed: () {
+                                    context
+                                        .read<TodoBloc>()
+                                        .add(TodoEvent.colorStringChanged(
+                                          category.color,
+                                        ));
+                                    context
+                                        .read<TodoBloc>()
+                                        .add(TodoEvent.categoryNameChanged(
+                                          category.name,
+                                        ));
                                     context.showCreateCategoryBottomsheet(
                                       category: category,
                                     );

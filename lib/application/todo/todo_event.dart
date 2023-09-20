@@ -17,6 +17,7 @@ class TodoEvent with _$TodoEvent {
     String description,
   ) = _TodoDescriptionChanged;
   const factory TodoEvent.clearTodoData() = _ClearTodoData;
+  const factory TodoEvent.clearCategoryData() = _ClearCategoryData;
   const factory TodoEvent.createCategory() = _CreateCategory;
   const factory TodoEvent.getCategoryList() = _GetCategoryList;
   const factory TodoEvent.deleteCategory(String categoryId) = _DeleteCategory;

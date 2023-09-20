@@ -67,7 +67,18 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
           failureOrSuccessOption: none(),
         )),
         clearTodoData: (_) async => emit(state.copyWith(
+          isLoading: false,
+          showError: false,
+          showValidationError: false,
+          errorMessage: null,
           todoData: TodoData.empty(),
+        )),
+        clearCategoryData: (_) async => emit(state.copyWith(
+          isLoading: false,
+          showError: false,
+          showValidationError: false,
+          errorMessage: null,
+          categoryData: CategoryData.empty(),
         )),
         createCategory: (e) async {
           if (state.isSubmitting) return;

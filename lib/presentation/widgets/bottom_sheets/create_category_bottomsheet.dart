@@ -23,35 +23,19 @@ class CreateCategoryBottomsheet extends HookWidget {
     final isDarkMode =
         Theme.of(context).colorScheme.brightness == Brightness.dark;
     final size = MediaQuery.of(context).size;
-    final controller = useTextEditingController();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (category != null) {
-        context
-            .read<TodoBloc>()
-            .add(TodoEvent.colorStringChanged(category!.color));
-        context
-            .read<TodoBloc>()
-            .add(TodoEvent.categoryNameChanged(category!.name));
-      }
-    });
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: BlocConsumer<TodoBloc, TodoState>(
         listenWhen: (p, c) =>
             p.showValidationError != c.showValidationError ||
-            p.failureOrSuccessOption != c.failureOrSuccessOption ||
-            p.categoryData != c.categoryData,
+            p.failureOrSuccessOption != c.failureOrSuccessOption,
         listener: (context, state) {
           state.failureOrSuccessOption.map(
             (a) => a.map(
               (r) => Navigator.pop(context),
             ),
           );
-
-          controller.text =
-              state.categoryData.categoryName.value.getOrElse(() => "");
         },
         builder: (context, state) {
           return DraggableScrollableSheet(
@@ -85,7 +69,7 @@ class CreateCategoryBottomsheet extends HookWidget {
                     ),
                     kHeightMedium,
                     AppTextField(
-                      controller: controller,
+                      initialValue: category?.name,
                       autoValidateMode: state.showValidationError
                           ? AutovalidateMode.always
                           : AutovalidateMode.disabled,

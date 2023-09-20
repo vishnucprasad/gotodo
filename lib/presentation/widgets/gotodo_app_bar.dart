@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
+import 'package:gotodo/presentation/router/app_router.dart';
 
 class GotodoAppBar extends StatelessWidget {
   const GotodoAppBar({
@@ -29,7 +31,7 @@ class GotodoAppBar extends StatelessWidget {
           backgroundColor:
               isDarkMode ? secondaryDarkColor : secondaryLightColor,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () => context.pushRoute(const SettingsRoute()),
             icon: const Icon(Icons.person),
           ),
         ),

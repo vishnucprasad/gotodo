@@ -13,6 +13,7 @@ class AppTextField extends StatelessWidget {
     this.suffixIcon,
     this.filled = true,
     this.maxLines = 1,
+    this.initialValue,
     super.key,
   });
 
@@ -25,6 +26,7 @@ class AppTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final bool filled;
   final int? maxLines;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,8 @@ class AppTextField extends StatelessWidget {
         MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return TextFormField(
-      controller: controller,
+      initialValue: initialValue,
+      controller: initialValue != null ? controller : null,
       cursorColor: isDarkMode ? lightColor : darkColor,
       obscureText: obscureText,
       maxLines: maxLines,

@@ -25,6 +25,7 @@ mixin _$TodoEvent {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -49,6 +50,7 @@ mixin _$TodoEvent {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -72,6 +74,7 @@ mixin _$TodoEvent {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -97,6 +100,7 @@ mixin _$TodoEvent {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -119,6 +123,7 @@ mixin _$TodoEvent {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -141,6 +146,7 @@ mixin _$TodoEvent {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -247,6 +253,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -274,6 +281,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -300,6 +308,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -331,6 +340,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -356,6 +366,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -381,6 +392,7 @@ class _$CategoryNameChanged implements CategoryNameChanged {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -484,6 +496,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -511,6 +524,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -537,6 +551,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -568,6 +583,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -593,6 +609,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -618,6 +635,7 @@ class _$_ColorStringChanged implements _ColorStringChanged {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -719,6 +737,7 @@ class _$_TodoTaskChanged implements _TodoTaskChanged {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -746,6 +765,7 @@ class _$_TodoTaskChanged implements _TodoTaskChanged {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -772,6 +792,7 @@ class _$_TodoTaskChanged implements _TodoTaskChanged {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -803,6 +824,7 @@ class _$_TodoTaskChanged implements _TodoTaskChanged {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -828,6 +850,7 @@ class _$_TodoTaskChanged implements _TodoTaskChanged {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -853,6 +876,7 @@ class _$_TodoTaskChanged implements _TodoTaskChanged {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -953,6 +977,7 @@ class _$_TodoDateChanged implements _TodoDateChanged {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -980,6 +1005,7 @@ class _$_TodoDateChanged implements _TodoDateChanged {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -1006,6 +1032,7 @@ class _$_TodoDateChanged implements _TodoDateChanged {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -1037,6 +1064,7 @@ class _$_TodoDateChanged implements _TodoDateChanged {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -1062,6 +1090,7 @@ class _$_TodoDateChanged implements _TodoDateChanged {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -1087,6 +1116,7 @@ class _$_TodoDateChanged implements _TodoDateChanged {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -1203,6 +1233,7 @@ class _$_TodoCategoryChanged implements _TodoCategoryChanged {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -1230,6 +1261,7 @@ class _$_TodoCategoryChanged implements _TodoCategoryChanged {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -1256,6 +1288,7 @@ class _$_TodoCategoryChanged implements _TodoCategoryChanged {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -1287,6 +1320,7 @@ class _$_TodoCategoryChanged implements _TodoCategoryChanged {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -1312,6 +1346,7 @@ class _$_TodoCategoryChanged implements _TodoCategoryChanged {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -1337,6 +1372,7 @@ class _$_TodoCategoryChanged implements _TodoCategoryChanged {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -1440,6 +1476,7 @@ class _$_TodoDescriptionChanged implements _TodoDescriptionChanged {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -1467,6 +1504,7 @@ class _$_TodoDescriptionChanged implements _TodoDescriptionChanged {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -1493,6 +1531,7 @@ class _$_TodoDescriptionChanged implements _TodoDescriptionChanged {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -1524,6 +1563,7 @@ class _$_TodoDescriptionChanged implements _TodoDescriptionChanged {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -1549,6 +1589,7 @@ class _$_TodoDescriptionChanged implements _TodoDescriptionChanged {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -1574,6 +1615,7 @@ class _$_TodoDescriptionChanged implements _TodoDescriptionChanged {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -1649,6 +1691,7 @@ class _$_ClearTodoData implements _ClearTodoData {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -1676,6 +1719,7 @@ class _$_ClearTodoData implements _ClearTodoData {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -1702,6 +1746,7 @@ class _$_ClearTodoData implements _ClearTodoData {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -1733,6 +1778,7 @@ class _$_ClearTodoData implements _ClearTodoData {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -1758,6 +1804,7 @@ class _$_ClearTodoData implements _ClearTodoData {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -1783,6 +1830,7 @@ class _$_ClearTodoData implements _ClearTodoData {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -1805,6 +1853,215 @@ class _$_ClearTodoData implements _ClearTodoData {
 
 abstract class _ClearTodoData implements TodoEvent {
   const factory _ClearTodoData() = _$_ClearTodoData;
+}
+
+/// @nodoc
+abstract class _$$_ClearCategoryDataCopyWith<$Res> {
+  factory _$$_ClearCategoryDataCopyWith(_$_ClearCategoryData value,
+          $Res Function(_$_ClearCategoryData) then) =
+      __$$_ClearCategoryDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ClearCategoryDataCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$_ClearCategoryData>
+    implements _$$_ClearCategoryDataCopyWith<$Res> {
+  __$$_ClearCategoryDataCopyWithImpl(
+      _$_ClearCategoryData _value, $Res Function(_$_ClearCategoryData) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ClearCategoryData implements _ClearCategoryData {
+  const _$_ClearCategoryData();
+
+  @override
+  String toString() {
+    return 'TodoEvent.clearCategoryData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ClearCategoryData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String categoryName) categoryNameChanged,
+    required TResult Function(String colorString) colorStringChanged,
+    required TResult Function(String task) todoTaskChanged,
+    required TResult Function(DateTime date) todoDateChanged,
+    required TResult Function(Category? category) todoCategoryChanged,
+    required TResult Function(String description) todoDescriptionChanged,
+    required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
+    required TResult Function() createCategory,
+    required TResult Function() getCategoryList,
+    required TResult Function(String categoryId) deleteCategory,
+    required TResult Function(String categoryId) editCategory,
+    required TResult Function(List<Day> dateList) createTodo,
+    required TResult Function(String todoId, List<Day> dateList) editTodo,
+    required TResult Function(String todoId, List<Day> dateList) deleteTodo,
+    required TResult Function(
+            String todoId, TodoStatus status, List<Day> dateList)
+        changeTodoStatus,
+    required TResult Function(List<Day> dateList) getTodoList,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() authCheckRequested,
+  }) {
+    return clearCategoryData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String categoryName)? categoryNameChanged,
+    TResult? Function(String colorString)? colorStringChanged,
+    TResult? Function(String task)? todoTaskChanged,
+    TResult? Function(DateTime date)? todoDateChanged,
+    TResult? Function(Category? category)? todoCategoryChanged,
+    TResult? Function(String description)? todoDescriptionChanged,
+    TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
+    TResult? Function()? createCategory,
+    TResult? Function()? getCategoryList,
+    TResult? Function(String categoryId)? deleteCategory,
+    TResult? Function(String categoryId)? editCategory,
+    TResult? Function(List<Day> dateList)? createTodo,
+    TResult? Function(String todoId, List<Day> dateList)? editTodo,
+    TResult? Function(String todoId, List<Day> dateList)? deleteTodo,
+    TResult? Function(String todoId, TodoStatus status, List<Day> dateList)?
+        changeTodoStatus,
+    TResult? Function(List<Day> dateList)? getTodoList,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? authCheckRequested,
+  }) {
+    return clearCategoryData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String categoryName)? categoryNameChanged,
+    TResult Function(String colorString)? colorStringChanged,
+    TResult Function(String task)? todoTaskChanged,
+    TResult Function(DateTime date)? todoDateChanged,
+    TResult Function(Category? category)? todoCategoryChanged,
+    TResult Function(String description)? todoDescriptionChanged,
+    TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
+    TResult Function()? createCategory,
+    TResult Function()? getCategoryList,
+    TResult Function(String categoryId)? deleteCategory,
+    TResult Function(String categoryId)? editCategory,
+    TResult Function(List<Day> dateList)? createTodo,
+    TResult Function(String todoId, List<Day> dateList)? editTodo,
+    TResult Function(String todoId, List<Day> dateList)? deleteTodo,
+    TResult Function(String todoId, TodoStatus status, List<Day> dateList)?
+        changeTodoStatus,
+    TResult Function(List<Day> dateList)? getTodoList,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (clearCategoryData != null) {
+      return clearCategoryData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryNameChanged value) categoryNameChanged,
+    required TResult Function(_ColorStringChanged value) colorStringChanged,
+    required TResult Function(_TodoTaskChanged value) todoTaskChanged,
+    required TResult Function(_TodoDateChanged value) todoDateChanged,
+    required TResult Function(_TodoCategoryChanged value) todoCategoryChanged,
+    required TResult Function(_TodoDescriptionChanged value)
+        todoDescriptionChanged,
+    required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
+    required TResult Function(_CreateCategory value) createCategory,
+    required TResult Function(_GetCategoryList value) getCategoryList,
+    required TResult Function(_DeleteCategory value) deleteCategory,
+    required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_CreateTodo value) createTodo,
+    required TResult Function(_EditTodo value) editTodo,
+    required TResult Function(_DeleteTodo value) deleteTodo,
+    required TResult Function(_changeTodoStatus value) changeTodoStatus,
+    required TResult Function(_GetTodoList value) getTodoList,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+  }) {
+    return clearCategoryData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult? Function(_ColorStringChanged value)? colorStringChanged,
+    TResult? Function(_TodoTaskChanged value)? todoTaskChanged,
+    TResult? Function(_TodoDateChanged value)? todoDateChanged,
+    TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
+    TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
+    TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
+    TResult? Function(_CreateCategory value)? createCategory,
+    TResult? Function(_GetCategoryList value)? getCategoryList,
+    TResult? Function(_DeleteCategory value)? deleteCategory,
+    TResult? Function(_EditCategory value)? editCategory,
+    TResult? Function(_CreateTodo value)? createTodo,
+    TResult? Function(_EditTodo value)? editTodo,
+    TResult? Function(_DeleteTodo value)? deleteTodo,
+    TResult? Function(_changeTodoStatus value)? changeTodoStatus,
+    TResult? Function(_GetTodoList value)? getTodoList,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+  }) {
+    return clearCategoryData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryNameChanged value)? categoryNameChanged,
+    TResult Function(_ColorStringChanged value)? colorStringChanged,
+    TResult Function(_TodoTaskChanged value)? todoTaskChanged,
+    TResult Function(_TodoDateChanged value)? todoDateChanged,
+    TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
+    TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
+    TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
+    TResult Function(_CreateCategory value)? createCategory,
+    TResult Function(_GetCategoryList value)? getCategoryList,
+    TResult Function(_DeleteCategory value)? deleteCategory,
+    TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_CreateTodo value)? createTodo,
+    TResult Function(_EditTodo value)? editTodo,
+    TResult Function(_DeleteTodo value)? deleteTodo,
+    TResult Function(_changeTodoStatus value)? changeTodoStatus,
+    TResult Function(_GetTodoList value)? getTodoList,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    required TResult orElse(),
+  }) {
+    if (clearCategoryData != null) {
+      return clearCategoryData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearCategoryData implements TodoEvent {
+  const factory _ClearCategoryData() = _$_ClearCategoryData;
 }
 
 /// @nodoc
@@ -1852,6 +2109,7 @@ class _$_CreateCategory implements _CreateCategory {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -1879,6 +2137,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -1905,6 +2164,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -1936,6 +2196,7 @@ class _$_CreateCategory implements _CreateCategory {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -1961,6 +2222,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -1986,6 +2248,7 @@ class _$_CreateCategory implements _CreateCategory {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -2055,6 +2318,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -2082,6 +2346,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -2108,6 +2373,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -2139,6 +2405,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -2164,6 +2431,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -2189,6 +2457,7 @@ class _$_GetCategoryList implements _GetCategoryList {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -2285,6 +2554,7 @@ class _$_DeleteCategory implements _DeleteCategory {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -2312,6 +2582,7 @@ class _$_DeleteCategory implements _DeleteCategory {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -2338,6 +2609,7 @@ class _$_DeleteCategory implements _DeleteCategory {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -2369,6 +2641,7 @@ class _$_DeleteCategory implements _DeleteCategory {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -2394,6 +2667,7 @@ class _$_DeleteCategory implements _DeleteCategory {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -2419,6 +2693,7 @@ class _$_DeleteCategory implements _DeleteCategory {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -2520,6 +2795,7 @@ class _$_EditCategory implements _EditCategory {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -2547,6 +2823,7 @@ class _$_EditCategory implements _EditCategory {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -2573,6 +2850,7 @@ class _$_EditCategory implements _EditCategory {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -2604,6 +2882,7 @@ class _$_EditCategory implements _EditCategory {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -2629,6 +2908,7 @@ class _$_EditCategory implements _EditCategory {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -2654,6 +2934,7 @@ class _$_EditCategory implements _EditCategory {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -2760,6 +3041,7 @@ class _$_CreateTodo implements _CreateTodo {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -2787,6 +3069,7 @@ class _$_CreateTodo implements _CreateTodo {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -2813,6 +3096,7 @@ class _$_CreateTodo implements _CreateTodo {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -2844,6 +3128,7 @@ class _$_CreateTodo implements _CreateTodo {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -2869,6 +3154,7 @@ class _$_CreateTodo implements _CreateTodo {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -2894,6 +3180,7 @@ class _$_CreateTodo implements _CreateTodo {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -3009,6 +3296,7 @@ class _$_EditTodo implements _EditTodo {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -3036,6 +3324,7 @@ class _$_EditTodo implements _EditTodo {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -3062,6 +3351,7 @@ class _$_EditTodo implements _EditTodo {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -3093,6 +3383,7 @@ class _$_EditTodo implements _EditTodo {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -3118,6 +3409,7 @@ class _$_EditTodo implements _EditTodo {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -3143,6 +3435,7 @@ class _$_EditTodo implements _EditTodo {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -3260,6 +3553,7 @@ class _$_DeleteTodo implements _DeleteTodo {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -3287,6 +3581,7 @@ class _$_DeleteTodo implements _DeleteTodo {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -3313,6 +3608,7 @@ class _$_DeleteTodo implements _DeleteTodo {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -3344,6 +3640,7 @@ class _$_DeleteTodo implements _DeleteTodo {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -3369,6 +3666,7 @@ class _$_DeleteTodo implements _DeleteTodo {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -3394,6 +3692,7 @@ class _$_DeleteTodo implements _DeleteTodo {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -3519,6 +3818,7 @@ class _$_changeTodoStatus implements _changeTodoStatus {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -3546,6 +3846,7 @@ class _$_changeTodoStatus implements _changeTodoStatus {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -3572,6 +3873,7 @@ class _$_changeTodoStatus implements _changeTodoStatus {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -3603,6 +3905,7 @@ class _$_changeTodoStatus implements _changeTodoStatus {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -3628,6 +3931,7 @@ class _$_changeTodoStatus implements _changeTodoStatus {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -3653,6 +3957,7 @@ class _$_changeTodoStatus implements _changeTodoStatus {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -3762,6 +4067,7 @@ class _$_GetTodoList implements _GetTodoList {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -3789,6 +4095,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -3815,6 +4122,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -3846,6 +4154,7 @@ class _$_GetTodoList implements _GetTodoList {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -3871,6 +4180,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -3896,6 +4206,7 @@ class _$_GetTodoList implements _GetTodoList {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -3997,6 +4308,7 @@ class _$_RefreshToken implements _RefreshToken {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -4024,6 +4336,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -4050,6 +4363,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -4081,6 +4395,7 @@ class _$_RefreshToken implements _RefreshToken {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -4106,6 +4421,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -4131,6 +4447,7 @@ class _$_RefreshToken implements _RefreshToken {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,
@@ -4205,6 +4522,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(Category? category) todoCategoryChanged,
     required TResult Function(String description) todoDescriptionChanged,
     required TResult Function() clearTodoData,
+    required TResult Function() clearCategoryData,
     required TResult Function() createCategory,
     required TResult Function() getCategoryList,
     required TResult Function(String categoryId) deleteCategory,
@@ -4232,6 +4550,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult? Function(Category? category)? todoCategoryChanged,
     TResult? Function(String description)? todoDescriptionChanged,
     TResult? Function()? clearTodoData,
+    TResult? Function()? clearCategoryData,
     TResult? Function()? createCategory,
     TResult? Function()? getCategoryList,
     TResult? Function(String categoryId)? deleteCategory,
@@ -4258,6 +4577,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(Category? category)? todoCategoryChanged,
     TResult Function(String description)? todoDescriptionChanged,
     TResult Function()? clearTodoData,
+    TResult Function()? clearCategoryData,
     TResult Function()? createCategory,
     TResult Function()? getCategoryList,
     TResult Function(String categoryId)? deleteCategory,
@@ -4289,6 +4609,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(_TodoDescriptionChanged value)
         todoDescriptionChanged,
     required TResult Function(_ClearTodoData value) clearTodoData,
+    required TResult Function(_ClearCategoryData value) clearCategoryData,
     required TResult Function(_CreateCategory value) createCategory,
     required TResult Function(_GetCategoryList value) getCategoryList,
     required TResult Function(_DeleteCategory value) deleteCategory,
@@ -4314,6 +4635,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult? Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult? Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult? Function(_ClearTodoData value)? clearTodoData,
+    TResult? Function(_ClearCategoryData value)? clearCategoryData,
     TResult? Function(_CreateCategory value)? createCategory,
     TResult? Function(_GetCategoryList value)? getCategoryList,
     TResult? Function(_DeleteCategory value)? deleteCategory,
@@ -4339,6 +4661,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(_TodoCategoryChanged value)? todoCategoryChanged,
     TResult Function(_TodoDescriptionChanged value)? todoDescriptionChanged,
     TResult Function(_ClearTodoData value)? clearTodoData,
+    TResult Function(_ClearCategoryData value)? clearCategoryData,
     TResult Function(_CreateCategory value)? createCategory,
     TResult Function(_GetCategoryList value)? getCategoryList,
     TResult Function(_DeleteCategory value)? deleteCategory,

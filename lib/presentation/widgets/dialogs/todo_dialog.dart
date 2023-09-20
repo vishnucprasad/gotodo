@@ -204,8 +204,6 @@ class TodoDialog extends StatelessWidget {
                     DialogButton(
                       label: 'Edit',
                       onPressed: () {
-                        Navigator.pop(context);
-
                         context
                             .read<TodoBloc>()
                             .add(TodoEvent.todoTaskChanged(todo.task));
