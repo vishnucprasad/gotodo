@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:gotodo/domain/auth/credentials.dart';
 import 'package:gotodo/domain/auth/i_auth_facade.dart';
 import 'package:gotodo/domain/auth/signin_credentials.dart';
 import 'package:gotodo/domain/auth/signup_credentials.dart';
@@ -144,6 +145,52 @@ class AuthFacade implements IAuthFacade {
           "Something went wrong, please try again",
         ),
       );
+    }
+  }
+
+  @override
+  Future<Either<Failure, User>> editUser(
+    Credentials credentials,
+    String accessToken,
+  ) async {
+    try {
+      final dio = getIt<Dio>();
+      dio.options.headers["Authorization"] = "Bearer $accessToken";
+
+      final response = await dio.patch(ApiEndpoints.editUser, data: {
+        "name": credentials.name.getOrCrash(),
+        "email": credentials.emailAddress.getOrCrash(),
+      });
+
+      if (response.statusCode == 200) {
+        final user = User.fromJson(response.data);
+        return right(user);
+      }
+
+      return left(const Failure.clientFailure('Something went wrong'));
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.connectionTimeout) {
+        return left(const Failure.serverFailure('Connection timeout'));
+      }
+
+      if (e.response?.statusCode == 401) {
+        return left(const Failure.tokenFailure(TokenType.accessToken));
+      }
+
+      if (e.response?.statusCode == 400 ||
+          e.response?.statusCode == 403 ||
+          e.response?.statusCode == 500) {
+        final message = e.response?.data?['message'];
+        return left(Failure.serverFailure(
+          message is List ? message[0] : message,
+        ));
+      }
+
+      return left(const Failure.serverFailure(
+        'Something went wrong on the server side',
+      ));
+    } catch (_) {
+      return left(const Failure.clientFailure('Something went wrong'));
     }
   }
 

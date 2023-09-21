@@ -32,6 +32,7 @@ class GotodoApp extends StatelessWidget {
       child: MultiBlocListener(
         listeners: [
           BlocListener<AuthBloc, AuthState>(
+            listenWhen: (p, c) => p.runtimeType != c.runtimeType,
             listener: (context, state) {
               state.map(
                 initial: (_) {},

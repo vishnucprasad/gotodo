@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
+import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
 
 class SettingsListView extends StatelessWidget {
   const SettingsListView({
@@ -26,13 +27,14 @@ class SettingsListView extends StatelessWidget {
             style: textTheme.titleMedium,
           ),
           kHeight,
-          const Column(
+          Column(
             children: [
               ListTile(
-                leading: Icon(Icons.edit_square),
-                title: Text('Edit profile'),
+                leading: const Icon(Icons.edit_square),
+                title: const Text('Edit profile'),
+                onTap: () => context.showEditProfileBottomsheet(),
               ),
-              Divider(
+              const Divider(
                 thickness: 1,
               )
             ],

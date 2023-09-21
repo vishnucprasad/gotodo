@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:gotodo/domain/auth/credentials.dart';
 import 'package:gotodo/domain/auth/signin_credentials.dart';
 import 'package:gotodo/domain/auth/signup_credentials.dart';
 import 'package:gotodo/domain/auth/tokens.dart';
@@ -12,6 +13,10 @@ abstract class IAuthFacade {
   );
   Future<Either<Failure, Tokens>> signupWithCredentials(
     SignupCredentials credentials,
+  );
+  Future<Either<Failure, User>> editUser(
+    Credentials credentials,
+    String accessToken,
   );
   Future<Either<Failure, Tokens>> refreshToken(String refreshToken);
   Future<Option<Failure>> signout(String accessToken);
