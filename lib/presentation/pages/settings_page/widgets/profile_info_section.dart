@@ -9,7 +9,7 @@ class ProfileInfoSection extends StatelessWidget {
     super.key,
   });
 
-  final User user;
+  final User? user;
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +30,14 @@ class ProfileInfoSection extends StatelessWidget {
         ),
         kHeightSmall,
         Text(
-          user.name,
+          user?.name ?? "Username",
           style: textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
         kHeightSmall,
         Text(
-          user.email,
+          user?.email ?? "Email",
           style: textTheme.titleLarge,
         ),
       ],

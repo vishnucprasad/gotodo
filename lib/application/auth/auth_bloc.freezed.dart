@@ -1124,73 +1124,18 @@ abstract class _signout implements AuthEvent {
 
 /// @nodoc
 mixin _$AuthState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)
-        authenticated,
-    required TResult Function() unAuthenticated,
-    required TResult Function(String errorMessage) errorState,
-  }) =>
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isAuthenticated => throw _privateConstructorUsedError;
+  bool get showError => throw _privateConstructorUsedError;
+  bool get showValidationError => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+  Credentials get credentials => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
+  Option<Either<Failure, dynamic>>? get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult? Function()? unAuthenticated,
-    TResult? Function(String errorMessage)? errorState,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult Function()? unAuthenticated,
-    TResult Function(String errorMessage)? errorState,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnAuthenticated value) unAuthenticated,
-    required TResult Function(_ErrorState value) errorState,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_UnAuthenticated value)? unAuthenticated,
-    TResult? Function(_ErrorState value)? errorState,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnAuthenticated value)? unAuthenticated,
-    TResult Function(_ErrorState value)? errorState,
-    required TResult orElse(),
-  }) =>
+
+  @JsonKey(ignore: true)
+  $AuthStateCopyWith<AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1198,6 +1143,19 @@ mixin _$AuthState {
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
+  @useResult
+  $Res call(
+      {bool isLoading,
+      bool isAuthenticated,
+      bool showError,
+      bool showValidationError,
+      String? errorMessage,
+      Credentials credentials,
+      User? user,
+      Option<Either<Failure, dynamic>>? failureOrSuccessOption});
+
+  $CredentialsCopyWith<$Res> get credentials;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -1209,678 +1167,262 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
 
-/// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
+  @pragma('vm:prefer-inline')
   @override
-  String toString() {
-    return 'AuthState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)
-        authenticated,
-    required TResult Function() unAuthenticated,
-    required TResult Function(String errorMessage) errorState,
+  $Res call({
+    Object? isLoading = null,
+    Object? isAuthenticated = null,
+    Object? showError = null,
+    Object? showValidationError = null,
+    Object? errorMessage = freezed,
+    Object? credentials = null,
+    Object? user = freezed,
+    Object? failureOrSuccessOption = freezed,
   }) {
-    return initial();
+    return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAuthenticated: null == isAuthenticated
+          ? _value.isAuthenticated
+          : isAuthenticated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showError: null == showError
+          ? _value.showError
+          : showError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showValidationError: null == showValidationError
+          ? _value.showValidationError
+          : showValidationError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      credentials: null == credentials
+          ? _value.credentials
+          : credentials // ignore: cast_nullable_to_non_nullable
+              as Credentials,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+      failureOrSuccessOption: freezed == failureOrSuccessOption
+          ? _value.failureOrSuccessOption
+          : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<Failure, dynamic>>?,
+    ) as $Val);
   }
 
   @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult? Function()? unAuthenticated,
-    TResult? Function(String errorMessage)? errorState,
-  }) {
-    return initial?.call();
+  @pragma('vm:prefer-inline')
+  $CredentialsCopyWith<$Res> get credentials {
+    return $CredentialsCopyWith<$Res>(_value.credentials, (value) {
+      return _then(_value.copyWith(credentials: value) as $Val);
+    });
   }
 
   @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult Function()? unAuthenticated,
-    TResult Function(String errorMessage)? errorState,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
     }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnAuthenticated value) unAuthenticated,
-    required TResult Function(_ErrorState value) errorState,
-  }) {
-    return initial(this);
+    return $UserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_UnAuthenticated value)? unAuthenticated,
-    TResult? Function(_ErrorState value)? errorState,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnAuthenticated value)? unAuthenticated,
-    TResult Function(_ErrorState value)? errorState,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements AuthState {
-  const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
-abstract class _$$_AuthenticatedCopyWith<$Res> {
-  factory _$$_AuthenticatedCopyWith(
-          _$_Authenticated value, $Res Function(_$_Authenticated) then) =
-      __$$_AuthenticatedCopyWithImpl<$Res>;
+abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory _$$_AuthStateCopyWith(
+          _$_AuthState value, $Res Function(_$_AuthState) then) =
+      __$$_AuthStateCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
-      {User user,
-      bool? showValidationError,
-      Credentials? credentials,
-      bool? isLoading,
+      {bool isLoading,
+      bool isAuthenticated,
+      bool showError,
+      bool showValidationError,
+      String? errorMessage,
+      Credentials credentials,
+      User? user,
       Option<Either<Failure, dynamic>>? failureOrSuccessOption});
 
-  $UserCopyWith<$Res> get user;
-  $CredentialsCopyWith<$Res>? get credentials;
+  @override
+  $CredentialsCopyWith<$Res> get credentials;
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
-class __$$_AuthenticatedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Authenticated>
-    implements _$$_AuthenticatedCopyWith<$Res> {
-  __$$_AuthenticatedCopyWithImpl(
-      _$_Authenticated _value, $Res Function(_$_Authenticated) _then)
+class __$$_AuthStateCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$_AuthState>
+    implements _$$_AuthStateCopyWith<$Res> {
+  __$$_AuthStateCopyWithImpl(
+      _$_AuthState _value, $Res Function(_$_AuthState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
-    Object? showValidationError = freezed,
-    Object? credentials = freezed,
-    Object? isLoading = freezed,
+    Object? isLoading = null,
+    Object? isAuthenticated = null,
+    Object? showError = null,
+    Object? showValidationError = null,
+    Object? errorMessage = freezed,
+    Object? credentials = null,
+    Object? user = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
-    return _then(_$_Authenticated(
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
-      showValidationError: freezed == showValidationError
-          ? _value.showValidationError
-          : showValidationError // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      credentials: freezed == credentials
-          ? _value.credentials
-          : credentials // ignore: cast_nullable_to_non_nullable
-              as Credentials?,
-      isLoading: freezed == isLoading
+    return _then(_$_AuthState(
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
+      isAuthenticated: null == isAuthenticated
+          ? _value.isAuthenticated
+          : isAuthenticated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showError: null == showError
+          ? _value.showError
+          : showError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showValidationError: null == showValidationError
+          ? _value.showValidationError
+          : showValidationError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      credentials: null == credentials
+          ? _value.credentials
+          : credentials // ignore: cast_nullable_to_non_nullable
+              as Credentials,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
       failureOrSuccessOption: freezed == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, dynamic>>?,
     ));
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CredentialsCopyWith<$Res>? get credentials {
-    if (_value.credentials == null) {
-      return null;
-    }
-
-    return $CredentialsCopyWith<$Res>(_value.credentials!, (value) {
-      return _then(_value.copyWith(credentials: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$_Authenticated implements _Authenticated {
-  const _$_Authenticated(
-      {required this.user,
-      this.showValidationError,
-      this.credentials,
-      this.isLoading,
-      this.failureOrSuccessOption});
+class _$_AuthState implements _AuthState {
+  const _$_AuthState(
+      {required this.isLoading,
+      required this.isAuthenticated,
+      required this.showError,
+      required this.showValidationError,
+      required this.errorMessage,
+      required this.credentials,
+      required this.user,
+      required this.failureOrSuccessOption});
 
   @override
-  final User user;
+  final bool isLoading;
   @override
-  final bool? showValidationError;
+  final bool isAuthenticated;
   @override
-  final Credentials? credentials;
+  final bool showError;
   @override
-  final bool? isLoading;
+  final bool showValidationError;
+  @override
+  final String? errorMessage;
+  @override
+  final Credentials credentials;
+  @override
+  final User? user;
   @override
   final Option<Either<Failure, dynamic>>? failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AuthState.authenticated(user: $user, showValidationError: $showValidationError, credentials: $credentials, isLoading: $isLoading, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'AuthState(isLoading: $isLoading, isAuthenticated: $isAuthenticated, showError: $showError, showValidationError: $showValidationError, errorMessage: $errorMessage, credentials: $credentials, user: $user, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Authenticated &&
-            (identical(other.user, user) || other.user == user) &&
-            (identical(other.showValidationError, showValidationError) ||
-                other.showValidationError == showValidationError) &&
-            (identical(other.credentials, credentials) ||
-                other.credentials == credentials) &&
+            other is _$_AuthState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isAuthenticated, isAuthenticated) ||
+                other.isAuthenticated == isAuthenticated) &&
+            (identical(other.showError, showError) ||
+                other.showError == showError) &&
+            (identical(other.showValidationError, showValidationError) ||
+                other.showValidationError == showValidationError) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            (identical(other.credentials, credentials) ||
+                other.credentials == credentials) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
                 other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, showValidationError,
-      credentials, isLoading, failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      isAuthenticated,
+      showError,
+      showValidationError,
+      errorMessage,
+      credentials,
+      user,
+      failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AuthenticatedCopyWith<_$_Authenticated> get copyWith =>
-      __$$_AuthenticatedCopyWithImpl<_$_Authenticated>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)
-        authenticated,
-    required TResult Function() unAuthenticated,
-    required TResult Function(String errorMessage) errorState,
-  }) {
-    return authenticated(user, showValidationError, credentials, isLoading,
-        failureOrSuccessOption);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult? Function()? unAuthenticated,
-    TResult? Function(String errorMessage)? errorState,
-  }) {
-    return authenticated?.call(user, showValidationError, credentials,
-        isLoading, failureOrSuccessOption);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult Function()? unAuthenticated,
-    TResult Function(String errorMessage)? errorState,
-    required TResult orElse(),
-  }) {
-    if (authenticated != null) {
-      return authenticated(user, showValidationError, credentials, isLoading,
-          failureOrSuccessOption);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnAuthenticated value) unAuthenticated,
-    required TResult Function(_ErrorState value) errorState,
-  }) {
-    return authenticated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_UnAuthenticated value)? unAuthenticated,
-    TResult? Function(_ErrorState value)? errorState,
-  }) {
-    return authenticated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnAuthenticated value)? unAuthenticated,
-    TResult Function(_ErrorState value)? errorState,
-    required TResult orElse(),
-  }) {
-    if (authenticated != null) {
-      return authenticated(this);
-    }
-    return orElse();
-  }
+  _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
+      __$$_AuthStateCopyWithImpl<_$_AuthState>(this, _$identity);
 }
 
-abstract class _Authenticated implements AuthState {
-  const factory _Authenticated(
-          {required final User user,
-          final bool? showValidationError,
-          final Credentials? credentials,
-          final bool? isLoading,
-          final Option<Either<Failure, dynamic>>? failureOrSuccessOption}) =
-      _$_Authenticated;
+abstract class _AuthState implements AuthState {
+  const factory _AuthState(
+      {required final bool isLoading,
+      required final bool isAuthenticated,
+      required final bool showError,
+      required final bool showValidationError,
+      required final String? errorMessage,
+      required final Credentials credentials,
+      required final User? user,
+      required final Option<Either<Failure, dynamic>>?
+          failureOrSuccessOption}) = _$_AuthState;
 
-  User get user;
-  bool? get showValidationError;
-  Credentials? get credentials;
-  bool? get isLoading;
+  @override
+  bool get isLoading;
+  @override
+  bool get isAuthenticated;
+  @override
+  bool get showError;
+  @override
+  bool get showValidationError;
+  @override
+  String? get errorMessage;
+  @override
+  Credentials get credentials;
+  @override
+  User? get user;
+  @override
   Option<Either<Failure, dynamic>>? get failureOrSuccessOption;
+  @override
   @JsonKey(ignore: true)
-  _$$_AuthenticatedCopyWith<_$_Authenticated> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_UnAuthenticatedCopyWith<$Res> {
-  factory _$$_UnAuthenticatedCopyWith(
-          _$_UnAuthenticated value, $Res Function(_$_UnAuthenticated) then) =
-      __$$_UnAuthenticatedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_UnAuthenticatedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_UnAuthenticated>
-    implements _$$_UnAuthenticatedCopyWith<$Res> {
-  __$$_UnAuthenticatedCopyWithImpl(
-      _$_UnAuthenticated _value, $Res Function(_$_UnAuthenticated) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_UnAuthenticated implements _UnAuthenticated {
-  const _$_UnAuthenticated();
-
-  @override
-  String toString() {
-    return 'AuthState.unAuthenticated()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UnAuthenticated);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)
-        authenticated,
-    required TResult Function() unAuthenticated,
-    required TResult Function(String errorMessage) errorState,
-  }) {
-    return unAuthenticated();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult? Function()? unAuthenticated,
-    TResult? Function(String errorMessage)? errorState,
-  }) {
-    return unAuthenticated?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult Function()? unAuthenticated,
-    TResult Function(String errorMessage)? errorState,
-    required TResult orElse(),
-  }) {
-    if (unAuthenticated != null) {
-      return unAuthenticated();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnAuthenticated value) unAuthenticated,
-    required TResult Function(_ErrorState value) errorState,
-  }) {
-    return unAuthenticated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_UnAuthenticated value)? unAuthenticated,
-    TResult? Function(_ErrorState value)? errorState,
-  }) {
-    return unAuthenticated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnAuthenticated value)? unAuthenticated,
-    TResult Function(_ErrorState value)? errorState,
-    required TResult orElse(),
-  }) {
-    if (unAuthenticated != null) {
-      return unAuthenticated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UnAuthenticated implements AuthState {
-  const factory _UnAuthenticated() = _$_UnAuthenticated;
-}
-
-/// @nodoc
-abstract class _$$_ErrorStateCopyWith<$Res> {
-  factory _$$_ErrorStateCopyWith(
-          _$_ErrorState value, $Res Function(_$_ErrorState) then) =
-      __$$_ErrorStateCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String errorMessage});
-}
-
-/// @nodoc
-class __$$_ErrorStateCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_ErrorState>
-    implements _$$_ErrorStateCopyWith<$Res> {
-  __$$_ErrorStateCopyWithImpl(
-      _$_ErrorState _value, $Res Function(_$_ErrorState) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? errorMessage = null,
-  }) {
-    return _then(_$_ErrorState(
-      errorMessage: null == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ErrorState implements _ErrorState {
-  const _$_ErrorState({required this.errorMessage});
-
-  @override
-  final String errorMessage;
-
-  @override
-  String toString() {
-    return 'AuthState.errorState(errorMessage: $errorMessage)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ErrorState &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, errorMessage);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
-      __$$_ErrorStateCopyWithImpl<_$_ErrorState>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)
-        authenticated,
-    required TResult Function() unAuthenticated,
-    required TResult Function(String errorMessage) errorState,
-  }) {
-    return errorState(errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult? Function()? unAuthenticated,
-    TResult? Function(String errorMessage)? errorState,
-  }) {
-    return errorState?.call(errorMessage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(
-            User user,
-            bool? showValidationError,
-            Credentials? credentials,
-            bool? isLoading,
-            Option<Either<Failure, dynamic>>? failureOrSuccessOption)?
-        authenticated,
-    TResult Function()? unAuthenticated,
-    TResult Function(String errorMessage)? errorState,
-    required TResult orElse(),
-  }) {
-    if (errorState != null) {
-      return errorState(errorMessage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Authenticated value) authenticated,
-    required TResult Function(_UnAuthenticated value) unAuthenticated,
-    required TResult Function(_ErrorState value) errorState,
-  }) {
-    return errorState(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Authenticated value)? authenticated,
-    TResult? Function(_UnAuthenticated value)? unAuthenticated,
-    TResult? Function(_ErrorState value)? errorState,
-  }) {
-    return errorState?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Authenticated value)? authenticated,
-    TResult Function(_UnAuthenticated value)? unAuthenticated,
-    TResult Function(_ErrorState value)? errorState,
-    required TResult orElse(),
-  }) {
-    if (errorState != null) {
-      return errorState(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ErrorState implements AuthState {
-  const factory _ErrorState({required final String errorMessage}) =
-      _$_ErrorState;
-
-  String get errorMessage;
-  @JsonKey(ignore: true)
-  _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
+  _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }

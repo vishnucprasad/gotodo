@@ -13,7 +13,7 @@ class User with _$User {
     required String email,
     required DateTime createdAt,
     required DateTime updatedAt,
-  }) = _User;
+  }) = _Authenticated;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

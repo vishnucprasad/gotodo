@@ -19,130 +19,181 @@ AuthEvent? _refreshEvent;
 @prod
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthFacade _facade;
-  AuthBloc(this._facade) : super(const _Initial()) {
+  AuthBloc(this._facade) : super(AuthState.initial()) {
     on<AuthEvent>((event, emit) async {
       await event.map(
         authCheckRequested: (e) async {
+          emit(state.copyWith(
+            isLoading: true,
+            isAuthenticated: false,
+            showError: false,
+            showValidationError: false,
+            errorMessage: null,
+            failureOrSuccessOption: none(),
+          ));
+
           await Future.delayed(const Duration(seconds: 1));
 
           final tokenOption = _facade.getTokens();
-          if (tokenOption.isNone()) return emit(const _UnAuthenticated());
-          final tokens =
-              tokenOption.getOrElse(() => throw UnimplementedError());
+          if (tokenOption.isNone()) {
+            return emit(state.copyWith(
+              isLoading: false,
+              user: null,
+            ));
+          }
+          final tokens = tokenOption.getOrElse(
+            () => throw UnimplementedError(),
+          );
 
           final userOption = await _facade.retriveUser(tokens.accessToken);
           userOption.fold(
             (l) => l.map(
-              clientFailure: (f) => emit(_ErrorState(errorMessage: f.msg)),
-              serverFailure: (f) => emit(_ErrorState(errorMessage: f.msg)),
+              clientFailure: (f) => emit(state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
+              serverFailure: (f) => emit(state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
               tokenFailure: (f) {
                 if (f.type == TokenType.accessToken) {
                   _refreshEvent = const AuthEvent.authCheckRequested();
                   return add(AuthEvent.refreshToken(tokens.refreshToken));
                 }
 
-                return emit(const _UnAuthenticated());
-              },
-            ),
-            (r) => emit(_Authenticated(user: r)),
-          );
-        },
-        nameChanged: (e) async {
-          state.maybeMap(
-            authenticated: (state) => emit(state.copyWith(
-              credentials: state.credentials!.copyWith(
-                name: Name(e.name),
-              ),
-              failureOrSuccessOption: none(),
-            )),
-            orElse: () => emit(
-              const _ErrorState(errorMessage: 'Unauthororized'),
-            ),
-          );
-        },
-        emailAddressChanged: (e) async {
-          state.maybeMap(
-            authenticated: (state) => emit(state.copyWith(
-              credentials: state.credentials!.copyWith(
-                emailAddress: EmailAddress(e.email),
-              ),
-              failureOrSuccessOption: none(),
-            )),
-            orElse: () => emit(
-              const _ErrorState(errorMessage: 'Unauthororized'),
-            ),
-          );
-        },
-        setCredentialsFromSate: (e) async {
-          state.maybeMap(
-            authenticated: (state) => emit(state.copyWith(
-              credentials: Credentials.empty().copyWith(
-                name: Name(state.user.name),
-                emailAddress: EmailAddress(state.user.email),
-              ),
-              failureOrSuccessOption: none(),
-            )),
-            orElse: () => emit(
-              const _ErrorState(errorMessage: 'Unauthororized'),
-            ),
-          );
-        },
-        editUser: (e) async {
-          await state.mapOrNull(
-            authenticated: (state) async {
-              final isCredentialsValid =
-                  state.credentials?.failureOption.isNone();
-              if (isCredentialsValid == null || !isCredentialsValid) {
                 return emit(state.copyWith(
                   isLoading: false,
-                  showValidationError: true,
+                  isAuthenticated: false,
+                  user: null,
+                  failureOrSuccessOption: some(left(l)),
                 ));
-              }
+              },
+            ),
+            (r) => emit(state.copyWith(
+              isLoading: false,
+              isAuthenticated: true,
+              user: r,
+              failureOrSuccessOption: some(right(r)),
+            )),
+          );
+        },
+        nameChanged: (e) async => emit(state.copyWith(
+          credentials: state.credentials.copyWith(
+            name: Name(e.name),
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        emailAddressChanged: (e) async => emit(state.copyWith(
+          credentials: state.credentials.copyWith(
+            emailAddress: EmailAddress(e.email),
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        setCredentialsFromSate: (e) async => emit(state.copyWith(
+          credentials: Credentials.empty().copyWith(
+            name: Name(state.user?.name ?? ""),
+            emailAddress: EmailAddress(state.user?.email ?? ""),
+          ),
+          failureOrSuccessOption: none(),
+        )),
+        editUser: (e) async {
+          emit(state.copyWith(
+            isLoading: true,
+            showError: false,
+            errorMessage: null,
+            showValidationError: false,
+            failureOrSuccessOption: none(),
+          ));
 
-              emit(state.copyWith(
-                isLoading: true,
-                failureOrSuccessOption: none(),
-              ));
+          final isCredentialsValid = state.credentials.failureOption.isNone();
+          if (!isCredentialsValid) {
+            return emit(state.copyWith(
+              isLoading: false,
+              showValidationError: true,
+            ));
+          }
 
-              final tokenOption = _facade.getTokens();
-              if (tokenOption.isNone()) return emit(const _UnAuthenticated());
-              final tokens =
-                  tokenOption.getOrElse(() => throw UnimplementedError());
+          final tokenOption = _facade.getTokens();
+          if (tokenOption.isNone()) {
+            return emit(state.copyWith(
+              isLoading: false,
+              isAuthenticated: false,
+              user: null,
+            ));
+          }
+          final tokens = tokenOption.getOrElse(
+            () => throw UnimplementedError(),
+          );
 
-              final userOption = await _facade.editUser(
-                state.credentials!,
-                tokens.accessToken,
-              );
-              userOption.fold(
-                (l) => l.map(
-                  clientFailure: (f) => emit(_ErrorState(errorMessage: f.msg)),
-                  serverFailure: (f) => emit(_ErrorState(errorMessage: f.msg)),
-                  tokenFailure: (f) {
-                    if (f.type == TokenType.accessToken) {
-                      _refreshEvent = const AuthEvent.editUser();
-                      return add(AuthEvent.refreshToken(tokens.refreshToken));
-                    }
+          final userOption = await _facade.editUser(
+            state.credentials,
+            tokens.accessToken,
+          );
+          userOption.fold(
+            (l) => l.map(
+              clientFailure: (f) => emit(state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
+              serverFailure: (f) => emit(state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              )),
+              tokenFailure: (f) {
+                if (f.type == TokenType.accessToken) {
+                  _refreshEvent = const AuthEvent.editUser();
+                  return add(AuthEvent.refreshToken(tokens.refreshToken));
+                }
 
-                    return emit(const _UnAuthenticated());
-                  },
-                ),
-                (r) => emit(_Authenticated(
-                  user: r,
-                  failureOrSuccessOption: some(right(r)),
-                )),
-              );
-            },
+                return emit(state.copyWith(
+                  isLoading: false,
+                  isAuthenticated: false,
+                  user: null,
+                  failureOrSuccessOption: some(left(l)),
+                ));
+              },
+            ),
+            (r) => emit(state.copyWith(
+              isLoading: false,
+              isAuthenticated: true,
+              user: r,
+              failureOrSuccessOption: some(right(r)),
+            )),
           );
         },
         refreshToken: (e) async {
           final tokenOption = await _facade.refreshToken(e.refreshToken);
           tokenOption.fold(
             (l) => emit(l.map(
-              clientFailure: (f) => _ErrorState(errorMessage: f.msg),
-              serverFailure: (f) => _ErrorState(errorMessage: f.msg),
+              clientFailure: (f) => state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              ),
+              serverFailure: (f) => state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(l)),
+              ),
               tokenFailure: (f) {
                 _facade.removeTokens();
-                return const _UnAuthenticated();
+                return state.copyWith(
+                  isLoading: false,
+                  isAuthenticated: false,
+                  user: null,
+                  failureOrSuccessOption: some(left(l)),
+                );
               },
             )),
             (r) async {
@@ -156,26 +207,53 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         },
         signout: (e) async {
           final tokenOption = _facade.getTokens();
-          if (tokenOption.isNone()) return emit(const _UnAuthenticated());
-          final tokens =
-              tokenOption.getOrElse(() => throw UnimplementedError());
+          if (tokenOption.isNone()) {
+            return emit(state.copyWith(
+              isLoading: false,
+              isAuthenticated: false,
+              user: null,
+            ));
+          }
+          final tokens = tokenOption.getOrElse(
+            () => throw UnimplementedError(),
+          );
 
           final signoutOption = await _facade.signout(tokens.accessToken);
           signoutOption.fold(
             () {
               _facade.removeTokens();
-              return emit(const _UnAuthenticated());
+              return emit(state.copyWith(
+                isLoading: false,
+                isAuthenticated: false,
+                user: null,
+                failureOrSuccessOption: none(),
+              ));
             },
             (a) => a.map(
-              clientFailure: (_) => emit(const _UnAuthenticated()),
-              serverFailure: (_) => emit(const _UnAuthenticated()),
+              clientFailure: (_) => emit(state.copyWith(
+                isLoading: false,
+                isAuthenticated: false,
+                user: null,
+                failureOrSuccessOption: none(),
+              )),
+              serverFailure: (_) => emit(state.copyWith(
+                isLoading: false,
+                isAuthenticated: false,
+                user: null,
+                failureOrSuccessOption: none(),
+              )),
               tokenFailure: (f) {
                 if (f.type == TokenType.accessToken) {
                   _refreshEvent = const AuthEvent.signout();
                   return add(AuthEvent.refreshToken(tokens.refreshToken));
                 }
 
-                return emit(const _UnAuthenticated());
+                return emit(state.copyWith(
+                  isLoading: false,
+                  isAuthenticated: false,
+                  user: null,
+                  failureOrSuccessOption: some(left(f)),
+                ));
               },
             ),
           );

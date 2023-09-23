@@ -18,22 +18,19 @@ class SettingsPage extends StatelessWidget {
       body: SafeArea(
         child: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
-            return state.maybeMap(
-              authenticated: (state) => Column(
-                children: [
-                  const SettingsAppBar(),
-                  kHeight,
-                  ProfileInfoSection(user: state.user),
-                  kHeightMedium,
-                  const Expanded(
-                    child: SettingsListView(),
-                  ),
-                  kHeightSmall,
-                  const SettingsVersionSection(),
-                  kHeightMedium,
-                ],
-              ),
-              orElse: () => const Center(child: Text('Unauthorized')),
+            return Column(
+              children: [
+                const SettingsAppBar(),
+                kHeight,
+                ProfileInfoSection(user: state.user),
+                kHeightMedium,
+                const Expanded(
+                  child: SettingsListView(),
+                ),
+                kHeightSmall,
+                const SettingsVersionSection(),
+                kHeightMedium,
+              ],
             );
           },
         ),

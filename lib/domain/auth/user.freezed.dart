@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
+  return _Authenticated.fromJson(json);
 }
 
 /// @nodoc
@@ -90,9 +90,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
+abstract class _$$_AuthenticatedCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$_AuthenticatedCopyWith(
+          _$_Authenticated value, $Res Function(_$_Authenticated) then) =
+      __$$_AuthenticatedCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -104,9 +105,11 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
+class __$$_AuthenticatedCopyWithImpl<$Res>
+    extends _$UserCopyWithImpl<$Res, _$_Authenticated>
+    implements _$$_AuthenticatedCopyWith<$Res> {
+  __$$_AuthenticatedCopyWithImpl(
+      _$_Authenticated _value, $Res Function(_$_Authenticated) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +121,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_User(
+    return _then(_$_Authenticated(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -145,15 +148,16 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 
 /// @nodoc
 @JsonSerializable()
-class _$_User implements _User {
-  const _$_User(
+class _$_Authenticated implements _Authenticated {
+  const _$_Authenticated(
       {@JsonKey(name: '_id') required this.id,
       required this.name,
       required this.email,
       required this.createdAt,
       required this.updatedAt});
 
-  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
+  factory _$_Authenticated.fromJson(Map<String, dynamic> json) =>
+      _$$_AuthenticatedFromJson(json);
 
   @override
   @JsonKey(name: '_id')
@@ -176,7 +180,7 @@ class _$_User implements _User {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_User &&
+            other is _$_Authenticated &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
@@ -194,26 +198,27 @@ class _$_User implements _User {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+  _$$_AuthenticatedCopyWith<_$_Authenticated> get copyWith =>
+      __$$_AuthenticatedCopyWithImpl<_$_Authenticated>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserToJson(
+    return _$$_AuthenticatedToJson(
       this,
     );
   }
 }
 
-abstract class _User implements User {
-  const factory _User(
+abstract class _Authenticated implements User {
+  const factory _Authenticated(
       {@JsonKey(name: '_id') required final String id,
       required final String name,
       required final String email,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_User;
+      required final DateTime updatedAt}) = _$_Authenticated;
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
+  factory _Authenticated.fromJson(Map<String, dynamic> json) =
+      _$_Authenticated.fromJson;
 
   @override
   @JsonKey(name: '_id')
@@ -228,5 +233,6 @@ abstract class _User implements User {
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
+  _$$_AuthenticatedCopyWith<_$_Authenticated> get copyWith =>
+      throw _privateConstructorUsedError;
 }

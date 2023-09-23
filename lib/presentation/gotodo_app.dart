@@ -32,20 +32,22 @@ class GotodoApp extends StatelessWidget {
       child: MultiBlocListener(
         listeners: [
           BlocListener<AuthBloc, AuthState>(
-            listenWhen: (p, c) => p.runtimeType != c.runtimeType,
+            listenWhen: (p, c) =>
+                p.isAuthenticated != c.isAuthenticated ||
+                p.showError != c.showError,
             listener: (context, state) {
-              state.map(
-                initial: (_) {},
-                authenticated: (_) {
-                  context.read<AppBloc>().add(const AppEvent.getDateList());
-                  _appRouter.replaceAll([const HomeRoute()]);
-                },
-                unAuthenticated: (_) =>
-                    _appRouter.replaceAll([const SigninRoute()]),
-                errorState: (e) => context.showErrorSnackBar(
-                  message: e.errorMessage,
-                ),
-              );
+              if (state.isAuthenticated) {
+                context.read<AppBloc>().add(const AppEvent.getDateList());
+                _appRouter.replaceAll([const HomeRoute()]);
+              }
+
+              if (!state.isAuthenticated) {
+                _appRouter.replaceAll([const SigninRoute()]);
+              }
+
+              if (state.showError && state.errorMessage != null) {
+                context.showErrorSnackBar(message: state.errorMessage!);
+              }
             },
           ),
           BlocListener<AppBloc, AppState>(
@@ -57,13 +59,10 @@ class GotodoApp extends StatelessWidget {
                 return context.showErrorSnackBar(message: state.errorMessage!);
               }
 
-              context.read<AuthBloc>().state.mapOrNull(
-                authenticated: (state) {
-                  context
-                      .read<TodoBloc>()
-                      .add(const TodoEvent.getCategoryList());
-                },
-              );
+              if (context.read<AuthBloc>().state.isAuthenticated) {
+                context.read<TodoBloc>().add(const TodoEvent.getCategoryList());
+              }
+
               context
                   .read<TodoBloc>()
                   .add(TodoEvent.getTodoList(state.dateList));
