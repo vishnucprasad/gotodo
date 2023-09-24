@@ -4,6 +4,7 @@ part of 'auth_bloc.dart';
 class AuthState with _$AuthState {
   const factory AuthState({
     required bool isLoading,
+    required bool isAuthenticating,
     required bool isAuthenticated,
     required bool showError,
     required bool showValidationError,
@@ -20,6 +21,7 @@ class AuthState with _$AuthState {
   factory AuthState.initial() {
     return AuthState(
       isLoading: false,
+      isAuthenticating: false,
       isAuthenticated: false,
       showError: false,
       showValidationError: false,

@@ -26,6 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         authCheckRequested: (e) async {
           emit(state.copyWith(
             isLoading: true,
+            isAuthenticating: true,
             isAuthenticated: false,
             showError: false,
             showValidationError: false,
@@ -39,6 +40,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           if (tokenOption.isNone()) {
             return emit(state.copyWith(
               isLoading: false,
+              isAuthenticating: false,
+              isAuthenticated: false,
               user: null,
             ));
           }
@@ -51,12 +54,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             (l) => l.map(
               clientFailure: (f) => emit(state.copyWith(
                 isLoading: false,
+                isAuthenticating: false,
                 showError: true,
                 errorMessage: f.msg,
                 failureOrSuccessOption: some(left(l)),
               )),
               serverFailure: (f) => emit(state.copyWith(
                 isLoading: false,
+                isAuthenticating: false,
                 showError: true,
                 errorMessage: f.msg,
                 failureOrSuccessOption: some(left(l)),
@@ -69,6 +74,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
                 return emit(state.copyWith(
                   isLoading: false,
+                  isAuthenticating: false,
                   isAuthenticated: false,
                   user: null,
                   failureOrSuccessOption: some(left(l)),
@@ -77,6 +83,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             ),
             (r) => emit(state.copyWith(
               isLoading: false,
+              isAuthenticating: false,
               isAuthenticated: true,
               user: r,
               failureOrSuccessOption: some(right(r)),

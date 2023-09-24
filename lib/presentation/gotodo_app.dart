@@ -33,6 +33,8 @@ class GotodoApp extends StatelessWidget {
         listeners: [
           BlocListener<AuthBloc, AuthState>(
             listenWhen: (p, c) =>
+                p.isAuthenticating != c.isAuthenticating &&
+                    !c.isAuthenticating ||
                 p.isAuthenticated != c.isAuthenticated ||
                 p.showError != c.showError,
             listener: (context, state) {

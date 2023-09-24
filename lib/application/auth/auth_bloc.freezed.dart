@@ -2992,6 +2992,7 @@ abstract class _signout implements AuthEvent {
 /// @nodoc
 mixin _$AuthState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isAuthenticating => throw _privateConstructorUsedError;
   bool get isAuthenticated => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
   bool get showValidationError => throw _privateConstructorUsedError;
@@ -3017,6 +3018,7 @@ abstract class $AuthStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isAuthenticating,
       bool isAuthenticated,
       bool showError,
       bool showValidationError,
@@ -3048,6 +3050,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isAuthenticating = null,
     Object? isAuthenticated = null,
     Object? showError = null,
     Object? showValidationError = null,
@@ -3064,6 +3067,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAuthenticating: null == isAuthenticating
+          ? _value.isAuthenticating
+          : isAuthenticating // ignore: cast_nullable_to_non_nullable
               as bool,
       isAuthenticated: null == isAuthenticated
           ? _value.isAuthenticated
@@ -3150,6 +3157,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isAuthenticating,
       bool isAuthenticated,
       bool showError,
       bool showValidationError,
@@ -3182,6 +3190,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isAuthenticating = null,
     Object? isAuthenticated = null,
     Object? showError = null,
     Object? showValidationError = null,
@@ -3198,6 +3207,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAuthenticating: null == isAuthenticating
+          ? _value.isAuthenticating
+          : isAuthenticating // ignore: cast_nullable_to_non_nullable
               as bool,
       isAuthenticated: null == isAuthenticated
           ? _value.isAuthenticated
@@ -3252,6 +3265,7 @@ class __$$_AuthStateCopyWithImpl<$Res>
 class _$_AuthState implements _AuthState {
   const _$_AuthState(
       {required this.isLoading,
+      required this.isAuthenticating,
       required this.isAuthenticated,
       required this.showError,
       required this.showValidationError,
@@ -3266,6 +3280,8 @@ class _$_AuthState implements _AuthState {
 
   @override
   final bool isLoading;
+  @override
+  final bool isAuthenticating;
   @override
   final bool isAuthenticated;
   @override
@@ -3291,7 +3307,7 @@ class _$_AuthState implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(isLoading: $isLoading, isAuthenticated: $isAuthenticated, showError: $showError, showValidationError: $showValidationError, hideCurrentPassword: $hideCurrentPassword, hideNewPassword: $hideNewPassword, hideConfirmationPassword: $hideConfirmationPassword, errorMessage: $errorMessage, credentials: $credentials, passwords: $passwords, user: $user, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'AuthState(isLoading: $isLoading, isAuthenticating: $isAuthenticating, isAuthenticated: $isAuthenticated, showError: $showError, showValidationError: $showValidationError, hideCurrentPassword: $hideCurrentPassword, hideNewPassword: $hideNewPassword, hideConfirmationPassword: $hideConfirmationPassword, errorMessage: $errorMessage, credentials: $credentials, passwords: $passwords, user: $user, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -3301,6 +3317,8 @@ class _$_AuthState implements _AuthState {
             other is _$_AuthState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isAuthenticating, isAuthenticating) ||
+                other.isAuthenticating == isAuthenticating) &&
             (identical(other.isAuthenticated, isAuthenticated) ||
                 other.isAuthenticated == isAuthenticated) &&
             (identical(other.showError, showError) ||
@@ -3329,6 +3347,7 @@ class _$_AuthState implements _AuthState {
   int get hashCode => Object.hash(
       runtimeType,
       isLoading,
+      isAuthenticating,
       isAuthenticated,
       showError,
       showValidationError,
@@ -3351,6 +3370,7 @@ class _$_AuthState implements _AuthState {
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {required final bool isLoading,
+      required final bool isAuthenticating,
       required final bool isAuthenticated,
       required final bool showError,
       required final bool showValidationError,
@@ -3366,6 +3386,8 @@ abstract class _AuthState implements AuthState {
 
   @override
   bool get isLoading;
+  @override
+  bool get isAuthenticating;
   @override
   bool get isAuthenticated;
   @override
