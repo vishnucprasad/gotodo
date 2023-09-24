@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gotodo/application/auth/auth_bloc.dart';
 import 'package:gotodo/presentation/core/colors.dart';
 import 'package:gotodo/presentation/core/constants.dart';
 import 'package:gotodo/presentation/extension/modal_bottomsheet_extension.dart';
@@ -39,27 +41,39 @@ class SettingsListView extends StatelessWidget {
               )
             ],
           ),
-          const Column(
+          Column(
             children: [
               ListTile(
-                leading: Icon(Icons.lock_reset),
-                title: Text('Change password'),
+                leading: const Icon(Icons.lock_reset),
+                title: const Text('Change password'),
+                onTap: () => context.showchangePasswordBottomsheet(),
               ),
-              Divider(
+              const Divider(
                 thickness: 1,
               )
             ],
           ),
-          const ListTile(
-            leading: Icon(
+          ListTile(
+            leading: const Icon(
               Icons.logout,
               color: Colors.red,
             ),
-            title: Text(
+            title: const Text(
               'Signout',
               style: TextStyle(
                 color: Colors.red,
               ),
+            ),
+            onTap: () =>
+                context.read<AuthBloc>().add(const AuthEvent.signout()),
+            trailing: BlocBuilder<AuthBloc, AuthState>(
+              builder: (context, state) => state.isLoading
+                  ? const SizedBox(
+                      height: 20,
+                      width: 20,
+                      child: CircularProgressIndicator(),
+                    )
+                  : const SizedBox.shrink(),
             ),
           ),
         ],

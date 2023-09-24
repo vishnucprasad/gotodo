@@ -4,6 +4,7 @@ import 'package:gotodo/application/auth/auth_bloc.dart';
 import 'package:gotodo/application/todo/todo_bloc.dart';
 import 'package:gotodo/domain/todo/category.dart';
 import 'package:gotodo/domain/todo/todo.dart';
+import 'package:gotodo/presentation/widgets/bottom_sheets/change_password_bottomsheet.dart';
 import 'package:gotodo/presentation/widgets/bottom_sheets/create_category_bottomsheet.dart';
 import 'package:gotodo/presentation/widgets/bottom_sheets/create_todo_bottomsheet.dart';
 import 'package:gotodo/presentation/widgets/bottom_sheets/edit_profile_bottomsheet.dart';
@@ -54,6 +55,16 @@ extension ModalBottomsheetExtension on BuildContext {
       isScrollControlled: true,
       useSafeArea: true,
       builder: (context) => const EditProfileBottomsheet(),
+    );
+  }
+
+  void showchangePasswordBottomsheet() {
+    read<AuthBloc>().add(const AuthEvent.setCredentialsFromSate());
+    showModalBottomSheet(
+      context: this,
+      isScrollControlled: true,
+      useSafeArea: true,
+      builder: (context) => const ChangePassewordBottomsheet(),
     );
   }
 }

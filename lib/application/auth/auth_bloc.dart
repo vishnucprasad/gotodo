@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gotodo/domain/auth/credentials.dart';
 import 'package:gotodo/domain/auth/i_auth_facade.dart';
+import 'package:gotodo/domain/auth/passwords.dart';
 import 'package:gotodo/domain/auth/user.dart';
 import 'package:gotodo/domain/core/constants.dart';
 import 'package:gotodo/domain/core/failure.dart';
@@ -170,6 +171,103 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             )),
           );
         },
+        currentPasswordChanged: (e) async => emit(state.copyWith(
+          passwords: state.passwords.copyWith(
+            currentPassword: Password(e.password),
+          ),
+        )),
+        newPasswordChanged: (e) async => emit(state.copyWith(
+          passwords: state.passwords.copyWith(
+            newPassword: Password(e.password),
+          ),
+        )),
+        confirmationPasswordChanged: (e) async => emit(state.copyWith(
+          passwords: state.passwords.copyWith(
+            confirmationPassword: ConfirmationPassword(
+              e.password,
+              state.passwords.newPassword,
+            ),
+          ),
+        )),
+        currentPasswordVisibiltyChanged: (e) async => emit(state.copyWith(
+          hideCurrentPassword: !state.hideCurrentPassword,
+        )),
+        newPasswordVisibiltyChanged: (e) async => emit(state.copyWith(
+          hideNewPassword: !state.hideNewPassword,
+        )),
+        confirmationPasswordVisibiltyChanged: (e) async => emit(state.copyWith(
+          hideConfirmationPassword: !state.hideConfirmationPassword,
+        )),
+        changePassword: (e) async {
+          emit(state.copyWith(
+            isLoading: true,
+            showError: false,
+            errorMessage: null,
+            showValidationError: false,
+            failureOrSuccessOption: none(),
+          ));
+
+          final isPasswordsValid = state.passwords.failureOption.isNone();
+          if (!isPasswordsValid) {
+            return emit(state.copyWith(
+              isLoading: false,
+              showValidationError: true,
+            ));
+          }
+
+          final tokenOption = _facade.getTokens();
+          if (tokenOption.isNone()) {
+            return emit(state.copyWith(
+              isLoading: false,
+              isAuthenticated: false,
+              user: null,
+            ));
+          }
+          final tokens = tokenOption.getOrElse(
+            () => throw UnimplementedError(),
+          );
+
+          final passwordOption = await _facade.changePassword(
+            state.passwords,
+            tokens.accessToken,
+          );
+          passwordOption.fold(
+            () {
+              return emit(state.copyWith(
+                isLoading: false,
+                passwords: Passwords.empty(),
+                failureOrSuccessOption: some(right(none())),
+              ));
+            },
+            (a) => a.map(
+              clientFailure: (f) => emit(state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(f)),
+              )),
+              serverFailure: (f) => emit(state.copyWith(
+                isLoading: false,
+                showError: true,
+                errorMessage: f.msg,
+                failureOrSuccessOption: some(left(f)),
+              )),
+              tokenFailure: (f) {
+                if (f.type == TokenType.accessToken) {
+                  _refreshEvent = const AuthEvent.changePassword();
+                  return add(AuthEvent.refreshToken(tokens.refreshToken));
+                }
+
+                return emit(state.copyWith(
+                  isLoading: false,
+                  isAuthenticated: false,
+                  user: null,
+                  failureOrSuccessOption: some(left(f)),
+                ));
+              },
+            ),
+          );
+        },
         refreshToken: (e) async {
           final tokenOption = await _facade.refreshToken(e.refreshToken);
           tokenOption.fold(
@@ -206,6 +304,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           );
         },
         signout: (e) async {
+          emit(state.copyWith(
+            isLoading: true,
+            showError: false,
+            errorMessage: null,
+            showValidationError: false,
+            failureOrSuccessOption: none(),
+          ));
+
           final tokenOption = _facade.getTokens();
           if (tokenOption.isNone()) {
             return emit(state.copyWith(

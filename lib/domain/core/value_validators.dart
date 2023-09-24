@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:gotodo/domain/core/value_failure.dart';
+import 'package:gotodo/domain/core/value_objects.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
   const emailRegex =
@@ -17,6 +18,27 @@ Either<ValueFailure<String>, String> validatePassWord(String input) {
     return right(input);
   }
   return left(ValueFailure.invalid(failedValue: input));
+}
+
+Either<ValueFailure<String>, String> validateConfirmationPassWord(
+  String input,
+  Password password,
+) {
+  const passwordRegex =
+      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$';
+  if (!RegExp(passwordRegex).hasMatch(input)) {
+    return left(ValueFailure.invalid(failedValue: input));
+  }
+  return password.value.fold(
+    (l) => left(ValueFailure.invalid(failedValue: input)),
+    (r) {
+      if (input == r) {
+        return right(input);
+      }
+
+      return left(ValueFailure.invalid(failedValue: input));
+    },
+  );
 }
 
 Either<ValueFailure<String>, String> validateName(String input) {

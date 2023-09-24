@@ -23,6 +23,13 @@ mixin _$AuthEvent {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) =>
@@ -34,6 +41,13 @@ mixin _$AuthEvent {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) =>
@@ -45,6 +59,13 @@ mixin _$AuthEvent {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -57,6 +78,18 @@ mixin _$AuthEvent {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) =>
@@ -68,6 +101,17 @@ mixin _$AuthEvent {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) =>
@@ -79,6 +123,17 @@ mixin _$AuthEvent {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -146,6 +201,13 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) {
@@ -160,6 +222,13 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) {
@@ -174,6 +243,13 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -192,6 +268,18 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) {
@@ -206,6 +294,17 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) {
@@ -220,6 +319,17 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -278,6 +388,13 @@ class _$_SetCredentials implements _SetCredentials {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) {
@@ -292,6 +409,13 @@ class _$_SetCredentials implements _SetCredentials {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) {
@@ -306,6 +430,13 @@ class _$_SetCredentials implements _SetCredentials {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -324,6 +455,18 @@ class _$_SetCredentials implements _SetCredentials {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) {
@@ -338,6 +481,17 @@ class _$_SetCredentials implements _SetCredentials {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) {
@@ -352,6 +506,17 @@ class _$_SetCredentials implements _SetCredentials {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -436,6 +601,13 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) {
@@ -450,6 +622,13 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) {
@@ -464,6 +643,13 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -482,6 +668,18 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) {
@@ -496,6 +694,17 @@ class _$_NameChanged implements _NameChanged {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) {
@@ -510,6 +719,17 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -600,6 +820,13 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) {
@@ -614,6 +841,13 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) {
@@ -628,6 +862,13 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -646,6 +887,18 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) {
@@ -660,6 +913,17 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) {
@@ -674,6 +938,17 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -738,6 +1013,13 @@ class _$_EditUser implements _EditUser {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) {
@@ -752,6 +1034,13 @@ class _$_EditUser implements _EditUser {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) {
@@ -766,6 +1055,13 @@ class _$_EditUser implements _EditUser {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -784,6 +1080,18 @@ class _$_EditUser implements _EditUser {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) {
@@ -798,6 +1106,17 @@ class _$_EditUser implements _EditUser {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) {
@@ -812,6 +1131,17 @@ class _$_EditUser implements _EditUser {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -825,6 +1155,1433 @@ class _$_EditUser implements _EditUser {
 
 abstract class _EditUser implements AuthEvent {
   const factory _EditUser() = _$_EditUser;
+}
+
+/// @nodoc
+abstract class _$$_CurrentPasswordChangedCopyWith<$Res> {
+  factory _$$_CurrentPasswordChangedCopyWith(_$_CurrentPasswordChanged value,
+          $Res Function(_$_CurrentPasswordChanged) then) =
+      __$$_CurrentPasswordChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$_CurrentPasswordChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_CurrentPasswordChanged>
+    implements _$$_CurrentPasswordChangedCopyWith<$Res> {
+  __$$_CurrentPasswordChangedCopyWithImpl(_$_CurrentPasswordChanged _value,
+      $Res Function(_$_CurrentPasswordChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$_CurrentPasswordChanged(
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CurrentPasswordChanged implements _CurrentPasswordChanged {
+  const _$_CurrentPasswordChanged(this.password);
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthEvent.currentPasswordChanged(password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CurrentPasswordChanged &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CurrentPasswordChangedCopyWith<_$_CurrentPasswordChanged> get copyWith =>
+      __$$_CurrentPasswordChangedCopyWithImpl<_$_CurrentPasswordChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function() setCredentialsFromSate,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String email) emailAddressChanged,
+    required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() signout,
+  }) {
+    return currentPasswordChanged(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function()? setCredentialsFromSate,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String email)? emailAddressChanged,
+    TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? signout,
+  }) {
+    return currentPasswordChanged?.call(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function()? setCredentialsFromSate,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String email)? emailAddressChanged,
+    TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? signout,
+    required TResult orElse(),
+  }) {
+    if (currentPasswordChanged != null) {
+      return currentPasswordChanged(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SetCredentials value) setCredentialsFromSate,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_signout value) signout,
+  }) {
+    return currentPasswordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_signout value)? signout,
+  }) {
+    return currentPasswordChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_signout value)? signout,
+    required TResult orElse(),
+  }) {
+    if (currentPasswordChanged != null) {
+      return currentPasswordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CurrentPasswordChanged implements AuthEvent {
+  const factory _CurrentPasswordChanged(final String password) =
+      _$_CurrentPasswordChanged;
+
+  String get password;
+  @JsonKey(ignore: true)
+  _$$_CurrentPasswordChangedCopyWith<_$_CurrentPasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_NewPasswordChangedCopyWith<$Res> {
+  factory _$$_NewPasswordChangedCopyWith(_$_NewPasswordChanged value,
+          $Res Function(_$_NewPasswordChanged) then) =
+      __$$_NewPasswordChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$_NewPasswordChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_NewPasswordChanged>
+    implements _$$_NewPasswordChangedCopyWith<$Res> {
+  __$$_NewPasswordChangedCopyWithImpl(
+      _$_NewPasswordChanged _value, $Res Function(_$_NewPasswordChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$_NewPasswordChanged(
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NewPasswordChanged implements _NewPasswordChanged {
+  const _$_NewPasswordChanged(this.password);
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthEvent.newPasswordChanged(password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NewPasswordChanged &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NewPasswordChangedCopyWith<_$_NewPasswordChanged> get copyWith =>
+      __$$_NewPasswordChangedCopyWithImpl<_$_NewPasswordChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function() setCredentialsFromSate,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String email) emailAddressChanged,
+    required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() signout,
+  }) {
+    return newPasswordChanged(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function()? setCredentialsFromSate,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String email)? emailAddressChanged,
+    TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? signout,
+  }) {
+    return newPasswordChanged?.call(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function()? setCredentialsFromSate,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String email)? emailAddressChanged,
+    TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? signout,
+    required TResult orElse(),
+  }) {
+    if (newPasswordChanged != null) {
+      return newPasswordChanged(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SetCredentials value) setCredentialsFromSate,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_signout value) signout,
+  }) {
+    return newPasswordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_signout value)? signout,
+  }) {
+    return newPasswordChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_signout value)? signout,
+    required TResult orElse(),
+  }) {
+    if (newPasswordChanged != null) {
+      return newPasswordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NewPasswordChanged implements AuthEvent {
+  const factory _NewPasswordChanged(final String password) =
+      _$_NewPasswordChanged;
+
+  String get password;
+  @JsonKey(ignore: true)
+  _$$_NewPasswordChangedCopyWith<_$_NewPasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ConfirmationPasswordChangedCopyWith<$Res> {
+  factory _$$_ConfirmationPasswordChangedCopyWith(
+          _$_ConfirmationPasswordChanged value,
+          $Res Function(_$_ConfirmationPasswordChanged) then) =
+      __$$_ConfirmationPasswordChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$_ConfirmationPasswordChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_ConfirmationPasswordChanged>
+    implements _$$_ConfirmationPasswordChangedCopyWith<$Res> {
+  __$$_ConfirmationPasswordChangedCopyWithImpl(
+      _$_ConfirmationPasswordChanged _value,
+      $Res Function(_$_ConfirmationPasswordChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? password = null,
+  }) {
+    return _then(_$_ConfirmationPasswordChanged(
+      null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ConfirmationPasswordChanged implements _ConfirmationPasswordChanged {
+  const _$_ConfirmationPasswordChanged(this.password);
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'AuthEvent.confirmationPasswordChanged(password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ConfirmationPasswordChanged &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ConfirmationPasswordChangedCopyWith<_$_ConfirmationPasswordChanged>
+      get copyWith => __$$_ConfirmationPasswordChangedCopyWithImpl<
+          _$_ConfirmationPasswordChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function() setCredentialsFromSate,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String email) emailAddressChanged,
+    required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() signout,
+  }) {
+    return confirmationPasswordChanged(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function()? setCredentialsFromSate,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String email)? emailAddressChanged,
+    TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? signout,
+  }) {
+    return confirmationPasswordChanged?.call(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function()? setCredentialsFromSate,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String email)? emailAddressChanged,
+    TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? signout,
+    required TResult orElse(),
+  }) {
+    if (confirmationPasswordChanged != null) {
+      return confirmationPasswordChanged(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SetCredentials value) setCredentialsFromSate,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_signout value) signout,
+  }) {
+    return confirmationPasswordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_signout value)? signout,
+  }) {
+    return confirmationPasswordChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_signout value)? signout,
+    required TResult orElse(),
+  }) {
+    if (confirmationPasswordChanged != null) {
+      return confirmationPasswordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ConfirmationPasswordChanged implements AuthEvent {
+  const factory _ConfirmationPasswordChanged(final String password) =
+      _$_ConfirmationPasswordChanged;
+
+  String get password;
+  @JsonKey(ignore: true)
+  _$$_ConfirmationPasswordChangedCopyWith<_$_ConfirmationPasswordChanged>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CurrentPasswordVisibiltyChangedCopyWith<$Res> {
+  factory _$$_CurrentPasswordVisibiltyChangedCopyWith(
+          _$_CurrentPasswordVisibiltyChanged value,
+          $Res Function(_$_CurrentPasswordVisibiltyChanged) then) =
+      __$$_CurrentPasswordVisibiltyChangedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CurrentPasswordVisibiltyChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_CurrentPasswordVisibiltyChanged>
+    implements _$$_CurrentPasswordVisibiltyChangedCopyWith<$Res> {
+  __$$_CurrentPasswordVisibiltyChangedCopyWithImpl(
+      _$_CurrentPasswordVisibiltyChanged _value,
+      $Res Function(_$_CurrentPasswordVisibiltyChanged) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CurrentPasswordVisibiltyChanged
+    implements _CurrentPasswordVisibiltyChanged {
+  const _$_CurrentPasswordVisibiltyChanged();
+
+  @override
+  String toString() {
+    return 'AuthEvent.currentPasswordVisibiltyChanged()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CurrentPasswordVisibiltyChanged);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function() setCredentialsFromSate,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String email) emailAddressChanged,
+    required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() signout,
+  }) {
+    return currentPasswordVisibiltyChanged();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function()? setCredentialsFromSate,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String email)? emailAddressChanged,
+    TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? signout,
+  }) {
+    return currentPasswordVisibiltyChanged?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function()? setCredentialsFromSate,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String email)? emailAddressChanged,
+    TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? signout,
+    required TResult orElse(),
+  }) {
+    if (currentPasswordVisibiltyChanged != null) {
+      return currentPasswordVisibiltyChanged();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SetCredentials value) setCredentialsFromSate,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_signout value) signout,
+  }) {
+    return currentPasswordVisibiltyChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_signout value)? signout,
+  }) {
+    return currentPasswordVisibiltyChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_signout value)? signout,
+    required TResult orElse(),
+  }) {
+    if (currentPasswordVisibiltyChanged != null) {
+      return currentPasswordVisibiltyChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CurrentPasswordVisibiltyChanged implements AuthEvent {
+  const factory _CurrentPasswordVisibiltyChanged() =
+      _$_CurrentPasswordVisibiltyChanged;
+}
+
+/// @nodoc
+abstract class _$$_NewPasswordVisibiltyChangedCopyWith<$Res> {
+  factory _$$_NewPasswordVisibiltyChangedCopyWith(
+          _$_NewPasswordVisibiltyChanged value,
+          $Res Function(_$_NewPasswordVisibiltyChanged) then) =
+      __$$_NewPasswordVisibiltyChangedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NewPasswordVisibiltyChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_NewPasswordVisibiltyChanged>
+    implements _$$_NewPasswordVisibiltyChangedCopyWith<$Res> {
+  __$$_NewPasswordVisibiltyChangedCopyWithImpl(
+      _$_NewPasswordVisibiltyChanged _value,
+      $Res Function(_$_NewPasswordVisibiltyChanged) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_NewPasswordVisibiltyChanged implements _NewPasswordVisibiltyChanged {
+  const _$_NewPasswordVisibiltyChanged();
+
+  @override
+  String toString() {
+    return 'AuthEvent.newPasswordVisibiltyChanged()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NewPasswordVisibiltyChanged);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function() setCredentialsFromSate,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String email) emailAddressChanged,
+    required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() signout,
+  }) {
+    return newPasswordVisibiltyChanged();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function()? setCredentialsFromSate,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String email)? emailAddressChanged,
+    TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? signout,
+  }) {
+    return newPasswordVisibiltyChanged?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function()? setCredentialsFromSate,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String email)? emailAddressChanged,
+    TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? signout,
+    required TResult orElse(),
+  }) {
+    if (newPasswordVisibiltyChanged != null) {
+      return newPasswordVisibiltyChanged();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SetCredentials value) setCredentialsFromSate,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_signout value) signout,
+  }) {
+    return newPasswordVisibiltyChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_signout value)? signout,
+  }) {
+    return newPasswordVisibiltyChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_signout value)? signout,
+    required TResult orElse(),
+  }) {
+    if (newPasswordVisibiltyChanged != null) {
+      return newPasswordVisibiltyChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NewPasswordVisibiltyChanged implements AuthEvent {
+  const factory _NewPasswordVisibiltyChanged() = _$_NewPasswordVisibiltyChanged;
+}
+
+/// @nodoc
+abstract class _$$_ConfirmationPasswordVisibiltyChangedCopyWith<$Res> {
+  factory _$$_ConfirmationPasswordVisibiltyChangedCopyWith(
+          _$_ConfirmationPasswordVisibiltyChanged value,
+          $Res Function(_$_ConfirmationPasswordVisibiltyChanged) then) =
+      __$$_ConfirmationPasswordVisibiltyChangedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ConfirmationPasswordVisibiltyChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res,
+        _$_ConfirmationPasswordVisibiltyChanged>
+    implements _$$_ConfirmationPasswordVisibiltyChangedCopyWith<$Res> {
+  __$$_ConfirmationPasswordVisibiltyChangedCopyWithImpl(
+      _$_ConfirmationPasswordVisibiltyChanged _value,
+      $Res Function(_$_ConfirmationPasswordVisibiltyChanged) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ConfirmationPasswordVisibiltyChanged
+    implements _ConfirmationPasswordVisibiltyChanged {
+  const _$_ConfirmationPasswordVisibiltyChanged();
+
+  @override
+  String toString() {
+    return 'AuthEvent.confirmationPasswordVisibiltyChanged()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ConfirmationPasswordVisibiltyChanged);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function() setCredentialsFromSate,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String email) emailAddressChanged,
+    required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() signout,
+  }) {
+    return confirmationPasswordVisibiltyChanged();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function()? setCredentialsFromSate,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String email)? emailAddressChanged,
+    TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? signout,
+  }) {
+    return confirmationPasswordVisibiltyChanged?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function()? setCredentialsFromSate,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String email)? emailAddressChanged,
+    TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? signout,
+    required TResult orElse(),
+  }) {
+    if (confirmationPasswordVisibiltyChanged != null) {
+      return confirmationPasswordVisibiltyChanged();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SetCredentials value) setCredentialsFromSate,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_signout value) signout,
+  }) {
+    return confirmationPasswordVisibiltyChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_signout value)? signout,
+  }) {
+    return confirmationPasswordVisibiltyChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_signout value)? signout,
+    required TResult orElse(),
+  }) {
+    if (confirmationPasswordVisibiltyChanged != null) {
+      return confirmationPasswordVisibiltyChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ConfirmationPasswordVisibiltyChanged implements AuthEvent {
+  const factory _ConfirmationPasswordVisibiltyChanged() =
+      _$_ConfirmationPasswordVisibiltyChanged;
+}
+
+/// @nodoc
+abstract class _$$_ChangePasswordCopyWith<$Res> {
+  factory _$$_ChangePasswordCopyWith(
+          _$_ChangePassword value, $Res Function(_$_ChangePassword) then) =
+      __$$_ChangePasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ChangePasswordCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_ChangePassword>
+    implements _$$_ChangePasswordCopyWith<$Res> {
+  __$$_ChangePasswordCopyWithImpl(
+      _$_ChangePassword _value, $Res Function(_$_ChangePassword) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ChangePassword implements _ChangePassword {
+  const _$_ChangePassword();
+
+  @override
+  String toString() {
+    return 'AuthEvent.changePassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ChangePassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() authCheckRequested,
+    required TResult Function() setCredentialsFromSate,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String email) emailAddressChanged,
+    required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
+    required TResult Function(String refreshToken) refreshToken,
+    required TResult Function() signout,
+  }) {
+    return changePassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? authCheckRequested,
+    TResult? Function()? setCredentialsFromSate,
+    TResult? Function(String name)? nameChanged,
+    TResult? Function(String email)? emailAddressChanged,
+    TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
+    TResult? Function(String refreshToken)? refreshToken,
+    TResult? Function()? signout,
+  }) {
+    return changePassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? authCheckRequested,
+    TResult Function()? setCredentialsFromSate,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String email)? emailAddressChanged,
+    TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
+    TResult Function(String refreshToken)? refreshToken,
+    TResult Function()? signout,
+    required TResult orElse(),
+  }) {
+    if (changePassword != null) {
+      return changePassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SetCredentials value) setCredentialsFromSate,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
+    required TResult Function(_RefreshToken value) refreshToken,
+    required TResult Function(_signout value) signout,
+  }) {
+    return changePassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult? Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
+    TResult? Function(_RefreshToken value)? refreshToken,
+    TResult? Function(_signout value)? signout,
+  }) {
+    return changePassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SetCredentials value)? setCredentialsFromSate,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
+    TResult Function(_RefreshToken value)? refreshToken,
+    TResult Function(_signout value)? signout,
+    required TResult orElse(),
+  }) {
+    if (changePassword != null) {
+      return changePassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangePassword implements AuthEvent {
+  const factory _ChangePassword() = _$_ChangePassword;
 }
 
 /// @nodoc
@@ -897,6 +2654,13 @@ class _$_RefreshToken implements _RefreshToken {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) {
@@ -911,6 +2675,13 @@ class _$_RefreshToken implements _RefreshToken {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) {
@@ -925,6 +2696,13 @@ class _$_RefreshToken implements _RefreshToken {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -943,6 +2721,18 @@ class _$_RefreshToken implements _RefreshToken {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) {
@@ -957,6 +2747,17 @@ class _$_RefreshToken implements _RefreshToken {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) {
@@ -971,6 +2772,17 @@ class _$_RefreshToken implements _RefreshToken {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -1033,6 +2845,13 @@ class _$_signout implements _signout {
     required TResult Function(String name) nameChanged,
     required TResult Function(String email) emailAddressChanged,
     required TResult Function() editUser,
+    required TResult Function(String password) currentPasswordChanged,
+    required TResult Function(String password) newPasswordChanged,
+    required TResult Function(String password) confirmationPasswordChanged,
+    required TResult Function() currentPasswordVisibiltyChanged,
+    required TResult Function() newPasswordVisibiltyChanged,
+    required TResult Function() confirmationPasswordVisibiltyChanged,
+    required TResult Function() changePassword,
     required TResult Function(String refreshToken) refreshToken,
     required TResult Function() signout,
   }) {
@@ -1047,6 +2866,13 @@ class _$_signout implements _signout {
     TResult? Function(String name)? nameChanged,
     TResult? Function(String email)? emailAddressChanged,
     TResult? Function()? editUser,
+    TResult? Function(String password)? currentPasswordChanged,
+    TResult? Function(String password)? newPasswordChanged,
+    TResult? Function(String password)? confirmationPasswordChanged,
+    TResult? Function()? currentPasswordVisibiltyChanged,
+    TResult? Function()? newPasswordVisibiltyChanged,
+    TResult? Function()? confirmationPasswordVisibiltyChanged,
+    TResult? Function()? changePassword,
     TResult? Function(String refreshToken)? refreshToken,
     TResult? Function()? signout,
   }) {
@@ -1061,6 +2887,13 @@ class _$_signout implements _signout {
     TResult Function(String name)? nameChanged,
     TResult Function(String email)? emailAddressChanged,
     TResult Function()? editUser,
+    TResult Function(String password)? currentPasswordChanged,
+    TResult Function(String password)? newPasswordChanged,
+    TResult Function(String password)? confirmationPasswordChanged,
+    TResult Function()? currentPasswordVisibiltyChanged,
+    TResult Function()? newPasswordVisibiltyChanged,
+    TResult Function()? confirmationPasswordVisibiltyChanged,
+    TResult Function()? changePassword,
     TResult Function(String refreshToken)? refreshToken,
     TResult Function()? signout,
     required TResult orElse(),
@@ -1079,6 +2912,18 @@ class _$_signout implements _signout {
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_EmailAddressChanged value) emailAddressChanged,
     required TResult Function(_EditUser value) editUser,
+    required TResult Function(_CurrentPasswordChanged value)
+        currentPasswordChanged,
+    required TResult Function(_NewPasswordChanged value) newPasswordChanged,
+    required TResult Function(_ConfirmationPasswordChanged value)
+        confirmationPasswordChanged,
+    required TResult Function(_CurrentPasswordVisibiltyChanged value)
+        currentPasswordVisibiltyChanged,
+    required TResult Function(_NewPasswordVisibiltyChanged value)
+        newPasswordVisibiltyChanged,
+    required TResult Function(_ConfirmationPasswordVisibiltyChanged value)
+        confirmationPasswordVisibiltyChanged,
+    required TResult Function(_ChangePassword value) changePassword,
     required TResult Function(_RefreshToken value) refreshToken,
     required TResult Function(_signout value) signout,
   }) {
@@ -1093,6 +2938,17 @@ class _$_signout implements _signout {
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult? Function(_EditUser value)? editUser,
+    TResult? Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult? Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult? Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult? Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult? Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult? Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult? Function(_ChangePassword value)? changePassword,
     TResult? Function(_RefreshToken value)? refreshToken,
     TResult? Function(_signout value)? signout,
   }) {
@@ -1107,6 +2963,17 @@ class _$_signout implements _signout {
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_EmailAddressChanged value)? emailAddressChanged,
     TResult Function(_EditUser value)? editUser,
+    TResult Function(_CurrentPasswordChanged value)? currentPasswordChanged,
+    TResult Function(_NewPasswordChanged value)? newPasswordChanged,
+    TResult Function(_ConfirmationPasswordChanged value)?
+        confirmationPasswordChanged,
+    TResult Function(_CurrentPasswordVisibiltyChanged value)?
+        currentPasswordVisibiltyChanged,
+    TResult Function(_NewPasswordVisibiltyChanged value)?
+        newPasswordVisibiltyChanged,
+    TResult Function(_ConfirmationPasswordVisibiltyChanged value)?
+        confirmationPasswordVisibiltyChanged,
+    TResult Function(_ChangePassword value)? changePassword,
     TResult Function(_RefreshToken value)? refreshToken,
     TResult Function(_signout value)? signout,
     required TResult orElse(),
@@ -1128,8 +2995,12 @@ mixin _$AuthState {
   bool get isAuthenticated => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
   bool get showValidationError => throw _privateConstructorUsedError;
+  bool get hideCurrentPassword => throw _privateConstructorUsedError;
+  bool get hideNewPassword => throw _privateConstructorUsedError;
+  bool get hideConfirmationPassword => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   Credentials get credentials => throw _privateConstructorUsedError;
+  Passwords get passwords => throw _privateConstructorUsedError;
   User? get user => throw _privateConstructorUsedError;
   Option<Either<Failure, dynamic>>? get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -1149,12 +3020,17 @@ abstract class $AuthStateCopyWith<$Res> {
       bool isAuthenticated,
       bool showError,
       bool showValidationError,
+      bool hideCurrentPassword,
+      bool hideNewPassword,
+      bool hideConfirmationPassword,
       String? errorMessage,
       Credentials credentials,
+      Passwords passwords,
       User? user,
       Option<Either<Failure, dynamic>>? failureOrSuccessOption});
 
   $CredentialsCopyWith<$Res> get credentials;
+  $PasswordsCopyWith<$Res> get passwords;
   $UserCopyWith<$Res>? get user;
 }
 
@@ -1175,8 +3051,12 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? isAuthenticated = null,
     Object? showError = null,
     Object? showValidationError = null,
+    Object? hideCurrentPassword = null,
+    Object? hideNewPassword = null,
+    Object? hideConfirmationPassword = null,
     Object? errorMessage = freezed,
     Object? credentials = null,
+    Object? passwords = null,
     Object? user = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
@@ -1197,6 +3077,18 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.showValidationError
           : showValidationError // ignore: cast_nullable_to_non_nullable
               as bool,
+      hideCurrentPassword: null == hideCurrentPassword
+          ? _value.hideCurrentPassword
+          : hideCurrentPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideNewPassword: null == hideNewPassword
+          ? _value.hideNewPassword
+          : hideNewPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideConfirmationPassword: null == hideConfirmationPassword
+          ? _value.hideConfirmationPassword
+          : hideConfirmationPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1205,6 +3097,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
           ? _value.credentials
           : credentials // ignore: cast_nullable_to_non_nullable
               as Credentials,
+      passwords: null == passwords
+          ? _value.passwords
+          : passwords // ignore: cast_nullable_to_non_nullable
+              as Passwords,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -1221,6 +3117,14 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $CredentialsCopyWith<$Res> get credentials {
     return $CredentialsCopyWith<$Res>(_value.credentials, (value) {
       return _then(_value.copyWith(credentials: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PasswordsCopyWith<$Res> get passwords {
+    return $PasswordsCopyWith<$Res>(_value.passwords, (value) {
+      return _then(_value.copyWith(passwords: value) as $Val);
     });
   }
 
@@ -1249,13 +3153,19 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       bool isAuthenticated,
       bool showError,
       bool showValidationError,
+      bool hideCurrentPassword,
+      bool hideNewPassword,
+      bool hideConfirmationPassword,
       String? errorMessage,
       Credentials credentials,
+      Passwords passwords,
       User? user,
       Option<Either<Failure, dynamic>>? failureOrSuccessOption});
 
   @override
   $CredentialsCopyWith<$Res> get credentials;
+  @override
+  $PasswordsCopyWith<$Res> get passwords;
   @override
   $UserCopyWith<$Res>? get user;
 }
@@ -1275,8 +3185,12 @@ class __$$_AuthStateCopyWithImpl<$Res>
     Object? isAuthenticated = null,
     Object? showError = null,
     Object? showValidationError = null,
+    Object? hideCurrentPassword = null,
+    Object? hideNewPassword = null,
+    Object? hideConfirmationPassword = null,
     Object? errorMessage = freezed,
     Object? credentials = null,
+    Object? passwords = null,
     Object? user = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
@@ -1297,6 +3211,18 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.showValidationError
           : showValidationError // ignore: cast_nullable_to_non_nullable
               as bool,
+      hideCurrentPassword: null == hideCurrentPassword
+          ? _value.hideCurrentPassword
+          : hideCurrentPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideNewPassword: null == hideNewPassword
+          ? _value.hideNewPassword
+          : hideNewPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideConfirmationPassword: null == hideConfirmationPassword
+          ? _value.hideConfirmationPassword
+          : hideConfirmationPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1305,6 +3231,10 @@ class __$$_AuthStateCopyWithImpl<$Res>
           ? _value.credentials
           : credentials // ignore: cast_nullable_to_non_nullable
               as Credentials,
+      passwords: null == passwords
+          ? _value.passwords
+          : passwords // ignore: cast_nullable_to_non_nullable
+              as Passwords,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -1325,8 +3255,12 @@ class _$_AuthState implements _AuthState {
       required this.isAuthenticated,
       required this.showError,
       required this.showValidationError,
+      required this.hideCurrentPassword,
+      required this.hideNewPassword,
+      required this.hideConfirmationPassword,
       required this.errorMessage,
       required this.credentials,
+      required this.passwords,
       required this.user,
       required this.failureOrSuccessOption});
 
@@ -1339,9 +3273,17 @@ class _$_AuthState implements _AuthState {
   @override
   final bool showValidationError;
   @override
+  final bool hideCurrentPassword;
+  @override
+  final bool hideNewPassword;
+  @override
+  final bool hideConfirmationPassword;
+  @override
   final String? errorMessage;
   @override
   final Credentials credentials;
+  @override
+  final Passwords passwords;
   @override
   final User? user;
   @override
@@ -1349,7 +3291,7 @@ class _$_AuthState implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(isLoading: $isLoading, isAuthenticated: $isAuthenticated, showError: $showError, showValidationError: $showValidationError, errorMessage: $errorMessage, credentials: $credentials, user: $user, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'AuthState(isLoading: $isLoading, isAuthenticated: $isAuthenticated, showError: $showError, showValidationError: $showValidationError, hideCurrentPassword: $hideCurrentPassword, hideNewPassword: $hideNewPassword, hideConfirmationPassword: $hideConfirmationPassword, errorMessage: $errorMessage, credentials: $credentials, passwords: $passwords, user: $user, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -1365,10 +3307,19 @@ class _$_AuthState implements _AuthState {
                 other.showError == showError) &&
             (identical(other.showValidationError, showValidationError) ||
                 other.showValidationError == showValidationError) &&
+            (identical(other.hideCurrentPassword, hideCurrentPassword) ||
+                other.hideCurrentPassword == hideCurrentPassword) &&
+            (identical(other.hideNewPassword, hideNewPassword) ||
+                other.hideNewPassword == hideNewPassword) &&
+            (identical(
+                    other.hideConfirmationPassword, hideConfirmationPassword) ||
+                other.hideConfirmationPassword == hideConfirmationPassword) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.credentials, credentials) ||
                 other.credentials == credentials) &&
+            (identical(other.passwords, passwords) ||
+                other.passwords == passwords) &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
                 other.failureOrSuccessOption == failureOrSuccessOption));
@@ -1381,8 +3332,12 @@ class _$_AuthState implements _AuthState {
       isAuthenticated,
       showError,
       showValidationError,
+      hideCurrentPassword,
+      hideNewPassword,
+      hideConfirmationPassword,
       errorMessage,
       credentials,
+      passwords,
       user,
       failureOrSuccessOption);
 
@@ -1399,8 +3354,12 @@ abstract class _AuthState implements AuthState {
       required final bool isAuthenticated,
       required final bool showError,
       required final bool showValidationError,
+      required final bool hideCurrentPassword,
+      required final bool hideNewPassword,
+      required final bool hideConfirmationPassword,
       required final String? errorMessage,
       required final Credentials credentials,
+      required final Passwords passwords,
       required final User? user,
       required final Option<Either<Failure, dynamic>>?
           failureOrSuccessOption}) = _$_AuthState;
@@ -1414,9 +3373,17 @@ abstract class _AuthState implements AuthState {
   @override
   bool get showValidationError;
   @override
+  bool get hideCurrentPassword;
+  @override
+  bool get hideNewPassword;
+  @override
+  bool get hideConfirmationPassword;
+  @override
   String? get errorMessage;
   @override
   Credentials get credentials;
+  @override
+  Passwords get passwords;
   @override
   User? get user;
   @override
