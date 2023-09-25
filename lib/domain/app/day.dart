@@ -20,8 +20,10 @@ class Day with _$Day {
 
   static bool isPreviousDay(Day day) {
     final today = DateTime.now();
-    return day.dateTime.day < today.day ||
-        day.dateTime.month < today.month ||
-        day.dateTime.year < today.year;
+    return day.dateTime.year < today.year ||
+        (day.dateTime.month < today.month && day.dateTime.year <= today.year) ||
+        (day.dateTime.day < today.day &&
+            day.dateTime.month <= today.month &&
+            day.dateTime.year <= today.year);
   }
 }
